@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2023/05/26/hello-world/"/>
+    <url>/2023/05/26/hello-world/</url>
+    
+    <content type="html"><![CDATA[<h1 id="hexo添加新文章"><a href="#hexo添加新文章" class="headerlink" title="hexo添加新文章"></a>hexo添加新文章</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new post filename</span><br><span class="line">编辑你的文件</span><br><span class="line">hexo g -d //完成推送到GitHub就行</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>hello</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hello World</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Jupyter_Command</title>
+    <link href="/2023/05/12/Jupyter-Command/"/>
+    <url>/2023/05/12/Jupyter-Command/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Jupyter常用的命令"><a href="#Jupyter常用的命令" class="headerlink" title="Jupyter常用的命令"></a>Jupyter常用的命令</h1><h2 id="命令模式下常用指令"><a href="#命令模式下常用指令" class="headerlink" title="命令模式下常用指令"></a>命令模式下常用指令</h2><ul><li>m键，可以直接输入markdown格式的内容，y键可以回到代码格式</li><li>Shift+回车 运行当前代码块</li><li>Ctrl+回车 只运行当前代码块</li><li>Alt+回车 运行当前代码块并向下新建一个代码块</li><li>按b向下新建一个代码块</li><li>按a向上新建一个代码块</li><li>按c复制当前代码块</li><li>按x剪切当前代码块</li><li>按v粘贴当前代码块；shift+v,粘贴到上一个代码块</li><li>按z撤回操作</li><li>按dd两次删除代码块</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>jupyter notebook</tag>
+      
+      <tag>py</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>git_merge笔记</title>
+    <link href="/2023/04/06/git-merge%E7%AC%94%E8%AE%B0/"/>
+    <url>/2023/04/06/git-merge%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="gitub问题-master和main分支合并"><a href="#gitub问题-master和main分支合并" class="headerlink" title="gitub问题:master和main分支合并"></a>gitub问题:master和main分支合并</h2><p>问题:github创建仓库后默认分支是main，而本地创建的是master</p><ol><li><p>先给本地master改名</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main</span><br><span class="line">//-M对分支重命名</span><br></pre></td></tr></table></figure></li><li><p>查看所有分支</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br><span class="line">* main   </span><br><span class="line">remotes/origin/main   </span><br><span class="line">remotes/origin/master  </span><br></pre></td></tr></table></figure></li><li><p>删除远程分支master</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  $ git push origin --delete master </span><br><span class="line">To https://github.com/</span><br><span class="line">     - [deleted]         master  </span><br></pre></td></tr></table></figure></li><li><p>确认删除情况</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$git branch -a</span><br><span class="line">* main</span><br><span class="line">remotes/origin/main</span><br></pre></td></tr></table></figure></li><li><p>切换当前分支main，也就要保留下来的分支</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout main </span><br><span class="line">Already on &#x27;main&#x27; </span><br></pre></td></tr></table></figure></li><li><p>合并分支</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git merge remotes/origin/main </span><br><span class="line">fatal: refusing to merge unrelated histories </span><br></pre></td></tr></table></figure><p> 说明:拒绝合并，需要忽略这个限制，添加”–allow–unrelated-histories”</p></li><li><p>提交修改</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>随笔</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>计算机网络</title>
+    <link href="/2023/04/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <url>/2023/04/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+    
+    <content type="html"><![CDATA[<h1 id="计网"><a href="#计网" class="headerlink" title="计网"></a>计网</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>因特网服务提供者<strong>ISP</strong><br><img src="/image/../../image/20230403163628.png"></p><h3 id="因特网的组成"><a href="#因特网的组成" class="headerlink" title="因特网的组成"></a>因特网的组成</h3><ol><li>边缘部分<br> 由所有连接在因特网上的主机组成，这部分是用户直接使用和资源共享</li><li>核心部分<br> 由大量网络和连接这些网络的路由器组成，这部分是为边缘部分提供服务的</li></ol><h3 id="三种交换方式"><a href="#三种交换方式" class="headerlink" title="三种交换方式"></a>三种交换方式</h3><p><strong>电路交换</strong></p><ol><li>电话交换机接通电话线的方式</li><li>电路交换的三个步骤<ol><li>建立连接 (分配通信资源)</li><li>通话(一直占用资源)</li><li>释放连接(归还通信资源)</li></ol></li><li>当使用电路交换来传送计算机数据时，线路的传输效率往往很低<br><img src="/image/../../../public/image/QQ%E6%88%AA%E5%9B%BE20230403165712.png"></li></ol><p><strong>分组交换</strong><br>发送方:构造分组发送分组<br>路由器:缓存分组转发分组<br>接收方:接受分组还原报文<br><strong>报文交换</strong><br>与分组类似，主要用于早期的电报通信网，现在较少使用  </p><p><em>三者对比</em><br><img src="/image/../../image/QQ%E6%88%AA%E5%9B%BE20230403170409.png"><br><strong>三者优缺点</strong><br><em>电路交换</em>:</p><ol><li>优点<ol><li>通信时延小</li><li>有序传输</li><li>没有冲突</li><li>适用范围广</li><li>实时性强</li><li>控制简单</li></ol></li><li>缺点<ol><li>建立连接时间长</li><li>线路独占，使用效率低</li><li>灵活性差</li><li>难以规格化</li></ol></li></ol><p><em>报文交换</em>:</p><ol><li>优点<ol><li>无需建立连接</li><li>动态分配线路</li><li>提高线路可靠性</li><li>提高线路利用率</li><li>提供多目标服务</li></ol></li><li>缺点<ol><li>引起转发时延</li><li>需要较大存储缓存空间</li><li>需要传输额外的信息量</li></ol></li></ol><p><em>分组交换</em>:</p><ol><li>优点<ol><li>无需建立连接</li><li>线路利用率高</li><li>简化了储存管理</li><li>加速传输</li><li>减少出错概率和重发数据量</li></ol></li><li>缺点<ol><li>引起转发时延</li><li>需要传输额外的信息量</li><li>对于数据服务，存在失序，丢失或重复分组的问题，对于虚电路服务，存在呼叫建立，数据传输和虚电路释放三个过程</li></ol></li></ol><h3 id="计算机网络分类"><a href="#计算机网络分类" class="headerlink" title="计算机网络分类"></a>计算机网络分类</h3><h5 id="按交换技术分类"><a href="#按交换技术分类" class="headerlink" title="按交换技术分类"></a>按交换技术分类</h5><ol><li>电路交换网络</li><li>报文交换网络</li><li>分组交换网络</li></ol><h5 id="按使用者分"><a href="#按使用者分" class="headerlink" title="按使用者分"></a>按使用者分</h5><ol><li>公用网</li><li>专用网</li></ol><h5 id="按传输介质分类"><a href="#按传输介质分类" class="headerlink" title="按传输介质分类"></a>按传输介质分类</h5><ol><li>有线网络</li><li>无线网络</li></ol><h5 id="按覆盖范围分类"><a href="#按覆盖范围分类" class="headerlink" title="按覆盖范围分类"></a>按覆盖范围分类</h5><ol><li>广域网 WAN</li><li>域域网 WAN</li><li>局域网 LAN</li><li>个域网 PAN</li></ol><h5 id="按拓扑结构分类"><a href="#按拓扑结构分类" class="headerlink" title="按拓扑结构分类"></a>按拓扑结构分类</h5><ol><li>总线型网络</li><li>星形网络</li><li>环形网络</li><li>网状型网络</li></ol><h3 id="计算机网络的性能指标"><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h3><h4 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h4><p>速率:是指在计算机网络上的主机在数字信道上传送比特的速率，也称为比特率或数据率<br>比特:计算机中数据量的单位<br><em>常用数据量单位</em><br><img src="/image/./../../image/QQ%E6%88%AA%E5%9B%BE20230403200115.png"><br><em>常用数据率单位</em><br><img src="/image/../../image/QQ%E6%88%AA%E5%9B%BE20230403200140.png"></p><h4 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h4><p>带宽:(在计算机网络中的意义)用来表示网络的通信线路所能传送数据的能力。<br>一条通信线路的频带宽度越宽，其所传输的最高数据率也越高<br><em>单位:b&#x2F;s(kb&#x2F;s,Mb&#x2F;s,Gb&#x2F;s,Tb&#x2F;s)</em></p><h4 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h4><p>吞吐量：表示单位时间内通过某个网络的数据量<br>吞吐量受网络带宽或额定速率的限制</p><h4 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h4><ol><li>发送时延<br>$$\frac{分组长度(b)}{发送速率(b&#x2F;s)}$$</li><li>传播时延<br>  $$\frac{信道长度(m)}{电磁波传播速率(m&#x2F;s)}$$<em>电磁波传播速率:1.自由空间 3x10^8m&#x2F;s 2.铜线 2.3x10^8m&#x2F;s 3.光纤 2.0x10^8m&#x2F;s</em></li><li>处理时延<br>一般不方便计算</li></ol><h4 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h4><p>时延带宽积&#x3D;传播时延X带宽<br><img src="/image/../../image/QQ%E6%88%AA%E5%9B%BE20230404213025.png"></p><h4 id="往返时间-RTT"><a href="#往返时间-RTT" class="headerlink" title="往返时间 RTT"></a>往返时间 RTT</h4><p><img src="/image/./../../image/QQ%E6%88%AA%E5%9B%BE20230404213323.png"></p><h4 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h4><p>$$利用率&#x3D;\left{\begin{array}{l}<br>信道利用率:表示某信道有百分之几的时间是利用的\ 网络利用率:全网络的信道利用率的加权平均<br>\end{array}\right.$$<br><img src="/image/../../image/QQ%E6%88%AA%E5%9B%BE20230404215035.png"></p><h4 id="丢包率"><a href="#丢包率" class="headerlink" title="丢包率"></a>丢包率</h4><p>丢包率是指在一定时间范围内，传输过程中丢失的分组数量与总分组数量的比率<br>分组丢失主要有两种情况<br>    1. 分组在传输过程中出现误码被结点丢弃<br>    2. 分组到达一台队列已满的分组交换机时被丢弃；在通信量较大时就可能造成网络拥塞<br>丢包率也反应了网络的拥塞情况</p><ol><li>无拥塞时路径丢包率为0</li><li>轻度拥塞时路径丢包率为1%-4%</li><li>严重拥塞时路劲丢包率为5%-15%</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机网络</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
