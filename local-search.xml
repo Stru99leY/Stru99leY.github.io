@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>Python随笔</title>
+    <link href="/2023/06/03/Python%E9%9A%8F%E7%AC%94/"/>
+    <url>/2023/06/03/Python%E9%9A%8F%E7%AC%94/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Python的一些不熟悉的知识"><a href="#Python的一些不熟悉的知识" class="headerlink" title="Python的一些不熟悉的知识"></a>Python的一些不熟悉的知识</h2><p>想到什么写什么</p><ul><li><p>列表与数组</p><ol><li>python中的列表可以包含不同类型的元素，如字符串、整数、浮点数等，而数组通常包含相同类型的元素</li><li>python中列表是动态数组，可以自动调整大小，而数组再创建时需要指定大小，一旦创建后，大小就不能再改变，因此在插入或删除元素时需要手动。</li><li>数组相当于列表来说在访问元素时性能更好，以为列表是动态数组插入或删除元素可能会有谢性能损失。</li></ol></li><li><p>元组<br><em>元组是一个集合是有序的和</em><strong>不可改变的</strong></p></li><li><p>集(Set)<br>集合是无序和无索引的集合，在py中用{}表示</p><ol><li>添加一个项目到集合用add()</li></ol> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">thiset=&#123;<span class="hljs-string">&quot;apple&quot;</span>,<span class="hljs-string">&quot;banana&quot;</span>,<span class="hljs-string">&quot;cherry&quot;</span>&#125;<br>thiset.add(<span class="hljs-string">&quot;orange&quot;</span>)<br></code></pre></td></tr></table></figure><p> 2.添加多个项目用update()</p> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"> thiset=&#123;<span class="hljs-string">&quot;apple&quot;</span>,<span class="hljs-string">&quot;banana&quot;</span>,<span class="hljs-string">&quot;cherry&quot;</span>&#125;<br>thiset.update([<span class="hljs-string">&quot;orange&quot;</span>, <span class="hljs-string">&quot;mango&quot;</span>, <span class="hljs-string">&quot;grapes&quot;</span>])<br></code></pre></td></tr></table></figure><p> 3.删除用Remove()或discard()方法<br>  如果删除的项目不存在，remove()会引发错误，而discard()不会引发错误<br> 4.pop()删除最后一项<br> 5.clear()清空集合<br> …</p></li><li><p>字典</p><ol><li>使用values()函数返回字典的值</li></ol> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> thisdict.values():<br> <span class="hljs-built_in">print</span>(x)<br></code></pre></td></tr></table></figure><p>2.使用items()循环遍历键和值</p> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> x,y <span class="hljs-keyword">in</span> thisdict.items():<br> <span class="hljs-built_in">print</span>(x,y)<br></code></pre></td></tr></table></figure></li><li><p>匿名函数<br>  lambda函数是个匿名函数，可以使用任意数量的参数，但是只有一个表达式。</p><ul><li>用法</li></ul></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">lambda</span> arguments:expression<br><span class="hljs-comment"># ep1.返回一个加10的数</span><br>x=<span class="hljs-keyword">lambda</span> a:a+<span class="hljs-number">10</span><br><span class="hljs-comment"># ep2.可以使用任意数量的参数：</span><br>x=<span class="hljs-keyword">lambda</span> a,b,c:a+b+c<br><span class="hljs-built_in">print</span>(x(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>-Python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>-笔记 -基础知识</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2023/05/26/hello-world/"/>
+    <url>/2023/05/26/hello-world/</url>
+    
+    <content type="html"><![CDATA[<h1 id="hexo添加新文章"><a href="#hexo添加新文章" class="headerlink" title="hexo添加新文章"></a>hexo添加新文章</h1><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs haxe">hexo <span class="hljs-keyword">new</span> <span class="hljs-type">post</span> filename<br>编辑你的文件<br>hexo g -d <span class="hljs-comment">//完成推送到GitHub就行</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>hello</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hello World</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Linux命令</title>
     <link href="/2023/05/26/Linux%E5%91%BD%E4%BB%A4/"/>
     <url>/2023/05/26/Linux%E5%91%BD%E4%BB%A4/</url>
@@ -21,31 +71,6 @@
     <tags>
       
       <tag>Linux</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2023/05/26/hello-world/"/>
-    <url>/2023/05/26/hello-world/</url>
-    
-    <content type="html"><![CDATA[<h1 id="hexo添加新文章"><a href="#hexo添加新文章" class="headerlink" title="hexo添加新文章"></a>hexo添加新文章</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new post filename</span><br><span class="line">编辑你的文件</span><br><span class="line">hexo g -d //完成推送到GitHub就行</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>hello</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Hello World</tag>
       
     </tags>
     
@@ -85,7 +110,7 @@
     <link href="/2023/04/06/git-merge%E7%AC%94%E8%AE%B0/"/>
     <url>/2023/04/06/git-merge%E7%AC%94%E8%AE%B0/</url>
     
-    <content type="html"><![CDATA[<h2 id="gitub问题-master和main分支合并"><a href="#gitub问题-master和main分支合并" class="headerlink" title="gitub问题:master和main分支合并"></a>gitub问题:master和main分支合并</h2><p>问题:github创建仓库后默认分支是main，而本地创建的是master</p><ol><li><p>先给本地master改名</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main</span><br><span class="line">//-M对分支重命名</span><br></pre></td></tr></table></figure></li><li><p>查看所有分支</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br><span class="line">* main   </span><br><span class="line">remotes/origin/main   </span><br><span class="line">remotes/origin/master  </span><br></pre></td></tr></table></figure></li><li><p>删除远程分支master</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  $ git push origin --delete master </span><br><span class="line">To https://github.com/</span><br><span class="line">     - [deleted]         master  </span><br></pre></td></tr></table></figure></li><li><p>确认删除情况</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$git branch -a</span><br><span class="line">* main</span><br><span class="line">remotes/origin/main</span><br></pre></td></tr></table></figure></li><li><p>切换当前分支main，也就要保留下来的分支</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout main </span><br><span class="line">Already on &#x27;main&#x27; </span><br></pre></td></tr></table></figure></li><li><p>合并分支</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git merge remotes/origin/main </span><br><span class="line">fatal: refusing to merge unrelated histories </span><br></pre></td></tr></table></figure><p> 说明:拒绝合并，需要忽略这个限制，添加”–allow–unrelated-histories”</p></li><li><p>提交修改</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="gitub问题-master和main分支合并"><a href="#gitub问题-master和main分支合并" class="headerlink" title="gitub问题:master和main分支合并"></a>gitub问题:master和main分支合并</h2><p>问题:github创建仓库后默认分支是main，而本地创建的是master</p><ol><li><p>先给本地master改名</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs git">git branch -M main<br>//-M对分支重命名<br></code></pre></td></tr></table></figure></li><li><p>查看所有分支</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs git">git branch -a<br>* main   <br>remotes/origin/main   <br>remotes/origin/master  <br></code></pre></td></tr></table></figure></li><li><p>删除远程分支master</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs git">  $ git push origin --delete master <br>To https://github.com/<br>     - [deleted]         master  <br></code></pre></td></tr></table></figure></li><li><p>确认删除情况</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs git">$git branch -a<br>* main<br>remotes/origin/main<br></code></pre></td></tr></table></figure></li><li><p>切换当前分支main，也就要保留下来的分支</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs git">$ git checkout main <br>Already on &#x27;main&#x27; <br></code></pre></td></tr></table></figure></li><li><p>合并分支</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs git">$ git merge remotes/origin/main <br>fatal: refusing to merge unrelated histories <br></code></pre></td></tr></table></figure><p> 说明:拒绝合并，需要忽略这个限制，添加”–allow–unrelated-histories”</p></li><li><p>提交修改</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git push origin main<br></code></pre></td></tr></table></figure></li></ol>]]></content>
     
     
     <categories>

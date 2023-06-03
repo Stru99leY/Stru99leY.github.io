@@ -24,7 +24,7 @@
 <meta property="og:description" content="gitub问题:master和main分支合并问题:github创建仓库后默认分支是main，而本地创建的是master  先给本地master改名 12git branch -M main&#x2F;&#x2F;-M对分支重命名  查看所有分支  1234git branch -a* main   remotes&#x2F;origin&#x2F;main   remotes&#x2F;origin&#x2F;master    删除远程分支master">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-06T12:51:40.000Z">
-<meta property="article:modified_time" content="2023-05-26T05:19:29.732Z">
+<meta property="article:modified_time" content="2023-05-26T07:56:30.648Z">
 <meta property="article:author" content="Stru99leYu">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary_large_image">
@@ -277,27 +277,27 @@
                 <h2 id="gitub问题-master和main分支合并"><a href="#gitub问题-master和main分支合并" class="headerlink" title="gitub问题:master和main分支合并"></a>gitub问题:master和main分支合并</h2><p>问题:github创建仓库后默认分支是main，而本地创建的是master</p>
 <ol>
 <li><p>先给本地master改名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main</span><br><span class="line">//-M对分支重命名</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs git">git branch -M main<br>//-M对分支重命名<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>查看所有分支</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br><span class="line">* main   </span><br><span class="line">remotes/origin/main   </span><br><span class="line">remotes/origin/master  </span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs git">git branch -a<br>* main   <br>remotes/origin/main   <br>remotes/origin/master  <br></code></pre></td></tr></table></figure>
 </li>
 <li><p>删除远程分支master</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  $ git push origin --delete master </span><br><span class="line">To https://github.com/</span><br><span class="line">     - [deleted]         master  </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs git">  $ git push origin --delete master <br>To https://github.com/<br>     - [deleted]         master  <br></code></pre></td></tr></table></figure>
 </li>
 <li><p>确认删除情况</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$git branch -a</span><br><span class="line">* main</span><br><span class="line">remotes/origin/main</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs git">$git branch -a<br>* main<br>remotes/origin/main<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>切换当前分支main，也就要保留下来的分支</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout main </span><br><span class="line">Already on &#x27;main&#x27; </span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs git">$ git checkout main <br>Already on &#x27;main&#x27; <br></code></pre></td></tr></table></figure>
 </li>
 <li><p>合并分支</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git merge remotes/origin/main </span><br><span class="line">fatal: refusing to merge unrelated histories </span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs git">$ git merge remotes/origin/main <br>fatal: refusing to merge unrelated histories <br></code></pre></td></tr></table></figure>
 
 <p> 说明:拒绝合并，需要忽略这个限制，添加”–allow–unrelated-histories”</p>
 </li>
 <li><p>提交修改</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git push origin main<br></code></pre></td></tr></table></figure></li>
 </ol>
 
                 
