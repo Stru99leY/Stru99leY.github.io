@@ -4,31 +4,6 @@
   
   
   <entry>
-    <title>Python随笔</title>
-    <link href="/2023/06/03/Python%E9%9A%8F%E7%AC%94/"/>
-    <url>/2023/06/03/Python%E9%9A%8F%E7%AC%94/</url>
-    
-    <content type="html"><![CDATA[<h2 id="Python的一些不熟悉的知识"><a href="#Python的一些不熟悉的知识" class="headerlink" title="Python的一些不熟悉的知识"></a>Python的一些不熟悉的知识</h2><p>想到什么写什么</p><ul><li><p>列表与数组</p><ol><li>python中的列表可以包含不同类型的元素，如字符串、整数、浮点数等，而数组通常包含相同类型的元素</li><li>python中列表是动态数组，可以自动调整大小，而数组再创建时需要指定大小，一旦创建后，大小就不能再改变，因此在插入或删除元素时需要手动。</li><li>数组相当于列表来说在访问元素时性能更好，以为列表是动态数组插入或删除元素可能会有谢性能损失。</li></ol></li><li><p>元组<br><em>元组是一个集合是有序的和</em><strong>不可改变的</strong></p></li><li><p>集(Set)<br>集合是无序和无索引的集合，在py中用{}表示</p><ol><li>添加一个项目到集合用add()</li></ol> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">thiset=&#123;<span class="hljs-string">&quot;apple&quot;</span>,<span class="hljs-string">&quot;banana&quot;</span>,<span class="hljs-string">&quot;cherry&quot;</span>&#125;<br>thiset.add(<span class="hljs-string">&quot;orange&quot;</span>)<br></code></pre></td></tr></table></figure><p> 2.添加多个项目用update()</p> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"> thiset=&#123;<span class="hljs-string">&quot;apple&quot;</span>,<span class="hljs-string">&quot;banana&quot;</span>,<span class="hljs-string">&quot;cherry&quot;</span>&#125;<br>thiset.update([<span class="hljs-string">&quot;orange&quot;</span>, <span class="hljs-string">&quot;mango&quot;</span>, <span class="hljs-string">&quot;grapes&quot;</span>])<br></code></pre></td></tr></table></figure><p> 3.删除用Remove()或discard()方法<br>  如果删除的项目不存在，remove()会引发错误，而discard()不会引发错误<br> 4.pop()删除最后一项<br> 5.clear()清空集合<br> …</p></li><li><p>字典</p><ol><li>使用values()函数返回字典的值</li></ol> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> thisdict.values():<br> <span class="hljs-built_in">print</span>(x)<br></code></pre></td></tr></table></figure><p>2.使用items()循环遍历键和值</p> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> x,y <span class="hljs-keyword">in</span> thisdict.items():<br> <span class="hljs-built_in">print</span>(x,y)<br></code></pre></td></tr></table></figure></li><li><p>匿名函数<br>  lambda函数是个匿名函数，可以使用任意数量的参数，但是只有一个表达式。</p><ul><li>用法</li></ul></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">lambda</span> arguments:expression<br><span class="hljs-comment"># ep1.返回一个加10的数</span><br>x=<span class="hljs-keyword">lambda</span> a:a+<span class="hljs-number">10</span><br><span class="hljs-comment"># ep2.可以使用任意数量的参数：</span><br>x=<span class="hljs-keyword">lambda</span> a,b,c:a+b+c<br><span class="hljs-built_in">print</span>(x(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>-Python</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>基础知识</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Hello World</title>
     <link href="/2023/05/26/hello-world/"/>
     <url>/2023/05/26/hello-world/</url>
@@ -46,31 +21,6 @@
     <tags>
       
       <tag>Hello World</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Linux命令</title>
-    <link href="/2023/05/26/Linux%E5%91%BD%E4%BB%A4/"/>
-    <url>/2023/05/26/Linux%E5%91%BD%E4%BB%A4/</url>
-    
-    <content type="html"><![CDATA[<h2 id="Linux常用指令"><a href="#Linux常用指令" class="headerlink" title="Linux常用指令"></a>Linux常用指令</h2><ul><li>获取登录信息 -w &#x2F;who &#x2F;last &#x2F;lastb</li><li>查看自己使用的 -Shell -ps</li><li>查看命令的说明和位置 -whatis &#x2F;which &#x2F;whereis</li><li>清除屏幕上的内容 -clear</li><li>看帮助文档 -man&#x2F;info &#x2F;–help &#x2F;apropos</li><li>查看系统和主机名 -uname &#x2F;hostname</li><li>时间和日期 -date &#x2F;cal</li><li>重启和关机 -reboot &#x2F;shutdown</li></ul><h3 id="文件和文件夹操作"><a href="#文件和文件夹操作" class="headerlink" title="文件和文件夹操作"></a>文件和文件夹操作</h3><ul><li><p>创建&#x2F;删除空目录 -mkdir &#x2F;rmdir</p></li><li><p>创建&#x2F;删除文件 -touch &#x2F;rm</p><ul><li>touch命令用于创建空白文件或修改文件时间。在linux系统中一个文件有三种时间</li><li>更改内容的时间 -mtime</li><li>更改权限的时间 -ctime</li><li>最后访问时间 -atime</li></ul></li><li><p>rm的几个重要参数<br>    -i 交互式删除，每个删除项目都会进行询问<br>    -r 删除目录并递归的删除目录中的文件和目录<br>    -f 强制删除，忽略不存在的文件，没有任何提示</p></li><li><p>切换和查看当前工作目录 -cd &#x2F;pwd</p><ul><li>快捷键 运行结果</li><li>cd 更改工作目录到home。</li><li>cd - 更改工作目录到先前的工作目录。</li><li>cd ˜user_name 更改工作目录到home目录。例如, cd ˜bob 会更改工作目录到用“b录。</li></ul></li><li><p>查看目录内容 -ls<br> -l 以长格式查看文件和目录<br> -a 显示以点开头的文件（隐藏文件）<br> -R 遇到目录要进行递归展开(继续列出目录下面的文件和目录)<br> -d 只列出目录，不列出其他内容<br> -S &#x2F;-t 按大小&#x2F;时间排序</p></li><li><p>查看文件内容 -cat &#x2F; tac &#x2F; head &#x2F; tail &#x2F; more &#x2F; less &#x2F; rev &#x2F; od</p></li><li><p>拷贝&#x2F;移动文件 - cp &#x2F; mv </p></li><li><p>文件重命名 -rename</p></li><li><p>查找文件和查找内容 -find &#x2F; grep </p><ul><li>grep在搜索字符串是可以使用正则表达式，如果需要使用正则表达式可以用grep -E 或者直接使用egrep</li></ul></li><li><p>创建链接和查看链接 -ln &#x2F; readlink</p></li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>笔记</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Linux</tag>
       
     </tags>
     
