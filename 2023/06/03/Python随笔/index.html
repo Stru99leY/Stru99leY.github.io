@@ -16,15 +16,15 @@
   <meta name="author" content="Stru99leYu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Python的一些不熟悉的知识想到什么写什么  列表与数组  python中的列表可以包含不同类型的元素，如字符串、整数、浮点数等，而数组通常包含相同类型的元素 python中列表是动态数组，可以自动调整大小，而数组再创建时需要指定大小，一旦创建后，大小就不能再改变，因此在插入或删除元素时需要手动。 数组相当于列表来说在访问元素时性能更好，以为列表是动态数组插入或删除元素可能会有谢性能损失。">
+    <meta name="description" content="Python的一些不熟悉的知识一些小知识，想到什么写什么 列表与数组  python中的列表可以包含不同类型的元素，如字符串、整数、浮点数等，而数组通常包含相同类型的元素 python中列表是动态数组，可以自动调整大小，而数组再创建时需要指定大小，一旦创建后，大小就不能再改变，因此在插入或删除元素时需要手动。 数组相当于列表来说在访问元素时性能更好，以为列表是动态数组插入或删除元素可能会有谢性能损">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python随笔">
 <meta property="og:url" content="http://example.com/2023/06/03/Python%E9%9A%8F%E7%AC%94/index.html">
 <meta property="og:site_name" content="YxiaoY">
-<meta property="og:description" content="Python的一些不熟悉的知识想到什么写什么  列表与数组  python中的列表可以包含不同类型的元素，如字符串、整数、浮点数等，而数组通常包含相同类型的元素 python中列表是动态数组，可以自动调整大小，而数组再创建时需要指定大小，一旦创建后，大小就不能再改变，因此在插入或删除元素时需要手动。 数组相当于列表来说在访问元素时性能更好，以为列表是动态数组插入或删除元素可能会有谢性能损失。">
+<meta property="og:description" content="Python的一些不熟悉的知识一些小知识，想到什么写什么 列表与数组  python中的列表可以包含不同类型的元素，如字符串、整数、浮点数等，而数组通常包含相同类型的元素 python中列表是动态数组，可以自动调整大小，而数组再创建时需要指定大小，一旦创建后，大小就不能再改变，因此在插入或删除元素时需要手动。 数组相当于列表来说在访问元素时性能更好，以为列表是动态数组插入或删除元素可能会有谢性能损">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-06-03T10:02:26.000Z">
-<meta property="article:modified_time" content="2023-06-07T04:05:30.688Z">
+<meta property="article:modified_time" content="2023-06-10T09:50:11.128Z">
 <meta property="article:author" content="Stru99leYu">
 <meta property="article:tag" content="基础知识">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          2.8k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          16 分钟
+          24 分钟
         
       </span>
     
@@ -274,8 +274,7 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Python的一些不熟悉的知识"><a href="#Python的一些不熟悉的知识" class="headerlink" title="Python的一些不熟悉的知识"></a>Python的一些不熟悉的知识</h2><p>想到什么写什么</p>
-<ul>
+                <h2 id="Python的一些不熟悉的知识"><a href="#Python的一些不熟悉的知识" class="headerlink" title="Python的一些不熟悉的知识"></a>Python的一些不熟悉的知识</h2><h3 id="一些小知识，想到什么写什么"><a href="#一些小知识，想到什么写什么" class="headerlink" title="一些小知识，想到什么写什么"></a>一些小知识，想到什么写什么</h3><ul>
 <li><p>列表与数组</p>
 <ol>
 <li>python中的列表可以包含不同类型的元素，如字符串、整数、浮点数等，而数组通常包含相同类型的元素</li>
@@ -320,6 +319,42 @@
 <li><p>Stoplteration关键字<br>如果有足够的next()语句，为了防止迭代继续进行，可以使用StopIteration语句<br><em>ep1迭代20次后停止</em></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyNumbers</span>:<br>  <span class="hljs-keyword">def</span> <span class="hljs-title function_">__iter__</span>(<span class="hljs-params">self</span>):<br>    self.a=<span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> self<br>  <br>  <span class="hljs-keyword">def</span> <span class="hljs-title function_">__next__</span>(<span class="hljs-params">self</span>):<br>    <span class="hljs-keyword">if</span> self.a &lt;= <span class="hljs-number">20</span><br>      x = self.a<br>      self.a += <span class="hljs-number">1</span><br>      <span class="hljs-keyword">return</span> x<br>    <span class="hljs-keyword">else</span>:<br>      <span class="hljs-keyword">raise</span> StopIteration<br><br>myclass = MyNumbers()<br>myiter = <span class="hljs-built_in">iter</span>(myclass)<br><br><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> myiter:<br>  <span class="hljs-built_in">print</span>(x)<br></code></pre></td></tr></table></figure></li>
 <li><p>self<br>在python中,self是一个惯用的参数名称。在定义一个类的方法时，需要将self作为第一个参数传递给方法，当我们定义一个类的方法时，那么在调用该方法时，实际上是通过类的实例对象来调用这个方法，因此不需要显式传递self参数；<br>如果我们在类的方法中访问类的属性或者方法，那么必须使用self来访问。如果我们在方法中直接访问属性或者方法，py会解释为局部变量或函数，从而导致错误。</p>
+</li>
+<li><p>运算符</p>
+<ul>
+<li>&#x2F;&#x2F; –&gt; 取整数-往小的方向取整数<br><em>ep</em><blockquote>
+<blockquote>
+<blockquote>
+<p>9&#x2F;&#x2F;2<br>4  </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>** –&gt; 幂 返回x的y次幂</li>
+<li>逻辑运算符</li>
+</ul>
+<ol>
+<li>与 and –&gt; x and y</li>
+<li>或 or  –&gt; x  or y</li>
+<li>非 not –&gt; x not y</li>
+</ol>
+</li>
+<li><p>二维数组初始化</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 创建一个rows行cols列的二维数组，初始值为0</span><br>matrix = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(cols)] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(rows)]<br><span class="hljs-comment"># 创建一个rows行cols列的二维数组，初始值为</span><br>matrix = [[<span class="hljs-number">0</span>] * cols <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(row)]<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="py函数"><a href="#py函数" class="headerlink" title="py函数"></a>py函数</h3><ul>
+<li><p>remove()<br>用于从列表中删除指定元素；语法格式为: list_name.remove(element) #element 任意数据类型</p>
+<ol>
+<li><p>删除普通类型元素<br>  删除列表中存在的数字或者字符串;不存在会报错，引发valueError异常</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">list1 = [<span class="hljs-string">&#x27;zhangsan&#x27;</span>, <span class="hljs-string">&#x27;lisi&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br>list1.remove(<span class="hljs-number">1</span>)<br>list1.remove(<span class="hljs-string">&#x27;lisi)</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>删除对象类型元素  </p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">list1=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],(<span class="hljs-number">5</span>,<span class="hljs-number">6</span>)]<br>a=[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]<br>b=(<span class="hljs-number">5</span>,<span class="hljs-number">6</span>)<br>list1.remove(a) <span class="hljs-comment"># 删除列表类型</span><br>list1.remove(b) <span class="hljs-comment"># 删除元组类型</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>删除多个元素，可以使用循环来实现</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 创建一个列表</span><br>fruits = [<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;orange&quot;</span>, <span class="hljs-string">&quot;peach&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;kiwi&quot;</span>]<br><br><span class="hljs-comment"># 删除所有的 &quot;banana&quot; 元素</span><br><span class="hljs-keyword">while</span> <span class="hljs-string">&quot;banana&quot;</span> <span class="hljs-keyword">in</span> fruits:<br>    fruits.remove(<span class="hljs-string">&quot;banana&quot;</span>)<br><br><span class="hljs-built_in">print</span>(fruits)  <span class="hljs-comment"># [&quot;apple&quot;, &quot;orange&quot;, &quot;peach&quot;, &quot;kiwi&quot;]</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<p> 注意:<em>在使用 remove() 函数时要谨慎，特别是在迭代列表的过程中,当删除一个元素后会导致后面的元素索引发生变化从而可能导致发生错误</em></p>
 </li>
 </ul>
 
