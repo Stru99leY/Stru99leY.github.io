@@ -202,7 +202,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-06-21 13:23:38</span>
+        <span class="pc">2023-06-22 12:13:47</span>
     </span>
     
     
@@ -233,12 +233,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.8k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>2k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
         </span>
     
     
@@ -293,6 +293,22 @@
 <li><p>dict()创建字典</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">epdict = <span class="built_in">dict</span>()</span><br><span class="line"><span class="built_in">print</span>(epdict) <span class="comment"># 输出&#123;&#125;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(epdict)) <span class="comment"># 输出0</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(epdict)) <span class="comment"># &lt;class &#x27;dict&#x27;&gt;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
+<ul>
+<li>字典的访问<ol>
+<li><p>使用中括号[ ]  </p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">&#x27;key1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;key2&#x27;</span>: <span class="string">&#x27;value2&#x27;</span>, <span class="string">&#x27;key3&#x27;</span>: <span class="string">&#x27;value3&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dic[<span class="string">&#x27;key1&#x27;</span>])  <span class="comment"># 输出 value1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用get( )方法</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">&#x27;key1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;key2&#x27;</span>: <span class="string">&#x27;value2&#x27;</span>, <span class="string">&#x27;key3&#x27;</span>: <span class="string">&#x27;value3&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dic.get(<span class="string">&#x27;key1&#x27;</span>)) <span class="comment"># 输出value1</span></span><br><span class="line"><span class="built_in">print</span>(dic.get(<span class="string">&#x27;key4&#x27;</span>)) <span class="comment"># 输出 None</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>除以上外，可以通过keys(),values()和items()方法获取字典中所有的键、值和键值对。例如:</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">&#x27;key1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;key2&#x27;</span>: <span class="string">&#x27;value2&#x27;</span>, <span class="string">&#x27;key3&#x27;</span>: <span class="string">&#x27;value3&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dic.keys()) <span class="comment"># 输出 dict_keys([&#x27;key1&#x27;, &#x27;key2&#x27;, &#x27;key3&#x27;])</span></span><br><span class="line"><span class="built_in">print</span>(dic.values()) <span class="comment"># 输出 dict_values([&#x27;value1&#x27;, &#x27;value2&#x27;, &#x27;value3&#x27;])</span></span><br><span class="line"><span class="built_in">print</span>(dic.items()) <span class="comment"># dict_items([(&#x27;key1&#x27;, &#x27;value1&#x27;), (&#x27;key2&#x27;, &#x27;value2&#x27;), (&#x27;key3&#x27;, &#x27;value3&#x27;)])</span></span><br></pre></td></tr></table></figure>
+
+<p> <strong>注意</strong>:keys()、values()、items()方法返回的是一种特殊的视图对象，而不是普通的列表。要转换成列表可以用list()函数</p>
+</li>
+</ol>
+</li>
+</ul>
 </li>
 <li><p>匿名函数<br>  lambda函数是个匿名函数，可以使用任意数量的参数，但是只有一个表达式。</p>
 <ul>
