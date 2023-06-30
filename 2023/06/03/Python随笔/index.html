@@ -202,7 +202,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-06-28 00:08:51</span>
+        <span class="pc">2023-06-30 23:58:09</span>
     </span>
     
     
@@ -233,12 +233,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>2k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.3k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>9 分钟</span>
         </span>
     
     
@@ -334,7 +334,7 @@
 <li>&#x2F;&#x2F; –&gt; 取整数-往小的方向取整数<br><em>ep</em><blockquote>
 <blockquote>
 <blockquote>
-<p>9&#x2F;&#x2F;2<br>4  </p>
+<p>9&#x2F;&#x2F;2<br>4</p>
 </blockquote>
 </blockquote>
 </blockquote>
@@ -352,13 +352,19 @@
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个rows行cols列的二维数组，初始值为0</span></span><br><span class="line">matrix = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(cols)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(rows)]</span><br><span class="line"><span class="comment"># 创建一个rows行cols列的二维数组，初始值为</span></span><br><span class="line">matrix = [[<span class="number">0</span>] * cols <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(row)]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>字符串格式化<br>例子:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">age = <span class="number">18</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;我叫%s，今年%d岁。&quot;</span> % (name, age)) <span class="comment"># 输出: &quot;我叫张三，今年18岁。&quot;</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">age = <span class="number">18</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;我叫%s，今年%d岁。&quot;</span> % (name, age)) <span class="comment"># 输出: &quot;我叫张三，今年18岁。&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>try<br>try和except语句来处理异常，try语句块用于包裹可能会引发异常的代码，而except来处理可能引发的异常，除此之外还可以使用else和finally语句块来进一步处理异常。else语句块中的代码会在try语句块中没有发生异常时执行，而finally语句中的代码无论是否发生异常都会执行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  x = <span class="number">10</span> / <span class="number">2</span></span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;除数不能为零&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;结果为:&quot;</span>, x)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;无论是否发生异常，都会执行这里的代码&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>except异常由以下几种:</p>
+  <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Exception：所有异常的基类，可以捕获任何类型的异常。</span><br><span class="line">ZeroDivisionError：除以零时引发的异常。</span><br><span class="line">TypeError：类型不匹配时引发的异常。</span><br><span class="line">ValueError：值不合法或无效时引发的异常。</span><br><span class="line">IndexError：索引超出范围时引发的异常。</span><br><span class="line">KeyError：字典中使用不存在的键时引发的异常。</span><br><span class="line">FileNotFoundError：打开或读取文件时找不到文件时引发的异常。</span><br><span class="line">NameError：尝试访问不存在的变量或函数时引发的异常。</span><br><span class="line">ImportError：导入模块失败时引发的异常。</span><br><span class="line">IOError：输入/输出操作失败时引发的异常。</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="py函数"><a href="#py函数" class="headerlink" title="py函数"></a>py函数</h3><ul>
 <li><p>remove()<br>用于从列表中删除指定元素；语法格式为: list_name.remove(element) #element 任意数据类型</p>
 <ol>
 <li><p>删除普通类型元素<br>  删除列表中存在的数字或者字符串;不存在会报错，引发valueError异常</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">list1.remove(<span class="number">1</span>)</span><br><span class="line">list1.remove(<span class="string">&#x27;lisi)</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">list1.remove(<span class="number">1</span>)</span><br><span class="line">list1.remove(<span class="string">&#x27;lisi&#x27;</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除对象类型元素  </p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list1=[<span class="number">1</span>,<span class="number">2</span>,[<span class="number">3</span>,<span class="number">4</span>],(<span class="number">5</span>,<span class="number">6</span>)]</span><br><span class="line">a=[<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">b=(<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line">list1.remove(a) <span class="comment"># 删除列表类型</span></span><br><span class="line">list1.remove(b) <span class="comment"># 删除元组类型</span></span><br></pre></td></tr></table></figure>
