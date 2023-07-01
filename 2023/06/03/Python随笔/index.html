@@ -202,7 +202,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-06-30 23:58:09</span>
+        <span class="pc">2023-07-02 00:13:33</span>
     </span>
     
     
@@ -233,12 +233,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>2.3k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.9k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>9 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>12 分钟</span>
         </span>
     
     
@@ -298,7 +298,7 @@
 <li><p>使用中括号[ ]  </p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">&#x27;key1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;key2&#x27;</span>: <span class="string">&#x27;value2&#x27;</span>, <span class="string">&#x27;key3&#x27;</span>: <span class="string">&#x27;value3&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dic[<span class="string">&#x27;key1&#x27;</span>])  <span class="comment"># 输出 value1</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用get( )方法</p>
+<li><p>使用get( )方法<br>  dic.get(key,default&#x3D;None)它用于从字典中获取指定键key对应的值，键不存在返回一个默认值deafult</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">&#x27;key1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;key2&#x27;</span>: <span class="string">&#x27;value2&#x27;</span>, <span class="string">&#x27;key3&#x27;</span>: <span class="string">&#x27;value3&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dic.get(<span class="string">&#x27;key1&#x27;</span>)) <span class="comment"># 输出value1</span></span><br><span class="line"><span class="built_in">print</span>(dic.get(<span class="string">&#x27;key4&#x27;</span>)) <span class="comment"># 输出 None</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>除以上外，可以通过keys(),values()和items()方法获取字典中所有的键、值和键值对。例如:</p>
@@ -309,6 +309,9 @@
 </ol>
 </li>
 </ul>
+</li>
+<li><p>频率<br>看到计算频率等问题直接联想到以下代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">  dic[i] = dic.get(i,<span class="number">0</span>) + <span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>取整<br>使用int取整大于0的数向下取整，小于0的数向上取整</p>
 </li>
@@ -358,7 +361,44 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  x = <span class="number">10</span> / <span class="number">2</span></span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;除数不能为零&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;结果为:&quot;</span>, x)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;无论是否发生异常，都会执行这里的代码&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>except异常由以下几种:</p>
-  <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Exception：所有异常的基类，可以捕获任何类型的异常。</span><br><span class="line">ZeroDivisionError：除以零时引发的异常。</span><br><span class="line">TypeError：类型不匹配时引发的异常。</span><br><span class="line">ValueError：值不合法或无效时引发的异常。</span><br><span class="line">IndexError：索引超出范围时引发的异常。</span><br><span class="line">KeyError：字典中使用不存在的键时引发的异常。</span><br><span class="line">FileNotFoundError：打开或读取文件时找不到文件时引发的异常。</span><br><span class="line">NameError：尝试访问不存在的变量或函数时引发的异常。</span><br><span class="line">ImportError：导入模块失败时引发的异常。</span><br><span class="line">IOError：输入/输出操作失败时引发的异常。</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Exception：所有异常的基类，可以捕获任何类型的异常。</span><br><span class="line">ZeroDivisionError：除以零时引发的异常。</span><br><span class="line">TypeError：类型不匹配时引发的异常。</span><br><span class="line">ValueError：值不合法或无效时引发的异常。</span><br><span class="line">IndexError：索引超出范围时引发的异常。</span><br><span class="line">KeyError：字典中使用不存在的键时引发的异常。</span><br><span class="line">FileNotFoundError：打开或读取文件时找不到文件时引发的异常。</span><br><span class="line">NameError：尝试访问不存在的变量或函数时引发的异常。</span><br><span class="line">ImportError：导入模块失败时引发的异常。</span><br><span class="line">IOError：输入/输出操作失败时引发的异常。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推导式<br>用于快速创建列表、字典、集合等可迭代对象，一般有以下几种:</p>
+<ol>
+<li><p>列表推导式<br> 语法形式计为:[expression for item in iterable if condition]或者[expression for item in iterable]<br> 示例:</p>
+<ul>
+<li>过滤长度小于或者等于3的字符串列表，并将剩下的转换成大写字母:</li>
+</ul>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">&#x27;Bob&#x27;</span>,<span class="string">&#x27;Tom&#x27;</span>,<span class="string">&#x27;alice&#x27;</span>,<span class="string">&#x27;Jerry&#x27;</span>,<span class="string">&#x27;Wendy&#x27;</span>,<span class="string">&#x27;Smith&#x27;</span>]</span><br><span class="line">new_names = [name.upper()<span class="keyword">for</span> name <span class="keyword">in</span> names <span class="keyword">if</span> <span class="built_in">len</span>(name)&gt;=<span class="number">3</span>]</span><br><span class="line"><span class="built_in">print</span>(new_names)</span><br><span class="line"><span class="comment"># 输出[&#x27;ALICE&#x27;, &#x27;JERRY&#x27;, &#x27;WENDY&#x27;, &#x27;SMITH&#x27;]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字典推导式<br>  语法形式为:{key_expr:value for value in collction} 或者 {key_expr:value for value in collction if condition}<br>  示例:</p>
+<ul>
+<li>使用字符串及其长度创建字典</li>
+</ul>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">listdemo = [<span class="string">&#x27;Google&#x27;</span>,<span class="string">&#x27;Runoob&#x27;</span>, <span class="string">&#x27;Taobao&#x27;</span>]</span><br><span class="line">newdic = &#123;key:<span class="built_in">len</span>(key) <span class="keyword">for</span> key <span class="keyword">in</span> listdemo&#125;</span><br><span class="line">newdic</span><br><span class="line"><span class="comment"># 输出&#123;&#x27;Google&#x27;: 6, &#x27;Runoob&#x27;: 6, &#x27;Taobao&#x27;: 6&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>集合推导式<br> 语法形式为:{expression for item in Sequence} 或者 {expression for item in Sequence if condition}<br> 示例:</p>
+<ul>
+<li>判断不是abc的字母并输出</li>
+</ul>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;abracadabra&#x27;</span> <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> <span class="string">&#x27;abc&#x27;</span>&#125;</span><br><span class="line">a</span><br><span class="line"><span class="comment"># 输出 &#123;&#x27;d&#x27;,&#x27;r&#x27;&#125;</span></span><br><span class="line"><span class="built_in">type</span>(a)</span><br><span class="line"><span class="comment"># 输出 &lt;class &#x27;set&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>元组推导式(生成器表达式)<br> 可以利用range区间、元组、列表、字典和集合等数据结构类型，快速生成一个满足指定需求的元组，语法形式为:(expression for item in Sequence) 或者 (expression for item in Sequence if condition)</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>元组推导式和列表推导式用法完全相同，只是元组推导式是用()圆括号,列表推导式是用[]中括号，类外元组推导式返回的结果也是一个生成器对象<br> 示例:</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>生成一个包含数字1-9的元组：</li>
+</ul>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a= (x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line">a</span><br><span class="line"><span class="comment"># &lt;generator object &lt;genexpr&gt; at 0x7faf6ee20a50&gt; 返回是是生成器对象</span></span><br><span class="line"><span class="built_in">tuple</span>(a)</span><br><span class="line"><span class="comment"># 转换为元组 (1, 2, 3, 4, 5, 6, 7, 8, 9)</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>stack下标问题<br>正数索引(从0开始)，列表元素的顺序从左到右。而对于负数索引(从-1开始),元素顺序是从右到左；相当于一个是入栈一个是出栈</p>
+</li>
 </ul>
 <h3 id="py函数"><a href="#py函数" class="headerlink" title="py函数"></a>py函数</h3><ul>
 <li><p>remove()<br>用于从列表中删除指定元素；语法格式为: list_name.remove(element) #element 任意数据类型</p>
