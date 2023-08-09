@@ -202,7 +202,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-07-02 00:13:33</span>
+        <span class="pc">2023-07-12 21:26:11</span>
     </span>
     
     
@@ -233,7 +233,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>2.9k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>3k 字</span>
         </span>
     
     
@@ -313,6 +313,8 @@
 <li><p>频率<br>看到计算频率等问题直接联想到以下代码:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">  dic[i] = dic.get(i,<span class="number">0</span>) + <span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
+<li><p>解包<br>解包是指将一个序列或元组中的元素分别赋值给变量。可迭代对象是指可以被迭代器遍历的对象，例如列表、元组、字符串等。而解包则是指将一个序列或元组中的元素分别赋值给多个变量的操作。</p>
+</li>
 <li><p>取整<br>使用int取整大于0的数向下取整，小于0的数向上取整</p>
 </li>
 <li><p>匿名函数<br>  lambda函数是个匿名函数，可以使用任意数量的参数，但是只有一个表达式。</p>
@@ -330,7 +332,7 @@
 <li><p>Stoplteration关键字<br>如果有足够的next()语句，为了防止迭代继续进行，可以使用StopIteration语句<br><em>ep1迭代20次后停止</em></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyNumbers</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">    self.a=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> self</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">if</span> self.a &lt;= <span class="number">20</span></span><br><span class="line">      x = self.a</span><br><span class="line">      self.a += <span class="number">1</span></span><br><span class="line">      <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line">myclass = MyNumbers()</span><br><span class="line">myiter = <span class="built_in">iter</span>(myclass)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> myiter:</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>self<br>在python中,self是一个惯用的参数名称。在定义一个类的方法时，需要将self作为第一个参数传递给方法，当我们定义一个类的方法时，那么在调用该方法时，实际上是通过类的实例对象来调用这个方法，因此不需要显式传递self参数；<br>如果我们在类的方法中访问类的属性或者方法，那么必须使用self来访问。如果我们在方法中直接访问属性或者方法，py会解释为局部变量或函数，从而导致错误。</p>
+<li><p>self<br>在python中,self是一个惯用的参数名称。在定义一个类的方法时，需要将self作为第一个参数传递给方法，当我们定义一个类的方法时，那么在调用该方法时，实际上是通过类的实例对象来调用这个方法，因此不需要显式传递self参数；<br>如果我们在类的方法中访问类的属性或者方法，那么必须使用self来访问(self.func)。如果我们在方法中直接访问属性或者方法，py会解释为局部变量或函数，从而导致错误。</p>
 </li>
 <li><p>运算符</p>
 <ul>
