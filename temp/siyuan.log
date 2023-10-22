@@ -1,0 +1,744 @@
+I 2023/09/12 16:28:01 working.go:116: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/09/12 16:28:01 runtime.go:74: kernel is booting:
+    * ver [2.10.2]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [18488]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/09/12 16:28:01 conf.go:130: initialized language [zh_CN] based on device locale
+I 2023/09/12 16:28:01 runtime.go:128: use network proxy [system]
+I 2023/09/12 16:28:01 serve.go:119: kernel [pid=18488] http server [127.0.0.1:2924] is booting
+I 2023/09/12 16:28:01 database.go:89: the database structure is changed, rebuilding database...
+I 2023/09/12 16:28:01 database.go:109: reinitialized database [D:\myblog\source\temp\siyuan.db]
+I 2023/09/12 16:28:01 conf.go:710: database size [4.1 kB], tree/block count [0/0]
+I 2023/09/12 16:28:01 working.go:154: kernel booted
+I 2023/09/12 16:28:01 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+I 2023/09/12 16:28:01 box.go:79: auto stat [trees=0, blocks=0, dataSize=37 kB, assetsSize=0 B]
+I 2023/09/12 16:28:01 disk.go:33: disk usage [total=403 GB, used=334 GB, free=69 GB]
+I 2023/09/12 16:28:02 pandoc.go:155: initialized built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/09/12 16:28:02 conf.go:927: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/09/12 16:28:02 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.03s], tree [count=64, size=1.2 MB]
+I 2023/09/12 16:28:02 index.go:206: resolved refs [29] in [47ms]
+W 2023/09/12 16:28:09 blocktree.go:502: save block tree [size=662 kB] to [D:\myblog\source\temp\blocktree], elapsed [3.50s]
+I 2023/09/12 16:28:17 conf.go:476: exiting kernel [force=false, execInstallPkg=0]
+E 2023/09/12 16:28:18 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/12 16:28:21 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+I 2023/09/12 16:28:21 database.go:1205: closed database
+I 2023/09/12 16:28:21 conf.go:867: cleared workspace temp
+I 2023/09/12 16:28:22 conf.go:522: exited kernel
+I 2023/09/12 16:28:22 sync.go:660: sync websocket closed
+I 2023/09/19 11:09:44 working.go:116: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/09/19 11:09:44 runtime.go:74: kernel is booting:
+    * ver [2.10.2]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [13112]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/09/19 11:09:44 runtime.go:128: use network proxy [system]
+I 2023/09/19 11:09:44 serve.go:119: kernel [pid=13112] http server [127.0.0.1:9261] is booting
+I 2023/09/19 11:09:44 blocktree.go:448: read block tree [662 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.04s]
+I 2023/09/19 11:09:44 conf.go:710: database size [7.0 MB], tree/block count [64/2352]
+I 2023/09/19 11:09:44 working.go:154: kernel booted
+I 2023/09/19 11:09:44 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/19 11:09:44 disk.go:33: disk usage [total=403 GB, used=355 GB, free=48 GB]
+I 2023/09/19 11:09:44 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.03s], tree [count=64, size=1.2 MB]
+I 2023/09/19 11:09:46 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+I 2023/09/19 11:09:46 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/09/19 11:09:46 conf.go:927: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/09/19 11:09:46 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+W 2023/09/19 11:09:46 blocktree.go:502: save block tree [size=604 kB] to [D:\myblog\source\temp\blocktree], elapsed [2.08s]
+I 2023/09/19 11:12:44 updater.go:168: downloading install package [https://release.b3log.org/siyuan/siyuan-2.10.5-win.exe]
+I 2023/09/19 11:14:18 updater.go:186: downloaded install package [https://release.b3log.org/siyuan/siyuan-2.10.5-win.exe] to [D:\myblog\source\temp\install\siyuan-2.10.5-win.exe]
+I 2023/09/19 16:01:08 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/19 16:01:08 disk.go:33: disk usage [total=403 GB, used=355 GB, free=48 GB]
+I 2023/09/19 21:56:53 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/19 21:56:53 disk.go:33: disk usage [total=403 GB, used=374 GB, free=29 GB]
+E 2023/09/19 21:57:55 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/19 21:57:55 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/19 22:00:04 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/19 22:00:07 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+I 2023/09/19 23:56:53 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/19 23:56:53 disk.go:33: disk usage [total=403 GB, used=374 GB, free=30 GB]
+I 2023/09/19 23:59:52 updater.go:168: downloading install package [https://release.b3log.org/siyuan/siyuan-2.10.6-win.exe]
+I 2023/09/20 00:01:55 updater.go:186: downloaded install package [https://release.b3log.org/siyuan/siyuan-2.10.6-win.exe] to [D:\myblog\source\temp\install\siyuan-2.10.6-win.exe]
+I 2023/09/20 07:45:50 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/20 07:45:50 disk.go:33: disk usage [total=403 GB, used=374 GB, free=29 GB]
+I 2023/09/20 12:41:15 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/20 12:41:15 disk.go:33: disk usage [total=403 GB, used=374 GB, free=29 GB]
+E 2023/09/20 12:41:18 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/20 12:41:33 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/20 12:41:48 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/20 12:41:48 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/20 14:28:50 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/20 14:29:05 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/20 16:03:12 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/20 16:03:12 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+I 2023/09/20 16:03:12 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/20 16:03:12 disk.go:33: disk usage [total=403 GB, used=374 GB, free=29 GB]
+I 2023/09/20 18:03:12 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/20 18:03:12 disk.go:33: disk usage [total=403 GB, used=375 GB, free=28 GB]
+I 2023/09/20 20:03:12 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/20 20:03:12 disk.go:33: disk usage [total=403 GB, used=376 GB, free=27 GB]
+I 2023/09/20 22:03:12 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/20 22:03:12 disk.go:33: disk usage [total=403 GB, used=377 GB, free=26 GB]
+I 2023/09/21 12:30:15 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/21 12:30:15 disk.go:33: disk usage [total=403 GB, used=363 GB, free=41 GB]
+E 2023/09/21 12:31:16 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/21 12:31:16 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/21 12:33:16 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/21 12:33:19 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+I 2023/09/21 14:30:13 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/21 14:30:13 disk.go:33: disk usage [total=403 GB, used=363 GB, free=40 GB]
+I 2023/09/21 16:30:13 box.go:79: auto stat [trees=64, blocks=2352, dataSize=3.3 MB, assetsSize=2.0 MB]
+I 2023/09/21 16:30:13 disk.go:33: disk usage [total=403 GB, used=363 GB, free=40 GB]
+I 2023/09/21 16:50:23 index.go:133: rebuilt database for notebook [20230921165022-wn0uz9w] in [0.00s], tree [count=0, size=0 B]
+I 2023/09/21 16:50:23 index.go:206: resolved refs [29] in [43ms]
+I 2023/09/21 18:30:14 box.go:79: auto stat [trees=66, blocks=2433, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/21 18:30:14 disk.go:33: disk usage [total=403 GB, used=376 GB, free=28 GB]
+I 2023/09/21 20:30:14 box.go:79: auto stat [trees=66, blocks=2466, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/21 20:30:14 disk.go:33: disk usage [total=403 GB, used=377 GB, free=27 GB]
+I 2023/09/21 22:30:14 box.go:79: auto stat [trees=66, blocks=2496, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/21 22:30:14 disk.go:33: disk usage [total=403 GB, used=377 GB, free=27 GB]
+I 2023/09/22 09:10:30 box.go:79: auto stat [trees=66, blocks=2496, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/22 09:10:30 disk.go:33: disk usage [total=403 GB, used=376 GB, free=27 GB]
+E 2023/09/22 09:11:32 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/22 09:11:32 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/22 09:13:32 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/22 09:14:17 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+I 2023/09/22 11:10:30 box.go:79: auto stat [trees=66, blocks=2496, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/22 11:10:30 disk.go:33: disk usage [total=403 GB, used=376 GB, free=27 GB]
+E 2023/09/22 11:11:32 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/22 11:11:32 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/22 11:13:32 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/22 11:13:35 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+I 2023/09/22 13:10:30 box.go:79: auto stat [trees=66, blocks=2496, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/22 13:10:30 disk.go:33: disk usage [total=403 GB, used=376 GB, free=27 GB]
+E 2023/09/22 13:11:32 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/22 13:11:32 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/22 13:13:32 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/22 13:13:56 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+I 2023/09/22 15:10:30 box.go:79: auto stat [trees=66, blocks=2496, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/22 15:10:30 disk.go:33: disk usage [total=403 GB, used=378 GB, free=25 GB]
+I 2023/09/22 17:10:30 box.go:79: auto stat [trees=66, blocks=2517, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/22 17:10:30 disk.go:33: disk usage [total=403 GB, used=378 GB, free=25 GB]
+I 2023/09/22 19:10:30 box.go:79: auto stat [trees=66, blocks=2517, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/22 19:10:30 disk.go:33: disk usage [total=403 GB, used=378 GB, free=25 GB]
+I 2023/09/22 21:10:30 box.go:79: auto stat [trees=66, blocks=2517, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/22 21:10:30 disk.go:33: disk usage [total=403 GB, used=380 GB, free=24 GB]
+I 2023/09/22 23:10:31 box.go:79: auto stat [trees=66, blocks=2517, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/22 23:10:31 disk.go:33: disk usage [total=403 GB, used=380 GB, free=24 GB]
+I 2023/09/23 09:22:49 box.go:79: auto stat [trees=66, blocks=2517, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/23 09:22:49 disk.go:33: disk usage [total=403 GB, used=376 GB, free=28 GB]
+E 2023/09/23 09:24:33 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/09/23 09:24:33 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/09/23 09:26:33 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/09/23 09:27:18 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+I 2023/09/23 11:22:49 box.go:79: auto stat [trees=66, blocks=2521, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/23 11:22:49 disk.go:33: disk usage [total=403 GB, used=377 GB, free=26 GB]
+I 2023/09/23 13:22:49 box.go:79: auto stat [trees=66, blocks=2521, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/23 13:22:49 disk.go:33: disk usage [total=403 GB, used=377 GB, free=26 GB]
+I 2023/09/23 15:22:49 box.go:79: auto stat [trees=66, blocks=2521, dataSize=3.4 MB, assetsSize=2.0 MB]
+I 2023/09/23 15:22:49 disk.go:33: disk usage [total=403 GB, used=377 GB, free=26 GB]
+I 2023/09/23 17:22:49 box.go:79: auto stat [trees=66, blocks=2542, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/23 17:22:49 disk.go:33: disk usage [total=403 GB, used=379 GB, free=25 GB]
+I 2023/09/23 19:22:49 box.go:79: auto stat [trees=66, blocks=2542, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/23 19:22:49 disk.go:33: disk usage [total=403 GB, used=382 GB, free=21 GB]
+I 2023/09/23 21:22:49 box.go:79: auto stat [trees=66, blocks=2542, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/23 21:22:49 disk.go:33: disk usage [total=403 GB, used=382 GB, free=21 GB]
+I 2023/09/23 23:22:49 box.go:79: auto stat [trees=66, blocks=2542, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/23 23:22:49 disk.go:33: disk usage [total=403 GB, used=382 GB, free=21 GB]
+I 2023/09/24 15:32:43 working.go:116: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/09/24 15:32:43 runtime.go:74: kernel is booting:
+    * ver [2.10.2]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [14580]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/09/24 15:32:44 runtime.go:128: use network proxy [system]
+I 2023/09/24 15:32:44 serve.go:119: kernel [pid=14580] http server [127.0.0.1:1221] is booting
+I 2023/09/24 15:32:44 blocktree.go:448: read block tree [696 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.05s]
+I 2023/09/24 15:32:44 conf.go:710: database size [9.1 MB], tree/block count [66/2542]
+I 2023/09/24 15:32:44 working.go:154: kernel booted
+E 2023/09/24 15:32:44 file.go:224: size of data failed: open D:\myblog\source\data\20210808180117-czj9bvb: The process cannot access the file because it is being used by another process.
+I 2023/09/24 15:32:44 box.go:79: auto stat [trees=1, blocks=188, dataSize=16 kB, assetsSize=0 B]
+I 2023/09/24 15:32:44 disk.go:33: disk usage [total=403 GB, used=372 GB, free=32 GB]
+I 2023/09/24 15:32:44 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.04s], tree [count=64, size=1.2 MB]
+I 2023/09/24 15:32:46 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+I 2023/09/24 15:32:46 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/09/24 15:32:46 conf.go:927: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/09/24 15:32:48 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+W 2023/09/24 15:32:53 blocktree.go:502: save block tree [size=701 kB] to [D:\myblog\source\temp\blocktree], elapsed [4.08s]
+I 2023/09/24 17:32:44 box.go:79: auto stat [trees=65, blocks=2554, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/24 17:32:44 disk.go:33: disk usage [total=403 GB, used=377 GB, free=26 GB]
+W 2023/09/24 19:09:10 queue.go:219: task [task.ocr.image] timeout
+W 2023/09/24 19:09:10 blocktree.go:502: save block tree [size=0 B] to [D:\myblog\source\temp\blocktree], elapsed [56.05s]
+I 2023/09/24 19:32:44 box.go:79: auto stat [trees=65, blocks=2554, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/24 19:32:44 disk.go:33: disk usage [total=403 GB, used=377 GB, free=26 GB]
+I 2023/09/24 21:32:44 box.go:79: auto stat [trees=65, blocks=2554, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/24 21:32:44 disk.go:33: disk usage [total=403 GB, used=377 GB, free=26 GB]
+I 2023/09/24 23:32:44 box.go:79: auto stat [trees=65, blocks=2554, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/24 23:32:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/09/25 01:32:44 box.go:79: auto stat [trees=65, blocks=2554, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 01:32:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/09/25 03:32:44 box.go:79: auto stat [trees=65, blocks=2554, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 03:32:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/09/25 05:32:44 box.go:79: auto stat [trees=65, blocks=2554, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 05:32:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+E 2023/09/25 05:34:29 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/09/25 05:34:29 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/09/25 05:36:29 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/09/25 05:37:14 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+I 2023/09/25 07:32:44 box.go:79: auto stat [trees=65, blocks=2554, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 07:32:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+E 2023/09/25 07:33:47 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/25 07:33:47 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/09/25 07:36:08 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/09/25 07:36:53 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+I 2023/09/25 09:32:44 box.go:79: auto stat [trees=65, blocks=2554, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 09:32:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/09/25 11:32:44 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 11:32:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/09/25 13:32:44 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 13:32:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/09/25 15:32:44 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 15:32:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/09/25 17:32:44 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 17:32:44 disk.go:33: disk usage [total=403 GB, used=380 GB, free=24 GB]
+W 2023/09/25 18:25:22 blocktree.go:502: save block tree [size=0 B] to [D:\myblog\source\temp\blocktree], elapsed [61.44s]
+W 2023/09/25 18:25:22 queue.go:219: task [task.ocr.image] timeout
+I 2023/09/25 19:32:44 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 19:32:44 disk.go:33: disk usage [total=403 GB, used=381 GB, free=22 GB]
+I 2023/09/25 21:32:45 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 21:32:45 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+I 2023/09/25 23:32:45 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/25 23:32:45 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+I 2023/09/26 09:36:22 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/26 09:36:22 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+E 2023/09/26 09:36:26 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/26 09:36:29 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/26 09:36:32 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/26 09:36:32 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/26 09:37:46 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/09/26 09:37:46 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+W 2023/09/26 10:36:35 blocktree.go:502: save block tree [size=0 B] to [D:\myblog\source\temp\blocktree], elapsed [3.04s]
+I 2023/09/26 11:36:22 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/26 11:36:22 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+I 2023/09/26 13:36:22 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/26 13:36:22 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+I 2023/09/26 15:36:22 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/26 15:36:22 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+I 2023/09/26 17:36:22 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/26 17:36:22 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+I 2023/09/26 19:36:22 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/26 19:36:22 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+I 2023/09/26 21:36:22 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/26 21:36:23 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+I 2023/09/27 07:47:10 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/27 07:47:10 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+I 2023/09/27 15:28:51 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/27 15:28:51 disk.go:33: disk usage [total=403 GB, used=382 GB, free=22 GB]
+E 2023/09/27 15:28:54 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/27 15:28:57 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/27 15:29:01 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/27 15:29:01 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/09/27 15:30:14 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/09/27 15:30:14 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+I 2023/09/27 15:31:50 updater.go:168: downloading install package [https://release.b3log.org/siyuan/siyuan-2.10.7-win.exe]
+I 2023/09/27 15:32:10 updater.go:186: downloaded install package [https://release.b3log.org/siyuan/siyuan-2.10.7-win.exe] to [D:\myblog\source\temp\install\siyuan-2.10.7-win.exe]
+I 2023/09/27 17:28:51 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/27 17:28:51 disk.go:33: disk usage [total=403 GB, used=385 GB, free=18 GB]
+I 2023/09/27 19:28:51 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/27 19:28:51 disk.go:33: disk usage [total=403 GB, used=384 GB, free=19 GB]
+W 2023/09/27 19:29:42 queue.go:219: task [task.ocr.image] timeout
+W 2023/09/27 19:29:42 blocktree.go:502: save block tree [size=0 B] to [D:\myblog\source\temp\blocktree], elapsed [43.57s]
+I 2023/09/27 21:28:51 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/27 21:28:51 disk.go:33: disk usage [total=403 GB, used=384 GB, free=19 GB]
+I 2023/09/27 23:28:51 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/27 23:28:51 disk.go:33: disk usage [total=403 GB, used=384 GB, free=19 GB]
+I 2023/09/28 09:30:50 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/28 09:30:50 disk.go:33: disk usage [total=403 GB, used=384 GB, free=19 GB]
+I 2023/09/28 11:30:50 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/28 11:30:50 disk.go:33: disk usage [total=403 GB, used=386 GB, free=18 GB]
+I 2023/09/28 13:30:50 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/09/28 13:30:50 disk.go:33: disk usage [total=403 GB, used=386 GB, free=18 GB]
+I 2023/10/07 22:07:01 working.go:116: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/10/07 22:07:01 runtime.go:74: kernel is booting:
+    * ver [2.10.2]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [24772]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/10/07 22:07:01 runtime.go:128: use network proxy [system]
+I 2023/10/07 22:07:01 serve.go:119: kernel [pid=24772] http server [127.0.0.1:3077] is booting
+I 2023/10/07 22:07:01 blocktree.go:448: read block tree [710 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.05s]
+I 2023/10/07 22:07:01 conf.go:710: database size [10 MB], tree/block count [65/2579]
+I 2023/10/07 22:07:01 working.go:154: kernel booted
+I 2023/10/07 22:07:01 box.go:79: auto stat [trees=65, blocks=2579, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/10/07 22:07:01 disk.go:33: disk usage [total=403 GB, used=385 GB, free=18 GB]
+I 2023/10/07 22:07:02 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.04s], tree [count=64, size=1.2 MB]
+I 2023/10/07 22:07:03 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+W 2023/10/07 22:07:03 blocktree.go:502: save block tree [size=600 kB] to [D:\myblog\source\temp\blocktree], elapsed [2.16s]
+I 2023/10/07 22:07:04 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/07 22:07:04 conf.go:927: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/07 22:07:04 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+I 2023/10/07 22:10:01 updater.go:168: downloading install package [https://release.b3log.org/siyuan/siyuan-2.10.8-win.exe]
+I 2023/10/07 22:11:11 updater.go:186: downloaded install package [https://release.b3log.org/siyuan/siyuan-2.10.8-win.exe] to [D:\myblog\source\temp\install\siyuan-2.10.8-win.exe]
+I 2023/10/08 17:41:46 box.go:79: auto stat [trees=65, blocks=2582, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/10/08 17:41:46 disk.go:33: disk usage [total=403 GB, used=384 GB, free=19 GB]
+I 2023/10/08 19:41:46 box.go:79: auto stat [trees=65, blocks=2582, dataSize=3.6 MB, assetsSize=2.3 MB]
+I 2023/10/08 19:41:46 disk.go:33: disk usage [total=403 GB, used=373 GB, free=31 GB]
+W 2023/10/08 19:41:57 blocktree.go:502: save block tree [size=0 B] to [D:\myblog\source\temp\blocktree], elapsed [5.12s]
+I 2023/10/08 21:41:46 box.go:79: auto stat [trees=65, blocks=2585, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/08 21:41:46 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/10/08 23:41:46 box.go:79: auto stat [trees=65, blocks=2585, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/08 23:41:46 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/10/09 08:41:34 box.go:79: auto stat [trees=65, blocks=2585, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/09 08:41:34 disk.go:33: disk usage [total=403 GB, used=379 GB, free=24 GB]
+I 2023/10/09 17:56:00 box.go:79: auto stat [trees=65, blocks=2590, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/09 17:56:00 disk.go:33: disk usage [total=403 GB, used=379 GB, free=25 GB]
+W 2023/10/09 18:57:28 blocktree.go:502: save block tree [size=0 B] to [D:\myblog\source\temp\blocktree], elapsed [79.58s]
+W 2023/10/09 18:57:28 queue.go:219: task [task.ocr.image] timeout
+W 2023/10/09 18:57:28 queue.go:136: too many tasks [task.database.index.fix], ignore show its status
+I 2023/10/09 19:56:00 box.go:79: auto stat [trees=65, blocks=2590, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/09 19:56:00 disk.go:33: disk usage [total=403 GB, used=379 GB, free=25 GB]
+I 2023/10/09 21:56:00 box.go:79: auto stat [trees=65, blocks=2590, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/09 21:56:00 disk.go:33: disk usage [total=403 GB, used=379 GB, free=25 GB]
+I 2023/10/09 23:56:00 box.go:79: auto stat [trees=65, blocks=2590, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/09 23:56:00 disk.go:33: disk usage [total=403 GB, used=379 GB, free=25 GB]
+I 2023/10/10 08:52:44 box.go:79: auto stat [trees=65, blocks=2590, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/10 08:52:44 disk.go:33: disk usage [total=403 GB, used=379 GB, free=25 GB]
+E 2023/10/10 08:54:08 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/10/10 08:54:08 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/10/10 08:56:07 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+E 2023/10/10 08:56:52 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": dial tcp 8.136.157.37:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+I 2023/10/10 10:52:44 box.go:79: auto stat [trees=65, blocks=2633, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/10 10:52:44 disk.go:33: disk usage [total=403 GB, used=380 GB, free=24 GB]
+I 2023/10/10 12:52:44 box.go:79: auto stat [trees=65, blocks=2643, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/10 12:52:44 disk.go:33: disk usage [total=403 GB, used=380 GB, free=24 GB]
+I 2023/10/10 14:52:44 box.go:79: auto stat [trees=65, blocks=2643, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/10 14:52:44 disk.go:33: disk usage [total=403 GB, used=380 GB, free=24 GB]
+I 2023/10/10 16:52:44 box.go:79: auto stat [trees=65, blocks=2643, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/10 16:52:44 disk.go:33: disk usage [total=403 GB, used=380 GB, free=24 GB]
+I 2023/10/10 16:55:43 updater.go:168: downloading install package [https://release.b3log.org/siyuan/siyuan-2.10.9-win.exe]
+I 2023/10/10 16:56:01 updater.go:186: downloaded install package [https://release.b3log.org/siyuan/siyuan-2.10.9-win.exe] to [D:\myblog\source\temp\install\siyuan-2.10.9-win.exe]
+I 2023/10/10 18:52:44 box.go:79: auto stat [trees=65, blocks=2645, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/10 18:52:44 disk.go:33: disk usage [total=403 GB, used=381 GB, free=22 GB]
+I 2023/10/10 20:52:44 box.go:79: auto stat [trees=65, blocks=2645, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/10 20:52:44 disk.go:33: disk usage [total=403 GB, used=381 GB, free=22 GB]
+W 2023/10/10 20:53:32 queue.go:219: task [task.ocr.image] timeout
+W 2023/10/10 20:53:32 blocktree.go:502: save block tree [size=0 B] to [D:\myblog\source\temp\blocktree], elapsed [39.64s]
+I 2023/10/10 22:52:44 box.go:79: auto stat [trees=65, blocks=2660, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/10 22:52:44 disk.go:33: disk usage [total=403 GB, used=383 GB, free=21 GB]
+I 2023/10/11 00:52:44 box.go:79: auto stat [trees=65, blocks=2660, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/11 00:52:44 disk.go:33: disk usage [total=403 GB, used=368 GB, free=35 GB]
+E 2023/10/11 00:53:46 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/10/11 00:53:46 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/10/11 00:55:46 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+E 2023/10/11 00:55:49 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.2": tls: failed to verify certificate: x509: certificate signed by unknown authority
+I 2023/10/14 16:32:04 working.go:116: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/10/14 16:32:04 runtime.go:74: kernel is booting:
+    * ver [2.10.2]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [13896]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/10/14 16:32:04 runtime.go:128: use network proxy [system]
+I 2023/10/14 16:32:04 serve.go:119: kernel [pid=13896] http server [127.0.0.1:14503] is booting
+I 2023/10/14 16:32:05 blocktree.go:448: read block tree [726 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.11s]
+I 2023/10/14 16:32:05 conf.go:710: database size [10 MB], tree/block count [65/2656]
+I 2023/10/14 16:32:05 working.go:154: kernel booted
+I 2023/10/14 16:32:05 box.go:79: auto stat [trees=65, blocks=2656, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/14 16:32:05 disk.go:33: disk usage [total=403 GB, used=367 GB, free=37 GB]
+I 2023/10/14 16:32:05 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.06s], tree [count=64, size=1.2 MB]
+I 2023/10/14 16:32:06 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+I 2023/10/14 16:32:08 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/14 16:32:08 conf.go:927: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/14 16:32:08 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+W 2023/10/14 16:32:13 blocktree.go:502: save block tree [size=727 kB] to [D:\myblog\source\temp\blocktree], elapsed [3.77s]
+I 2023/10/14 16:35:05 updater.go:168: downloading install package [https://release.b3log.org/siyuan/siyuan-2.10.10-win.exe]
+I 2023/10/14 16:36:20 updater.go:186: downloaded install package [https://release.b3log.org/siyuan/siyuan-2.10.10-win.exe] to [D:\myblog\source\temp\install\siyuan-2.10.10-win.exe]
+I 2023/10/14 17:11:33 working.go:116: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/10/14 17:11:33 runtime.go:74: kernel is booting:
+    * ver [2.10.2]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [13420]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/10/14 17:11:33 runtime.go:128: use network proxy [system]
+I 2023/10/14 17:11:33 serve.go:119: kernel [pid=13420] http server [127.0.0.1:1523] is booting
+I 2023/10/14 17:11:33 blocktree.go:448: read block tree [723 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.03s]
+I 2023/10/14 17:11:33 conf.go:710: database size [11 MB], tree/block count [65/2660]
+I 2023/10/14 17:11:33 working.go:154: kernel booted
+I 2023/10/14 17:11:33 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/14 17:11:33 conf.go:927: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/14 17:11:33 box.go:79: auto stat [trees=65, blocks=2660, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/14 17:11:33 disk.go:33: disk usage [total=403 GB, used=363 GB, free=40 GB]
+I 2023/10/14 17:11:33 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.04s], tree [count=64, size=1.2 MB]
+I 2023/10/14 17:11:34 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+I 2023/10/14 17:11:35 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+W 2023/10/14 17:11:42 blocktree.go:502: save block tree [size=727 kB] to [D:\myblog\source\temp\blocktree], elapsed [3.88s]
+I 2023/10/14 19:11:33 box.go:79: auto stat [trees=65, blocks=2660, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/14 19:11:33 disk.go:33: disk usage [total=403 GB, used=360 GB, free=44 GB]
+I 2023/10/14 20:15:54 conf.go:476: exiting kernel [force=false, execInstallPkg=0]
+I 2023/10/14 20:15:55 conf.go:497: the new version install pkg is ready [D:\myblog\source\temp\install\siyuan-2.10.10-win.exe], waiting for the user's next instruction
+I 2023/10/14 20:15:57 conf.go:476: exiting kernel [force=true, execInstallPkg=1]
+I 2023/10/14 20:15:57 database.go:1205: closed database
+I 2023/10/14 20:15:57 conf.go:867: cleared workspace temp
+I 2023/10/14 20:15:58 conf.go:522: exited kernel
+I 2023/10/14 20:15:58 sync.go:660: sync websocket closed
+I 2023/10/16 20:21:21 working.go:116: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/10/16 20:21:21 runtime.go:74: kernel is booting:
+    * ver [2.10.2]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [7948]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/10/16 20:21:21 runtime.go:128: use network proxy [system]
+I 2023/10/16 20:21:21 serve.go:119: kernel [pid=7948] http server [127.0.0.1:6402] is booting
+I 2023/10/16 20:21:21 blocktree.go:448: read block tree [722 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.20s]
+I 2023/10/16 20:21:21 conf.go:710: database size [12 MB], tree/block count [65/2660]
+I 2023/10/16 20:21:21 working.go:154: kernel booted
+I 2023/10/16 20:21:21 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/16 20:21:21 conf.go:927: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/16 20:21:22 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+I 2023/10/16 20:21:22 box.go:79: auto stat [trees=65, blocks=2660, dataSize=3.8 MB, assetsSize=2.4 MB]
+I 2023/10/16 20:21:22 disk.go:33: disk usage [total=403 GB, used=360 GB, free=43 GB]
+I 2023/10/16 20:21:22 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.04s], tree [count=64, size=1.2 MB]
+I 2023/10/16 20:21:23 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+W 2023/10/16 20:21:24 blocktree.go:502: save block tree [size=644 kB] to [D:\myblog\source\temp\blocktree], elapsed [2.19s]
+I 2023/10/16 22:21:22 box.go:79: auto stat [trees=65, blocks=2697, dataSize=4.3 MB, assetsSize=2.9 MB]
+I 2023/10/16 22:21:22 disk.go:33: disk usage [total=403 GB, used=361 GB, free=42 GB]
+I 2023/10/16 23:53:52 conf.go:476: exiting kernel [force=false, execInstallPkg=0]
+I 2023/10/16 23:53:52 conf.go:497: the new version install pkg is ready [D:\myblog\source\temp\install\siyuan-2.10.10-win.exe], waiting for the user's next instruction
+I 2023/10/16 23:53:54 conf.go:476: exiting kernel [force=true, execInstallPkg=2]
+I 2023/10/16 23:53:54 updater.go:41: installing the new version [D:\myblog\source\temp\install\siyuan-2.10.10-win.exe]
+I 2023/10/16 23:53:54 database.go:1205: closed database
+I 2023/10/16 23:53:54 conf.go:867: cleared workspace temp
+I 2023/10/17 15:50:04 working.go:121: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/10/17 15:50:04 runtime.go:74: kernel is booting:
+    * ver [2.10.10]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [20832]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/10/17 15:50:04 conf.go:232: upgraded from version [2.10.2] to [2.10.10]
+I 2023/10/17 15:50:04 runtime.go:128: use network proxy [system]
+I 2023/10/17 15:50:04 serve.go:119: kernel [pid=20832] http server [127.0.0.1:10866] is booting
+I 2023/10/17 15:50:04 blocktree.go:463: read block tree [737 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.14s]
+I 2023/10/17 15:50:04 conf.go:723: database size [14 MB], tree/block count [65/2703]
+I 2023/10/17 15:50:04 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/17 15:50:04 conf.go:940: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/17 15:50:04 working.go:159: kernel booted
+I 2023/10/17 15:50:05 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+I 2023/10/17 15:50:05 box.go:79: auto stat [trees=65, blocks=2703, dataSize=4.3 MB, assetsSize=2.9 MB]
+I 2023/10/17 15:50:05 disk.go:33: disk usage [total=403 GB, used=361 GB, free=42 GB]
+I 2023/10/17 15:50:05 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.05s], tree [count=64, size=1.2 MB]
+I 2023/10/17 15:50:05 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+W 2023/10/17 15:50:13 blocktree.go:517: save block tree [size=741 kB] to [D:\myblog\source\temp\blocktree], elapsed [3.67s]
+I 2023/10/17 17:50:05 box.go:79: auto stat [trees=65, blocks=2781, dataSize=4.3 MB, assetsSize=2.9 MB]
+I 2023/10/17 17:50:05 disk.go:33: disk usage [total=403 GB, used=362 GB, free=42 GB]
+I 2023/10/17 19:50:05 box.go:79: auto stat [trees=65, blocks=2781, dataSize=4.3 MB, assetsSize=2.9 MB]
+I 2023/10/17 19:50:05 disk.go:33: disk usage [total=403 GB, used=362 GB, free=41 GB]
+I 2023/10/17 21:50:05 box.go:79: auto stat [trees=65, blocks=2781, dataSize=4.3 MB, assetsSize=2.9 MB]
+I 2023/10/17 21:50:05 disk.go:33: disk usage [total=403 GB, used=362 GB, free=41 GB]
+I 2023/10/17 23:31:41 queue.go:152: database op tx [7335ms]
+I 2023/10/17 23:50:05 box.go:79: auto stat [trees=65, blocks=2804, dataSize=4.3 MB, assetsSize=2.9 MB]
+I 2023/10/17 23:50:05 disk.go:33: disk usage [total=403 GB, used=366 GB, free=38 GB]
+I 2023/10/17 23:52:15 conf.go:485: exiting kernel [force=false, execInstallPkg=0]
+I 2023/10/17 23:52:15 database.go:1205: closed database
+I 2023/10/17 23:52:15 conf.go:880: cleared workspace temp
+I 2023/10/17 23:52:15 sync.go:670: sync websocket closed
+I 2023/10/20 21:23:40 working.go:121: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/10/20 21:23:40 runtime.go:74: kernel is booting:
+    * ver [2.10.10]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [10012]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/10/20 21:23:40 runtime.go:128: use network proxy [system]
+I 2023/10/20 21:23:40 serve.go:119: kernel [pid=10012] http server [127.0.0.1:13133] is booting
+I 2023/10/20 21:23:40 blocktree.go:463: read block tree [758 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.04s]
+I 2023/10/20 21:23:40 conf.go:723: database size [14 MB], tree/block count [65/2805]
+I 2023/10/20 21:23:40 working.go:159: kernel booted
+I 2023/10/20 21:23:41 box.go:79: auto stat [trees=65, blocks=2805, dataSize=4.3 MB, assetsSize=2.9 MB]
+I 2023/10/20 21:23:41 disk.go:33: disk usage [total=403 GB, used=351 GB, free=53 GB]
+I 2023/10/20 21:23:41 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.04s], tree [count=64, size=1.2 MB]
+I 2023/10/20 21:23:41 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+I 2023/10/20 21:23:43 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/20 21:23:43 conf.go:940: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/20 21:23:43 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+W 2023/10/20 21:23:49 blocktree.go:517: save block tree [size=760 kB] to [D:\myblog\source\temp\blocktree], elapsed [3.64s]
+I 2023/10/20 21:26:40 updater.go:168: downloading install package [https://release.b3log.org/siyuan/siyuan-2.10.11-win.exe]
+E 2023/10/20 21:28:47 updater.go:177: download install package [https://release.b3log.org/siyuan/siyuan-2.10.11-win.exe] failed: unexpected EOF
+I 2023/10/20 21:28:48 updater.go:168: downloading install package [https://ghproxy.com/https://github.com/siyuan-note/siyuan/releases/download/v2.10.11/siyuan-2.10.11-win.exe]
+I 2023/10/20 21:29:16 updater.go:186: downloaded install package [https://ghproxy.com/https://github.com/siyuan-note/siyuan/releases/download/v2.10.11/siyuan-2.10.11-win.exe] to [D:\myblog\source\temp\install\siyuan-2.10.11-win.exe]
+I 2023/10/20 23:23:41 box.go:79: auto stat [trees=65, blocks=2808, dataSize=4.3 MB, assetsSize=2.9 MB]
+I 2023/10/20 23:23:41 disk.go:33: disk usage [total=403 GB, used=351 GB, free=53 GB]
+I 2023/10/21 09:26:44 box.go:79: auto stat [trees=66, blocks=2824, dataSize=4.3 MB, assetsSize=2.9 MB]
+I 2023/10/21 09:26:44 disk.go:33: disk usage [total=403 GB, used=351 GB, free=53 GB]
+I 2023/10/21 09:27:50 queue_history.go:106: database history op tx [63653ms]
+E 2023/10/21 09:27:55 rhy.go:48: get version info failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.10": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+E 2023/10/21 09:27:55 updater.go:223: get announcement failed: Get "https://siyuan-sync.b3logfile.com/apis/siyuan/version?ver=2.10.10": dial tcp: lookup siyuan-sync.b3logfile.com: no such host
+I 2023/10/21 11:26:44 box.go:79: auto stat [trees=66, blocks=2919, dataSize=4.5 MB, assetsSize=3.0 MB]
+I 2023/10/21 11:26:44 disk.go:33: disk usage [total=403 GB, used=351 GB, free=52 GB]
+I 2023/10/21 13:26:44 box.go:79: auto stat [trees=66, blocks=2934, dataSize=4.6 MB, assetsSize=3.1 MB]
+I 2023/10/21 13:26:44 disk.go:33: disk usage [total=403 GB, used=351 GB, free=52 GB]
+I 2023/10/21 15:26:44 box.go:79: auto stat [trees=66, blocks=2951, dataSize=4.6 MB, assetsSize=3.1 MB]
+I 2023/10/21 15:26:44 disk.go:33: disk usage [total=403 GB, used=351 GB, free=52 GB]
+I 2023/10/21 17:26:44 box.go:79: auto stat [trees=66, blocks=2951, dataSize=4.6 MB, assetsSize=3.1 MB]
+I 2023/10/21 17:26:44 disk.go:33: disk usage [total=403 GB, used=351 GB, free=52 GB]
+I 2023/10/21 19:17:32 conf.go:485: exiting kernel [force=false, execInstallPkg=0]
+I 2023/10/21 19:17:32 conf.go:506: the new version install pkg is ready [D:\myblog\source\temp\install\siyuan-2.10.11-win.exe], waiting for the user's next instruction
+I 2023/10/21 19:17:39 conf.go:485: exiting kernel [force=true, execInstallPkg=2]
+I 2023/10/21 19:17:39 updater.go:41: installing the new version [D:\myblog\source\temp\install\siyuan-2.10.11-win.exe]
+I 2023/10/21 19:17:39 database.go:1205: closed database
+I 2023/10/21 19:17:39 conf.go:880: cleared workspace temp
+E 2023/10/21 19:17:42 updater.go:52: exec install new version failed: exit status 2
+I 2023/10/21 19:18:10 sync.go:670: sync websocket closed
+I 2023/10/21 19:18:10 conf.go:538: exited kernel
+I 2023/10/21 21:36:25 working.go:121: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/10/21 21:36:25 runtime.go:74: kernel is booting:
+    * ver [2.10.10]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [20808]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/10/21 21:36:25 runtime.go:128: use network proxy [system]
+I 2023/10/21 21:36:25 serve.go:119: kernel [pid=20808] http server [127.0.0.1:10064] is booting
+I 2023/10/21 21:36:25 blocktree.go:463: read block tree [792 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.05s]
+I 2023/10/21 21:36:25 conf.go:723: database size [17 MB], tree/block count [66/2951]
+I 2023/10/21 21:36:25 working.go:159: kernel booted
+I 2023/10/21 21:36:26 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/21 21:36:26 conf.go:940: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/21 21:36:26 box.go:79: auto stat [trees=66, blocks=2951, dataSize=4.6 MB, assetsSize=3.1 MB]
+I 2023/10/21 21:36:26 disk.go:33: disk usage [total=403 GB, used=351 GB, free=52 GB]
+I 2023/10/21 21:36:26 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+I 2023/10/21 21:36:26 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.03s], tree [count=64, size=1.2 MB]
+I 2023/10/21 21:36:26 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+W 2023/10/21 21:36:34 blocktree.go:517: save block tree [size=792 kB] to [D:\myblog\source\temp\blocktree], elapsed [3.69s]
+I 2023/10/21 23:36:26 box.go:79: auto stat [trees=66, blocks=2951, dataSize=4.6 MB, assetsSize=3.1 MB]
+I 2023/10/21 23:36:26 disk.go:33: disk usage [total=403 GB, used=351 GB, free=52 GB]
+I 2023/10/21 23:53:02 conf.go:485: exiting kernel [force=false, execInstallPkg=0]
+I 2023/10/21 23:53:02 conf.go:506: the new version install pkg is ready [D:\myblog\source\temp\install\siyuan-2.10.11-win.exe], waiting for the user's next instruction
+I 2023/10/21 23:53:04 conf.go:485: exiting kernel [force=true, execInstallPkg=2]
+I 2023/10/21 23:53:04 updater.go:41: installing the new version [D:\myblog\source\temp\install\siyuan-2.10.11-win.exe]
+I 2023/10/21 23:53:04 database.go:1205: closed database
+I 2023/10/21 23:53:04 conf.go:880: cleared workspace temp
+I 2023/10/22 10:21:20 working.go:121: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/10/22 10:21:20 runtime.go:74: kernel is booting:
+    * ver [2.10.11]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [14340]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/10/22 10:21:20 conf.go:232: upgraded from version [2.10.10] to [2.10.11]
+I 2023/10/22 10:21:20 runtime.go:128: use network proxy [system]
+I 2023/10/22 10:21:20 serve.go:119: kernel [pid=14340] http server [127.0.0.1:9846] is booting
+I 2023/10/22 10:21:20 blocktree.go:463: read block tree [792 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.20s]
+I 2023/10/22 10:21:20 conf.go:723: database size [17 MB], tree/block count [66/2951]
+I 2023/10/22 10:21:20 working.go:159: kernel booted
+I 2023/10/22 10:21:21 box.go:79: auto stat [trees=66, blocks=2951, dataSize=4.6 MB, assetsSize=3.1 MB]
+I 2023/10/22 10:21:21 disk.go:33: disk usage [total=403 GB, used=351 GB, free=52 GB]
+I 2023/10/22 10:21:21 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+I 2023/10/22 10:21:21 index.go:133: rebuilt database for notebook [20210808180117-czj9bvb] in [0.09s], tree [count=64, size=1.2 MB]
+W 2023/10/22 10:21:23 blocktree.go:517: save block tree [size=674 kB] to [D:\myblog\source\temp\blocktree], elapsed [2.91s]
+I 2023/10/22 10:21:25 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/22 10:21:25 conf.go:940: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/22 10:21:25 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+I 2023/10/22 12:21:21 box.go:79: auto stat [trees=66, blocks=2976, dataSize=4.6 MB, assetsSize=3.1 MB]
+I 2023/10/22 12:21:21 disk.go:33: disk usage [total=403 GB, used=346 GB, free=57 GB]
+I 2023/10/22 14:21:21 box.go:79: auto stat [trees=66, blocks=2976, dataSize=4.6 MB, assetsSize=3.1 MB]
+I 2023/10/22 14:21:21 disk.go:33: disk usage [total=403 GB, used=346 GB, free=57 GB]
+I 2023/10/22 16:21:21 box.go:79: auto stat [trees=66, blocks=3062, dataSize=4.8 MB, assetsSize=3.3 MB]
+I 2023/10/22 16:21:21 disk.go:33: disk usage [total=403 GB, used=346 GB, free=57 GB]
+W 2023/10/22 17:47:09 blocktree.go:517: save block tree [size=0 B] to [D:\myblog\source\temp\blocktree], elapsed [59.40s]
+W 2023/10/22 17:47:09 queue.go:219: task [task.ocr.image] timeout
+I 2023/10/22 18:21:21 box.go:79: auto stat [trees=66, blocks=3062, dataSize=4.8 MB, assetsSize=3.3 MB]
+I 2023/10/22 18:21:21 disk.go:33: disk usage [total=403 GB, used=346 GB, free=57 GB]
+I 2023/10/22 20:21:21 box.go:79: auto stat [trees=66, blocks=3062, dataSize=4.8 MB, assetsSize=3.3 MB]
+I 2023/10/22 20:21:21 disk.go:33: disk usage [total=403 GB, used=346 GB, free=57 GB]
+W 2023/10/22 22:08:28 blocktree.go:517: save block tree [size=21 kB] to [D:\myblog\source\temp\blocktree], elapsed [2.47s]
+W 2023/10/22 22:19:20 blocktree.go:517: save block tree [size=17 kB] to [D:\myblog\source\temp\blocktree], elapsed [3.42s]
+W 2023/10/22 22:19:40 blocktree.go:517: save block tree [size=35 kB] to [D:\myblog\source\temp\blocktree], elapsed [4.27s]
+I 2023/10/22 22:21:21 box.go:79: auto stat [trees=66, blocks=3128, dataSize=5.0 MB, assetsSize=3.5 MB]
+I 2023/10/22 22:21:21 disk.go:33: disk usage [total=403 GB, used=349 GB, free=54 GB]
+I 2023/10/22 22:36:17 conf.go:485: exiting kernel [force=false, execInstallPkg=0]
+I 2023/10/22 22:36:17 database.go:1205: closed database
+I 2023/10/22 22:36:17 conf.go:880: cleared workspace temp
+I 2023/10/22 22:36:18 sync.go:670: sync websocket closed

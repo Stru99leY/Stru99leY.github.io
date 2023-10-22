@@ -202,7 +202,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-08-19 17:03:11</span>
+        <span class="pc">2023-08-23 18:06:47</span>
     </span>
     
     
@@ -422,19 +422,20 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>) <span class="comment"># 返回97</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line">- defaultdict()</span><br><span class="line">  defaultdict是python中的一个内置字典子类，重载了一个方法来实现默认值的设定。在创建defaultdict对象，需要提供一个参数作为默认值或者一个函数用来生成默认值。</span><br><span class="line">  比如有一个字典对其中的值进行累加操作，如果某个键不存在，则将其值设置为<span class="number">0</span>，使用defaultdict可以避免手动判断键是否存在的过程:</span><br><span class="line"></span><br><span class="line">  ```python</span><br><span class="line">  <span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line">  d = defaultdict(<span class="built_in">int</span>)</span><br><span class="line">  <span class="comment"># 对字典中的值进行累加操作</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">&#x27;mississippi&#x27;</span>：</span><br><span class="line">    d[i]+=<span class="number">1</span></span><br><span class="line">  <span class="built_in">print</span>(d) <span class="comment"># 输出：defaultdict(&lt;class &#x27;int&#x27;&gt;, &#123;&#x27;m&#x27;: 1, &#x27;i&#x27;: 4, &#x27;s&#x27;: 4, &#x27;p&#x27;: 2&#125;)</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>sorted()<br>返回一个新的排好序的列表，而不改变原始列表<br>例如有一个数字列表</p>
-</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num = [<span class="number">4</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num = [<span class="number">4</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
 <p>我们可以使用sorted()进行排序、会返回一个新的列表，但是排序后会改变数字原有的索引值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted_list = <span class="built_in">sorted</span>(nums)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted_list = <span class="built_in">sorted</span>(nums)</span><br></pre></td></tr></table></figure>
 
 <p>若不想改变原数组的索引值可以用以下方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对nums的元素进行排序，排序的依据是nums中对应的位置，对于nums中的每个元素k，使用nums[k]的值作为排序关键字</span></span><br><span class="line"><span class="built_in">sorted</span>(nums,key=<span class="keyword">lambda</span> k:nums[k]])</span><br><span class="line"><span class="comment"># 使用enumerate()生产一个包含元素索引和值的可迭代对象，按照值进行排序，不改变原有元素的索引值</span></span><br><span class="line">sorted_nums = soreted(<span class="built_in">enumerate</span>(nums),key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对nums的元素进行排序，排序的依据是nums中对应的位置，对于nums中的每个元素k，使用nums[k]的值作为排序关键字</span></span><br><span class="line"><span class="built_in">sorted</span>(nums,key=<span class="keyword">lambda</span> k:nums[k]])</span><br><span class="line"><span class="comment"># 使用enumerate()生产一个包含元素索引和值的可迭代对象，按照值进行排序，不改变原有元素的索引值</span></span><br><span class="line">sorted_nums = soreted(<span class="built_in">enumerate</span>(nums),key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 
 <p>对于上述第二种方法，enumerate(nums)会返回一个(index,value)的元组.  </p>
 <ul>
 <li>list()<br><code>list()</code>是一个空列表的构造函数。当调用<code>list()</code>时，它会返回一个空列表<code>[]</code>。这个空列表可以用来存储任意类型的元素，并且可以根据需要进行修改、添加或删除元素。</li>
+</ul>
+<h3 id="基本数据结构操作"><a href="#基本数据结构操作" class="headerlink" title="基本数据结构操作"></a>基本数据结构操作</h3><ul>
+<li>python建立二叉树(递归)</li>
 </ul>
 
             </div>
@@ -495,7 +496,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E7%86%9F%E6%82%89%E7%9A%84%E7%9F%A5%E8%AF%86"><span class="nav-text">Python的一些不熟悉的知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B0%8F%E7%9F%A5%E8%AF%86%EF%BC%8C%E6%83%B3%E5%88%B0%E4%BB%80%E4%B9%88%E5%86%99%E4%BB%80%E4%B9%88"><span class="nav-text">一些小知识，想到什么写什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#py%E5%87%BD%E6%95%B0"><span class="nav-text">py函数</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E7%86%9F%E6%82%89%E7%9A%84%E7%9F%A5%E8%AF%86"><span class="nav-text">Python的一些不熟悉的知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B0%8F%E7%9F%A5%E8%AF%86%EF%BC%8C%E6%83%B3%E5%88%B0%E4%BB%80%E4%B9%88%E5%86%99%E4%BB%80%E4%B9%88"><span class="nav-text">一些小知识，想到什么写什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#py%E5%87%BD%E6%95%B0"><span class="nav-text">py函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%93%8D%E4%BD%9C"><span class="nav-text">基本数据结构操作</span></a></li></ol></li></ol>
     </div>
 </div>
 
