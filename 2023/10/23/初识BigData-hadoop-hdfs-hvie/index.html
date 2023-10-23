@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="xy的学习笔记">
+    <meta name="author" content="Stru99le">
+    
+    <title>
+        
+            初识BigData-hadoop-hdfs-hvie |
+        
+        MelodyYu
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/Stru99leY/picx-images-hosting@master/aca7f-rbvle.1xsitatacv40.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/B583B3AFF8F1BA3959782AE536A5E575.2zfdxy5jdhy0.webp","favicon":"https://cdn.staticaly.com/gh/Stru99leY/picx-images-hosting@master/aca7f-rbvle.1xsitatacv40.svg","avatar":"https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/QQ图片20230620105948.5yrwhp1nihg0.webp","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"心若相知，无言也默契.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/B583B3AFF8F1BA3959782AE536A5E575.2zfdxy5jdhy0.webp">
+                </a>
+            
+            <a class="logo-title" href="/">
+               MelodyYu
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">初识BigData-hadoop-hdfs-hvie</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/QQ%E5%9B%BE%E7%89%8720230620105948.5yrwhp1nihg0.webp">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Stru99le</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-10-23 17:02:55</span>
+        <span class="mobile">2023-10-23 17:02</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-10-23 17:36:04</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/BigData/">BigData</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/hadoop/">hadoop</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/hive/">hive</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/hdfs/">hdfs</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>7.1k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>30 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>node1:9870</p>
+<h2 id="启动环境-要在-hadoop-用户下）"><a href="#启动环境-要在-hadoop-用户下）" class="headerlink" title="启动环境(要在 hadoop 用户下）"></a>启动环境(要在 hadoop 用户下）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.启动hdfs</span></span><br><span class="line">start-dfs.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止</span></span><br><span class="line">stop-dfs.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2.启动yarn</span></span><br><span class="line">start-yarn.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3.启动历史服务器</span></span><br><span class="line">mapred --daemon start historyserver</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">4.启动metastore(在hive目录下)</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">前台启动 bin/hive --service metastore</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">后台启动 <span class="built_in">nohup</span> bin/hive --service metastore &gt;&gt; logs/metastore.log 2&gt;&amp;1 &amp;</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">5.启动hive</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">直接写SQL bin/hive</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">可供其他客户端链接 bin/hive --service hiveserver2</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">hiveserver2后台启动 <span class="built_in">nohup</span> bin/hive --service hiveserver2 &gt;&gt; logs/hiveserver2.<span class="built_in">log</span> 2&gt;&amp;1 &amp;</span></span><br></pre></td></tr></table></figure>
+
+<p>单独控制进程的启停。</p>
+<ol>
+<li><p>$HADOOP_HOME&#x2F;sbin&#x2F;hadoop-daemon.sh，此脚本可以单独控制所在机器的进程的启停</p>
+<p> 用法：hadoop-daemon.sh (start|status|stop)(namenode|secondarynamenode|datanode)</p>
+</li>
+<li><p>$HADOOP_HOME&#x2F;bin&#x2F;hdfs，此程序也可以用以单独控制所在机器的进程的启停</p>
+</li>
+</ol>
+<p>用法：hdfs –daemon (start|status|stop) (namenode|secondarynamenode|datanode)</p>
+<h2 id="文件系统的操作命令"><a href="#文件系统的操作命令" class="headerlink" title="文件系统的操作命令"></a>文件系统的操作命令</h2><p>Hadoop 提供了两套命令:</p>
+<p>hadoop(老版本),用法:hadoop fs</p>
+<p>hdfs（新版本),用法:hdfs dfs</p>
+<ol>
+<li><p>创建文件夹</p>
+<p>hadoop fs -mkdir [-p] <path></path> …</p>
+<p>hdfs dfs -mkdir [-p] <path></path> …</p>
+<p>​<code>path</code>​​为待创建目录</p>
+<p>​<code>-p</code>​​选项与 linux <code>mkdir</code>​​一致会沿着路径创建父目录</p>
+</li>
+<li><p>查看指定目录下内容</p>
+<ul>
+<li><p>hadoop fs -ls [-h] [-R] [<path></path>…]</p>
+</li>
+<li><p>hdfs dfs -ls [-h] [-R] [<path></path>…]</p>
+<p>​<code>path</code>​​指定目录路径</p>
+<p>​<code>-h</code>​​人性化显示文件 size</p>
+<p>​<code>-R</code>​​递归查看指定目录及其子目录</p>
+</li>
+</ul>
+</li>
+<li><p>上次文件到 HDFS 指定目录下</p>
+<ul>
+<li><p>hadoop dfs -put [-f] [-p] <localsrc> … <dst></dst></localsrc></p>
+</li>
+<li><p>hdfs dfs -put [-f] [-p] <localsrc> … <dst></dst></localsrc></p>
+<p>​<code>-f</code>​​覆盖目标文件(已存在下)</p>
+<p>​<code>-p</code>​​保留访问和修改时间，(客户端所在机器）</p>
+<p>​<code>dst</code>​​目标文件系统</p>
+</li>
+</ul>
+</li>
+<li><p>查看 HDFS 文件内容</p>
+<ul>
+<li><p>hadoop fs -cat <src> …</src></p>
+</li>
+<li><p>hdfs dfs -cat <src> …</src></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -cat /itcast/words.txt</span><br><span class="line">hdfs dfs -cat /itcast/profile</span><br></pre></td></tr></table></figure>
+
+<p>读取大文件可以使用管道符配合 more</p>
+</li>
+<li><p>hadoop fs -cat <src> | more</src></p>
+</li>
+<li><p>hdfs dfs -cat <src> | more</src></p>
+</li>
+</ul>
+</li>
+<li><p>下载 HDFS 文件</p>
+<ul>
+<li><p>hadoop fs -get [-f] [-p] <src> … <localdst></localdst></src></p>
+</li>
+<li><p>hdfs dfs -get [-f] [-p] <src> … <localdst></localdst></src></p>
+<p>下载文件到本地文件系统指定目录，localdst 必须是目录</p>
+<p>​<code>-f</code> ​覆盖目标文件</p>
+<p>​<code>-p</code> ​保留访问和修改时间，所有权和权限</p>
+</li>
+</ul>
+</li>
+<li><p>拷贝 HDFS 文件</p>
+<ul>
+<li>hadoop fs -cp [-f] <src> … <dst></dst></src></li>
+<li>hdfs dfs -cp [-f] <src> … <dst></dst></src></li>
+</ul>
+</li>
+<li><p>追加数据到 HDFS 文件中</p>
+<ul>
+<li><p>hadoop fs -appendTofile <localsrc> … <dst></dst></localsrc></p>
+</li>
+<li><p>hdfs dfs -appendTofile <localsrc> … <dst></dst></localsrc></p>
+<p>将所有给定本地文件的内容追加到给定 dst 文件，若 dst 文件不存在，将创建该文件。如果 <code>&lt;localSrc&gt;</code> ​为 <code>-</code>​，则输入为从标准输入中读取。</p>
+</li>
+</ul>
+</li>
+<li><p>HDFS 数据移动操作</p>
+<ul>
+<li><p>hadoop fs -mv <src> … <dst></dst></src></p>
+</li>
+<li><p>hdfs dfs -mv <src> … <dst></dst></src></p>
+<p>可以重命名</p>
+</li>
+</ul>
+</li>
+<li><p>HDFS 数据删除操作</p>
+<ul>
+<li><p>hadoop fs -rm -r [-skipTrash] URI [URI …]</p>
+</li>
+<li><p>hdfs dfs -rm -r [-skipTrash] URI [URI …]</p>
+<p>​<code>-skipTrash</code> ​跳过回收站直接删除</p>
+<p>‍</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">&lt;property&gt;</span></span><br><span class="line">&lt;name&gt;fs.trash.interval&lt;/name&gt;</span><br><span class="line">&lt;value&gt;1440&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;fs.trash.checkpoint.interval&lt;/name&gt;</span><br><span class="line">&lt;value&gt;120&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">无需重启集群，在哪个机器配置的，在哪个机器执行命令就生效。回收站默认位置在：/user/用户名(hadoop)/.Trash</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h2 id="HDFS-储存"><a href="#HDFS-储存" class="headerlink" title="HDFS 储存"></a>HDFS 储存</h2><ol>
+<li><p>HDFS 副本块数量的配置</p>
+<p>可以在上传文件的时候，临时决定被上传文件以多少个副本存储</p>
+<p>​<code>hadoop fs -D dfs.replication=2 -put test.txt /tmp/</code> ​如该命令，就可以在上传 <code>test.txt</code> ​文件时，临时设置其副本数为 2.</p>
+<p>对于已经存在 HDFS 的文件，修改 <code>dfs.replication</code> ​属性不会生效，可通过命令 <code>hadoop fs -setrep [-R] 2 path</code> ​将指定 path 的内容将会被修改为 2 个副本储存。<code>-R</code> ​选项表示对子目录也生效。</p>
+</li>
+<li><p>fsck 命令检查文件的副本数</p>
+<p>​<code>hdfs dfs path [-file[-blocks[-locations]]]</code>​</p>
+<p>​<code>-files</code> ​可以列出路径内的文件状态</p>
+<p>​<code>-files -blocks</code> ​输出文件块报告(几个块，多少副本)</p>
+<p>​<code>-files -blocks -locations</code> ​输出每一个 block 的详情</p>
+</li>
+</ol>
+<h2 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h2><p>node1:8088</p>
+<ul>
+<li><p>启动 historyserver</p>
+<p>​<code>mapred --daemon start historyserver</code>​</p>
+</li>
+</ul>
+<h2 id="HIVE"><a href="#HIVE" class="headerlink" title="HIVE"></a>HIVE</h2><p>Apache Hive 其 2 大主要组件就算:SQL 解析器以及元数据存储</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20230923171040-373ubiv.png">​</p>
+<h3 id="Hive-架构图"><a href="#Hive-架构图" class="headerlink" title="Hive 架构图"></a>Hive 架构图</h3><p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20230923171247-kb02853.png">​</p>
+<ul>
+<li><p>元数据存储</p>
+<p>存储在关系数据库如 mysql&#x2F;derby 中。Hive 中的元数据包括表的名字，表的列和分区及其属性，表的属性（是否为外部表等），表的数据所在目录等。<br><em>Hive 提供了 Metastore 服务进程提供元数据管理功能</em></p>
+</li>
+<li><p>Driver 驱动程序，包括语法解析器、计划编译器、优化器、执行器</p>
+<p>完成 HQL 查询语句从词法分析、语法分析、编译、优化以及查询计划的生成。生成的查询计划存储在 HDFS 中，并在随后有执行引擎调用执行。</p>
+<p><em>这部分内容不是具体的服务进程，而是封装在 Hive 所依赖的 Jar 文件即 Java 代码中。</em></p>
+</li>
+<li><p>用户接口</p>
+<p>包括 CLI、JDBC&#x2F;ODBC、WebGUI。其中，CLI(command line interface)为 shell 命令行；Hive 中的 Thrift 服务器允许外部客户端通过网络与 Hive 进行交互，类似于 JDBC 或 ODBC 协议。WebGUI 是通过浏览器访问 Hive。</p>
+<p><em>Hive 提供了 Hive Shell、 ThriftServer 等服务进程向用户提供操作接口</em></p>
+</li>
+<li><p>启动 hive</p>
+<ul>
+<li><p>启动元数据管理服务(必须启动，在 hive 目录下启动)</p>
+<ul>
+<li>前台启动 <code>bin/hive --service metastore</code>​​</li>
+<li>后台启动 <code>nohup bin/hive --service metastore &gt;&gt; logs/metastore.log 2&gt;&amp;1 &amp;</code>​​</li>
+</ul>
+</li>
+<li><p>启动客户端</p>
+<p>​<code>Hive Shell方式(可以直接写SQL) bin/hive</code>​​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231008212509-dxrzicv.png">​</p>
+</li>
+<li><p>‍</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Hive-使用语法"><a href="#Hive-使用语法" class="headerlink" title="Hive 使用语法"></a>Hive 使用语法</h2><h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><ul>
+<li><p>创建数据库</p>
+<p>​<code>create database if not exists myhive;</code>​ 创建名为 myhive 的数据库</p>
+</li>
+<li><p>查看数据库详细信息</p>
+<p>desc database myhive</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20230925112239-v8itquv.png">​</p>
+</li>
+<li><p>创建数据库并指定 hdfs 存储位置</p>
+<p>​<code>create database myhive2 location &#39;user/hive/myhive2&#39;;</code>​</p>
+</li>
+<li><p>删除一个空数据库，如果数据库下有数据表，那么就会报错</p>
+<p>​<code>drop database myhive;</code>​​</p>
+</li>
+<li><p>强制删除数据库</p>
+<p>​<code>drop database myhive2 cascade;</code>​​</p>
+</li>
+<li><p>内部表（CREATE TABLE table_name ……）<br>未被 external 关键字修饰的即是内部表， 即普通表。 内部表又称管理表,内部表数据存储的位置由 hive.metastore.warehouse.dir 参数决定（默认：&#x2F;user&#x2F;hive&#x2F;warehouse），<u>删除内部表会直接删除元数据（metadata）及存储数据，因此内部表不适合和其他工具共享数据。</u></p>
+</li>
+<li><p>外部表（CREATE EXTERNAL TABLE table_name ……LOCATION……）<br>被 external 关键字修饰的即是外部表， 即关联表。<br>外部表是指表数据可以在任何位置，通过 LOCATION 关键字指定。 数据存储的不同也代表了这个表在理念是并不是 Hive 内部管理的，而是可以随意临时链接到外部数据上的。<br>所以，<u>在删除外部表的时候， 仅仅是删除元数据（表的信息），不会删除数据本身。</u></p>
+<ol>
+<li><p>先创建外部表，然后移动数据刀 LOCATION 目录</p>
+<ul>
+<li>检查 <code>hadoop fs -ls /tmp</code>​，确认不存在 <code>/tmp/test_ext1</code> ​目录</li>
+<li>创建外部表：<code>create external table test_ext1(id int,name string) row format delimited fields terminated by &#39;\t&#39; location &#39;/tmp/test_ext1&#39;;</code>​</li>
+<li>​<code>select * from test_ext1</code> ​空结果，无数据</li>
+<li>上传数据:<code>hadoop fs -put test_external.txt /tmp/test_ext1/</code>​</li>
+<li>​<code>select * from test_ext1</code>​，即可看到数据</li>
+</ul>
+</li>
+<li><p>先存在数据，后创建外部表</p>
+<ul>
+<li>​<code>hadoop fs -mkdir /tmp/test_ext2</code>​</li>
+<li>​<code>hadoop fs -put test_external.txt /tmp/test_ext2/</code>​</li>
+<li>​<code>create external table test_ext2(id int name string) row format delimited fields terminated by &#39;\t&#39; location &#39;/tmp/test_ext2&#39;;</code>​</li>
+<li>​<code>select * from test_ext2;</code>​</li>
+</ul>
+</li>
+</ol>
+<p>数据在 HDFS 中以明文形式存在</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231009090649-lyq2j38.png">​</p>
+</li>
+<li><p>自定义分隔符</p>
+<p>​<code>create table myhive.stu2(id int,name string)row format delimited fields terminated by &#39;\t&#39;;</code>​</p>
+</li>
+<li><p>内外部表转换</p>
+<ul>
+<li><p>内转外</p>
+<p>​<code>alter table stu set tblproperties(&#39;EXTERNAL&#39;=&#39;TRUE&#39;);</code>​</p>
+</li>
+<li><p>外转内</p>
+<p>​<code>alter table stu set tblproperties(&#39;EXTERNAL&#39;=&#39;FALSE&#39;);</code>​</p>
+</li>
+</ul>
+</li>
+<li><p>hive 表数据导出 -insert overwrite 方式</p>
+<ul>
+<li><p>语法 <code>insert overwrite [local] directory &#39;path&#39; select_statement1 FROM from_statement;</code>​</p>
+</li>
+<li><p>将查询的结果导出到本地-使用默认分隔符</p>
+<p>​<code>insert overwrite local diretory &#39;/home/hadoop/export1&#39; select  * from myhive.test_load;</code>​</p>
+</li>
+<li><p>将查询的结果导出到本地-指定分隔符</p>
+<p>​<code>insert overwrite local directory &#39;/home/hadoop/export2&#39; row format delimited fields terminated by &#39;\t&#39; select * from myhive.test_load;</code>​</p>
+</li>
+<li><p>将查询的结果导出到 HDFS 上(不带 local 关键字)</p>
+<p>​<code>insert overwrite directory &#39;/tmp/export&#39; row format delimited fields terminated by &#39;\t&#39; select * from myhive.test_load;</code>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="分区表"><a href="#分区表" class="headerlink" title="分区表"></a>分区表</h4><p>可以把大的文件切割划分成一个个的小的文件，每次操作一个小的文件就会很容易</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231016202629-9hjdyqv.png" title="单分区表">​​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231016202655-hpo45gx.png" title="多分区表(三级分区)">​</p>
+<p>基本语法:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 创建分区语法</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tablename(...) partitioned <span class="keyword">by</span> (分区列 列类型,...) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"># 创建一个表带多个分区</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score2(s_id string,c_id string,s_score <span class="type">int</span>) partitioned <span class="keyword">by</span> (<span class="keyword">year</span> string,<span class="keyword">month</span> string,<span class="keyword">day</span> string) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line"># 加载数据到分区表中</span><br><span class="line">load data <span class="keyword">local</span> inpath <span class="string">&#x27;/export/server/hivedatas/score.txt&#x27;</span> <span class="keyword">into</span> <span class="keyword">table</span> score <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202004&#x27;</span>);</span><br><span class="line"># 加载数据到一个多分区的表中</span><br><span class="line">load data <span class="keyword">local</span> inpath <span class="string">&#x27;/export/server/hivedatas/score.txt&#x27;</span> <span class="keyword">into</span> <span class="keyword">table</span> score2 <span class="keyword">partition</span> (<span class="keyword">year</span><span class="operator">=</span><span class="string">&#x27;2020&#x27;</span>,<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;04&#x27;</span>,<span class="keyword">day</span><span class="operator">=</span><span class="string">&#x27;01&#x27;</span>);</span><br><span class="line"># 查看分区</span><br><span class="line"><span class="keyword">show</span> partitions score;</span><br><span class="line"># 添加一个分区</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score <span class="keyword">add</span> <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202004&#x27;</span>);</span><br><span class="line"># 同时添加多个分区 (添加分区之后就可以在hdfs文件系统当中看到表下面多了一个文件夹)</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score <span class="keyword">add</span> <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202004&#x27;</span>) <span class="keyword">partition</span> (<span class="keyword">month</span> <span class="operator">=</span> <span class="string">&#x27;202005&#x27;</span>);</span><br><span class="line"># 删除分区</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score <span class="keyword">drop</span> <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202006&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="分桶表"><a href="#分桶表" class="headerlink" title="分桶表"></a>分桶表</h4><p>分桶和分区一样也是一种通过改变表的存储模式，从而完成对表优化的一种调优方式，但和分区不同，分区是将表拆分到不同的子文件夹中进行存储，而分桶是将表拆分到固定数量的不同文件中进行存储。</p>
+<ul>
+<li><p>分摊表创建</p>
+<p>开启分桶的自动优化 (自动匹配 reduce task 数量和桶数量一致)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> hive.enforce.bucketing<span class="operator">=</span><span class="literal">true</span>;</span><br><span class="line"># 创建分桶表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course (c_id string,c_name string,t_id string) clustered <span class="keyword">by</span>(c_id) <span class="keyword">into</span> <span class="number">3</span> buckets <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分桶表数据加载</p>
+<p>桶表的数据加载，只能通过 <code>insert select</code> ​所以比较好的方法是:</p>
+<ol>
+<li>创建一个临时表，通过 <code>load data</code> ​加载数据进入表</li>
+<li>然后通过 <code>insert select</code> ​从临时表向桶表插入数据</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 创建普通表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course_common (c_id string,c_name string,t_id string) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line"># 普通表中加载数据</span><br><span class="line">load data <span class="keyword">local</span> inpath <span class="string">&#x27;/export/server/hivedatas/course.txt&#x27;</span> <span class="keyword">into</span> <span class="keyword">table</span> course_common;</span><br><span class="line"># 通过<span class="keyword">insert</span> overwrite 给桶表加载数据</span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> course <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> course_common cluster <span class="keyword">by</span>(c_id);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>在创建分桶表时注意<em>​ cluster</em> 的写法:<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231016214724-7zaokpe.png">​</p>
+<ul>
+<li><p>为什么不可以用 <code>load data</code> ​必须用 <code>insert select</code> ​插入数据</p>
+<p>问题在于:如何将数据划分，划分的规则是什么?</p>
+<p>数据的划分是<strong>基于分桶列的值进行 hash 取模</strong>来决定的，由于 <code>load data</code> ​不会触发 <code>MapReduce</code> ​也就是没有计算过程，无法执行 Hash 算法，只是简单的移动数据而已，所以无法用于分桶表数据插入。</p>
+</li>
+<li><p>性能提升</p>
+<p>分区表:在指定分区列的前提下，减少被操作的数据量，从而提示性能。</p>
+<p>分桶表:基于分桶列的特定操作，如:过滤、JOIN、分组、均可带来性能提升</p>
+</li>
+</ul>
+<h4 id="修改表操作"><a href="#修改表操作" class="headerlink" title="修改表操作"></a>修改表操作</h4><ul>
+<li><p>表重命名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> old_table_name rename <span class="keyword">to</span> new_table_name;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改表属性值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">SET</span> TBLPROPERTIES table_properties;</span><br><span class="line"># table_properties:(property_name <span class="operator">=</span> property_value,property_name <span class="operator">=</span> property_value,...)</span><br><span class="line"># <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">SET</span> TBLPROPERTIES(&quot;EXTERNAL&quot;<span class="operator">=</span>&quot;TRUE&quot;);  修改内外部表属性</span><br><span class="line"># <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">SET</span> TBLPROPERTIES (<span class="string">&#x27;comment&#x27;</span> <span class="operator">=</span> new_comment); 修改表注释</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加分区</p>
+<p>新分区添加了但是空的没数据，需要手动添加或上传数据文件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tablename <span class="keyword">add</span> <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202002&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>修改分区(修改元数据记录，HDFS 的实体文件夹不会改名但是在元数据中是改名了的,<strong>内部表会改，外部表不会改</strong>)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tablename <span class="keyword">partition</span> (<span class="keyword">month</span> <span class="operator">=</span> <span class="string">&#x27;202003&#x27;</span>) rename <span class="keyword">to</span> <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202202&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>删除分区(对于<strong>内部表</strong>而言删除元数据，数据本身还在，外部表则不在）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tablename <span class="keyword">drop</span> partiton (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202104&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> columns (v1 <span class="type">int</span>,v2 string);</span><br></pre></td></tr></table></figure></li>
+<li><p>修改列名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> test_change change v1 v1newname <span class="type">int</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>删除表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> tablename;</span><br></pre></td></tr></table></figure></li>
+<li><p>清空表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">truncate</span> <span class="keyword">table</span> tablename;</span><br></pre></td></tr></table></figure>
+
+<p>ps:只可以清空内部表</p>
+</li>
+</ul>
+<h4 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h4><h5 id="SELECT-基本查询"><a href="#SELECT-基本查询" class="headerlink" title="SELECT 基本查询"></a>SELECT 基本查询</h5><ul>
+<li><p>查询所有</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> orderdb.orders;</span><br></pre></td></tr></table></figure></li>
+<li><p>查询单列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> orderid,totalmoney,username,useraddres,paytime <span class="keyword">from</span> orderdb.orders;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询数据量</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> orderdb.orders;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>过滤广东省订单</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> orderdb.orders <span class="keyword">where</span> useraddress <span class="keyword">like</span> <span class="string">&#x27;%广东%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>找出广东省单笔营业额最大的订单</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> orderdb.orders <span class="keyword">where</span> useraddress <span class="keyword">like</span> <span class="string">&#x27;%广东%&#x27;</span> <span class="keyword">order</span> <span class="keyword">by</span> totalmoney <span class="keyword">desc</span> limit <span class="number">1</span>;</span><br><span class="line"># <span class="keyword">desc</span> 降序，limit <span class="number">1</span> 最大的一个</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="分组、聚合"><a href="#分组、聚合" class="headerlink" title="分组、聚合"></a>分组、聚合</h5><ul>
+<li><p>统计未支付、已支付各自的人数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ispay,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> orderdb.orders <span class="keyword">group</span> <span class="keyword">by</span> ispay;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在已付款订单中，统计每个用户最高的一笔消费金额</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> userid,<span class="built_in">MAX</span>(totalmoney) <span class="keyword">as</span> max_money <span class="keyword">from</span> orderdb.orders <span class="keyword">where</span> ispay <span class="operator">=</span> <span class="number">1</span> <span class="keyword">group</span> <span class="keyword">by</span> userid;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>统计每个用户的平均订单消费额</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> userid,<span class="built_in">avg</span>(totalmoney) <span class="keyword">as</span> avg_money <span class="keyword">from</span> orderdb.orders <span class="keyword">group</span> <span class="keyword">by</span> userid <span class="keyword">having</span> avg_money <span class="operator">&gt;</span> <span class="number">10000</span>;</span><br><span class="line"># <span class="keyword">having</span> 表示筛选，与<span class="keyword">where</span>不同;<span class="keyword">where</span>在分组前进行筛选的,而<span class="keyword">having</span>是在分组后进行筛选</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h5><ul>
+<li><p>JOIN 订单表和用户表，找出用户名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 内关联，目的是获取来自 orders 表的订单编号 (orderid)、用户ID (userid)，以及与之相关联的用户表中的用户名 (username)。</span><br><span class="line"><span class="keyword">select</span> o.orderid,o.userid,u.username,o.totalmoney,o.useraddress,o.paytime <span class="keyword">from</span> orderdb.orders o <span class="keyword">join</span> orderdb.users u <span class="keyword">on</span> o.userid <span class="operator">=</span> u.userid;</span><br></pre></td></tr></table></figure></li>
+<li><p>左外关联，订单表和用户表，找出用户名</p>
+<p><em>左连接 (<em>​<code>*LEFT JOIN*</code>​</em>) 会返回左边表（</em>​<code>*orders*</code>​<em>）中所有的记录，同时匹配右边表（</em>​<code>*users*</code>​<em>）中相应条件的记录。如果右边表中没有匹配的记录，那么将会返回 ​</em>​<code>*NULL*</code>​<em>​ 值。</em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> o.orderid,o.userid,u.username,o.totalmoney,o.useraddres,o.paytime <span class="keyword">from</span> orderdb.orders o <span class="keyword">left</span> <span class="keyword">join</span> orderdb.users u <span class="keyword">on</span> o.userid <span class="operator">=</span> u.userid;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="RLIKE"><a href="#RLIKE" class="headerlink" title="RLIKE"></a>RLIKE</h5><p>relike 关键字，可以供用户使用正则和数据进行匹配</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查找广东省的数据</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> orderdb.orders <span class="keyword">where</span> useraddress rlike <span class="string">&#x27;.*广东.*&#x27;</span>;</span><br><span class="line"># 查找用户地址是：xx省 xx市 xx区的数据</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> orderdb.orders <span class="keyword">where</span> useraddress rlike <span class="string">&#x27;..省 ..市 ..区&#x27;</span>;</span><br><span class="line"># 查找用户姓为张、王、邓</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> orderdb.orders <span class="keyword">where</span> username rlike <span class="string">&#x27;[张王邓]\\S+&#x27;</span>;</span><br><span class="line"># 查找手机号符合:<span class="number">188</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="number">0</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span> 规则</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> orderdb.orders <span class="keyword">where</span> userphone rlike <span class="string">&#x27;188\\S&#123;4&#125;0\\S&#123;3&#125;&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="UNION-联合"><a href="#UNION-联合" class="headerlink" title="UNION 联合"></a>UNION 联合</h5><p>用于将多个 <code>select</code> ​语句的结果组合成单个结果集。每个 <code>select</code> ​语句返回的列的数量和名称必须相同。否则将引发架构错误。</p>
+<p>基础语法:</p>
+<blockquote>
+<p>select …</p>
+<p>union [all]</p>
+<p>select …</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 联合两个查询结果集</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> course <span class="keyword">where</span> t_id <span class="operator">=</span> <span class="string">&#x27;周杰伦&#x27;</span>;</span><br><span class="line">	<span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> course <span class="keyword">where</span> t_id <span class="operator">=</span> <span class="string">&#x27;王力宏&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>union 默认有去重功能:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 直接联合两个同样的查询结果</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> course</span><br><span class="line"><span class="keyword">union</span></span><br><span class="line">selcet <span class="operator">*</span> <span class="keyword">from</span> course;</span><br><span class="line"># 不需要去重效果</span><br><span class="line">selcet <span class="operator">*</span> <span class="keyword">from</span> course</span><br><span class="line">	<span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> course;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>其他写法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">union</span>写在<span class="keyword">from</span>中</span><br><span class="line">selcet t_id,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span></span><br><span class="line">(</span><br><span class="line">	<span class="keyword">select</span> t_id <span class="keyword">from</span> myhive.course <span class="keyword">where</span> t_id <span class="operator">=</span><span class="string">&#x27;周杰伦&#x27;</span></span><br><span class="line">		<span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line">	<span class="keyword">select</span> t_id <span class="keyword">from</span> myhive.course <span class="keyword">where</span> t_id <span class="operator">=</span> <span class="string">&#x27;王力宏&#x27;</span></span><br><span class="line">) <span class="keyword">as</span> u <span class="keyword">group</span> <span class="keyword">by</span> t_id;</span><br><span class="line"># 用于<span class="keyword">insert</span> selcet中</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> myhive.course2 <span class="keyword">like</span> myhive.course;</span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> myhive.course2</span><br><span class="line">	selcet <span class="operator">*</span> <span class="keyword">from</span> myhive.course</span><br><span class="line">		<span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line">	selcet <span class="operator">*</span> <span class="keyword">from</span> myhive.course;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="抽样操作"><a href="#抽样操作" class="headerlink" title="抽样操作"></a>抽样操作</h5><p>在大体量的数据环境下,对于表的一个简单 select * 都会非常慢，哪怕看很少的数据都会走 MapReduce 流程，Hive 提供的快速抽样的语法，可以快速从大表中随机抽取一些数据供用户查看</p>
+<h6 id="TABLESAMPLE-函数"><a href="#TABLESAMPLE-函数" class="headerlink" title="TABLESAMPLE 函数"></a>TABLESAMPLE 函数</h6><ul>
+<li><p>语法 1，基于随机分桶抽样:</p>
+<p>​<code>select ... from tb1 tablesample(bucket x out of y on (colname | rand())</code>​</p>
+<ul>
+<li>y 表示将表数据随机划分成 y 粉(y 个桶）</li>
+<li>x 表示从 y 里面随机抽取 x 份数据作为取样</li>
+<li>colname 表示随机的依据基于某个列的值</li>
+<li>rand()表示随机的依据基于整行</li>
+</ul>
+<p>示例:</p>
+<p>注意:</p>
+<p>1.<em>使用 colname 作为随机依据，则其它条件不变下，每次抽样结果一致；</em></p>
+<p>2.<em>使用 rand()作为随机依据，每次抽样结果都不同</em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> username,orderid,totalmoney <span class="keyword">from</span> orderdb.orders tableample(bucket <span class="number">1</span><span class="keyword">out</span> <span class="keyword">of</span> <span class="number">10</span> <span class="keyword">on</span> username);</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> orderdb.orders tableample(bucket <span class="number">1</span> <span class="keyword">out</span> <span class="keyword">of</span> <span class="number">10</span> <span class="keyword">on</span> rand());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>语法 2，基于数据块抽样</p>
+<p>​<code>select ... from tb1 tableample(num rows | num percent | num(K|M|G));</code>​</p>
+<ul>
+<li>num rows 表示抽样 num 条数据</li>
+<li>num perfect 表示抽样 num 百分百比例的数据</li>
+<li>num(K|M|G)表示抽取 num 大小的数据，单位可以是 K、M、G 表示 KB、MB、GB</li>
+</ul>
+<p>注意:</p>
+<p><em>使用这种语法抽样，条件不变的话，每一次抽样的结果都一致；即无法做到随机，只是按照数据顺序从前向后取。</em></p>
+</li>
+</ul>
+<h5 id="Virtual-Columns-虚拟列"><a href="#Virtual-Columns-虚拟列" class="headerlink" title="Virtual Columns 虚拟列"></a>Virtual Columns 虚拟列</h5><p>虚拟列是 Hive 内置的可以在查询语句中使用的特殊标记，可以查询数据本身的详细参数。Hive 目前可用 3 个虚拟列:</p>
+<ul>
+<li><p>INPUT_FILE_NAME,显示数据行所在的具体文件</p>
+</li>
+<li><p>BLOCK_OFFSET_INSIDE_FILE,显示数据行所在文件的偏移量</p>
+</li>
+<li><p>ROW_OFFSET_INSIDE_BLOCK,显示数据所在 HDFS 块的偏移量</p>
+<ul>
+<li>此虚拟列需要设置:SET hive.exec.rowoffset&#x3D;true 才可使用</li>
+</ul>
+</li>
+</ul>
+<p>示例:</p>
+<p><code>select orderId,userName,INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE from orders;</code>​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231021110405-pjk0512.png">​</p>
+<h3 id="Hive-函数"><a href="#Hive-函数" class="headerlink" title="Hive 函数"></a>Hive 函数</h3><h4 id="函数分类"><a href="#函数分类" class="headerlink" title="函数分类"></a>函数分类</h4><p>分为两大类:<strong>内置函数</strong>(Built-in Functions)、<strong>用户自定义函数 UDF</strong>（User-Defined Functions):</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231021110946-bwmmt6q.png">​</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions">官方文档<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li><p>查看函数列表</p>
+<p>使用 <strong>show function</strong> 查看当下可用的所有函数</p>
+<p>通过 <strong>describe function extended funcname</strong> 来查看函数的使用方式</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231021125639-45fofom.png">​</p>
+</li>
+<li><p>Mathmatical Functions 部分数学函数</p>
+<blockquote>
+<p>–取整函数:round 返回 double 类型的整数值部分（四舍五入）</p>
+<p>select round(3.1415926);</p>
+<p>–指定精度取证函数:round(double a,int d)返回指定精度 d 的 double 类型</p>
+<p>select round(3.1415926,4);</p>
+<p>–取随机数:rand()每次执行都不一样，返回一个 0-1 范围内的随机数</p>
+<p>select rand();</p>
+<p>–指定种子取随机函数:rand(int seed)得到一个稳定的随机序列</p>
+<p>select rand(3);</p>
+<p>–求数字的绝对值</p>
+<p>select abs(-3);</p>
+<p>–得到 pi 值(小数点后 15 位精度)</p>
+<p>select pi();</p>
+</blockquote>
+</li>
+<li><p>Collection Functions 集合函数</p>
+<table>
+<thead>
+<tr>
+<th>Return Type</th>
+<th>Name(Signature)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>size(Map&lt;K.V&gt;)</td>
+<td>返回 map 类型的元素个数</td>
+</tr>
+<tr>
+<td>int</td>
+<td>size(Array<T>)</T></td>
+<td>返回 array 类型的元素个数</td>
+</tr>
+<tr>
+<td>array<K></K></td>
+<td>map_keys(Map&lt;K.V&gt;)</td>
+<td>返回 map 内的全部 key（得到的是 array）</td>
+</tr>
+<tr>
+<td>array<V></V></td>
+<td>map_values(Map&lt;K.V&gt;)</td>
+<td>返回 map 内的全部 value（得到的是 array）</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>array_contains(Array<T>, value)</T></td>
+<td>如果 array 包含指定 value，返回 True</td>
+</tr>
+<tr>
+<td>array<t></t></td>
+<td>sort_array(Array<T>)</T></td>
+<td>根据数组元素的自然顺序按升序对输入数组进行排序并返回它</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Type Conversion Functions 类型转换函数</p>
+<table>
+<thead>
+<tr>
+<th>Return Type</th>
+<th>Name(Signature)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>binary</td>
+<td>binary(string</td>
+<td>binary)</td>
+</tr>
+<tr>
+<td>Expected “&#x3D;” to follow “type”</td>
+<td>cast(expr as <type>)</type></td>
+<td>将表达式 expr 的结果转换为给定类型。例如，cast(‘1’ as BIGINT） 会将字符串 ‘1’ 转换为整数表示。如果转换不成功，则返回 null。对于 cast(expr as boolean)，对于非空字符串将会返回 True</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Date Functions 日期函数 - 部分</p>
+<table>
+<thead>
+<tr>
+<th>Return Type</th>
+<th>Name(Signature)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>timestamp</td>
+<td>current_timestamp()</td>
+<td>返回当前时间戳。在同一个查询中对 current _ time 戳的所有调用都返回相同的值。</td>
+</tr>
+<tr>
+<td>date</td>
+<td>current_date</td>
+<td>返回当前日期。在同一个查询中对 current_date 戳的所有调用都返回相同的值。</td>
+</tr>
+<tr>
+<td>2.1.0 版本之前返回 string 现在版本返回 date</td>
+<td>to_date(string timestamp)</td>
+<td>时间戳转日期</td>
+</tr>
+<tr>
+<td>int</td>
+<td>year(string date)quarter(date&#x2F;timestamp&#x2F;string)month(string date)day(string date)dayofmonth(date)hour(string date)minute(string date)second(string date)weekofyear(string date)</td>
+<td>得到给定时间的：年得到给定时间的：季度得到给定时间的：月得到给定时间的：日得到给定时间的：当前月份第几天得到给定时间的：小时得到给定时间的：分钟得到给定时间的：秒得到给定时间的：本年第几周</td>
+</tr>
+<tr>
+<td>int</td>
+<td>datediff(string enddate, string startdate)</td>
+<td>返回 enddate 到 startdate 之间的天数</td>
+</tr>
+<tr>
+<td>2.1.0 版本之前返回 string 现在版本返回 date</td>
+<td>date_add(date&#x2F;timestamp&#x2F;string startdate, tinyint&#x2F;smallint&#x2F;int days)date_sub(date&#x2F;timestamp&#x2F;string startdate, tinyint&#x2F;smallint&#x2F;int days)</td>
+<td>日期相加: date_add(‘2008-12-31’, 1) &#x3D; ‘2009-01-01’.日期相减: date_sub(‘2008-12-31’, 1) &#x3D; ‘2008-12-30’.</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Condition Functions 条件函数</p>
+<table>
+<thead>
+<tr>
+<th>Return Type</th>
+<th>Name(Signature)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T</td>
+<td>if(boolean testCondition, T valueTrue, T valueFalseOrNull)</td>
+<td>如果 testCondition 为 true，则返回 valueTrue，否则返回 valueFalseOrNull。</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>isnull( a )</td>
+<td>如果 a 为 NULL，则返回 true，否则返回 false。</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>isnotnull ( a )</td>
+<td>如果 a 不为 NULL，则返回 true，否则返回 false。</td>
+</tr>
+<tr>
+<td>T</td>
+<td>nvl(T value, T default_value)</td>
+<td>如果 value 为 null，则返回 default_value，否则 value。</td>
+</tr>
+<tr>
+<td>T</td>
+<td>COALESCE(T v1, T v2, …)</td>
+<td>返回第一个不是 NULL 的 v，如果所有 v 都是 NULL，则返回 NULL。</td>
+</tr>
+<tr>
+<td>T</td>
+<td>CASE a WHEN b THEN c [WHEN d THEN e]* [ELSE f] END</td>
+<td>当 a &#x3D; b 时，返回 c;  [当 a &#x3D; d 时，返回 e]*  ;否则返回 f。</td>
+</tr>
+<tr>
+<td>T</td>
+<td>CASE WHEN a THEN b [WHEN c THEN d]* [ELSE e] END</td>
+<td>When a &#x3D; true, returns b; when c &#x3D; true, returns d; else returns e.a 可以是表达式，如 1&#x3D;1</td>
+</tr>
+<tr>
+<td>T</td>
+<td>nullif( a, b )</td>
+<td>如果 a&#x3D;b，则返回 NULL;否则返回 a 。等价：CASE WHEN a &#x3D; b then NULL else a</td>
+</tr>
+<tr>
+<td>void</td>
+<td>assert_true(boolean condition)</td>
+<td>如果 boolean_condition 结果不为 True，则引发异常报错比如：select assert_true (2&lt;1).</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>String Functions 字符串函数</p>
+<table>
+<thead>
+<tr>
+<th>Return Type</th>
+<th>Name(Signature)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>string</td>
+<td>concat(string</td>
+<td>binary A, string</td>
+</tr>
+<tr>
+<td>string</td>
+<td>concat_ws(string SEP, string A, string B…)</td>
+<td>同 concat，但是可以自己定义字符串之间的分隔符（SEP）</td>
+</tr>
+<tr>
+<td>int</td>
+<td>length(string A)</td>
+<td>字符串长度</td>
+</tr>
+<tr>
+<td>string</td>
+<td>lower(string A)upper(string a)</td>
+<td>全部转小写全部转大写</td>
+</tr>
+<tr>
+<td>string</td>
+<td>trim(string A)</td>
+<td>返回从 A 的两端裁剪空格得到的字符串。例如，trim(‘ foobar ’)的结果是‘ foobar’</td>
+</tr>
+<tr>
+<td>array</td>
+<td>split(string str, string pat)</td>
+<td>按照 pat 分隔字符串，pat 是正则表达式</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Data Masking Functions 数据脱敏函数 -部分</p>
+<table>
+<thead>
+<tr>
+<th>Return Type</th>
+<th>Name(Signature)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>string</td>
+<td>mask_hash(string|char|varchar str)</td>
+<td>对字符串进行 hash 加密非字符串加密会得到 NULL</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Misc. Functions 其他函数 -部分</p>
+<table>
+<thead>
+<tr>
+<th>Return Type</th>
+<th>Name(Signature)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>hash(a1[, a2…]))</td>
+<td>返回参数的 hash 数字</td>
+</tr>
+<tr>
+<td>string</td>
+<td>current_user()</td>
+<td>返回当前登录用户</td>
+</tr>
+<tr>
+<td>string</td>
+<td>current_database()</td>
+<td>返回当前选择的数据库</td>
+</tr>
+<tr>
+<td>string</td>
+<td>version()</td>
+<td>返回当前 hive 版本</td>
+</tr>
+<tr>
+<td>string</td>
+<td>md5(string&#x2F;binary)</td>
+<td>返回给定参数的 md5 值</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>基于 hadoop 和 hive 实现聊天数据系统分析，构建聊天数据分析表</p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><ul>
+<li>统计今日总消息量</li>
+<li>统计今日每小时消息量、发送和接收用户数</li>
+<li>统计今日各地区发送消息数据量</li>
+<li>统计今日发送消息和接收消息的用户数</li>
+<li>统计今日发送消息最多的 top10 用户</li>
+<li>统计今日接收消息最多的 Top10 用户</li>
+<li>统计发送人的手机型号分布情况</li>
+<li>统计发送人的设备操作系统分布情况</li>
+</ul>
+<h3 id="数据内容"><a href="#数据内容" class="headerlink" title="数据内容"></a>数据内容</h3><ul>
+<li><p>大小:30w 条数据</p>
+</li>
+<li><p>列分割符：hive 默认分隔符’\001’</p>
+</li>
+<li><p>数据字典及样例数据</p>
+<table>
+<thead>
+<tr>
+<th>消息时间</th>
+<th>发件人昵称</th>
+<th>发件人账号</th>
+<th>发件人性别</th>
+<th>发件人 IP</th>
+<th>发件人系统</th>
+<th>发件人手机型号</th>
+<th>发件人网络制式</th>
+<th>发件人 GPS</th>
+<th>收件人昵称</th>
+<th>收件人 IP</th>
+<th>收件人账号</th>
+<th>收件人系统</th>
+<th>收件人手机型号</th>
+<th>收件人网络制式</th>
+<th>收件人 GPS</th>
+<th>收件人性别</th>
+<th>消息类型</th>
+<th>双方距离</th>
+<th>消息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2021-11-0115:11:33</td>
+<td>古博易</td>
+<td>14747877194</td>
+<td>男</td>
+<td>48.147.134.255</td>
+<td>Android 8.0</td>
+<td>小米 Redmi K30</td>
+<td>4G</td>
+<td>94.704577,36.247553</td>
+<td>莱优</td>
+<td>97.61.25.52</td>
+<td>17832829395</td>
+<td>IOS 10.0</td>
+<td>Apple iPhone 10</td>
+<td>4G</td>
+<td>84.034145,41.423804</td>
+<td>女</td>
+<td>TEXT</td>
+<td>77.82KM</td>
+<td>天涯海角惆怅渡，牛郎织女隔天河。佛祖座前长顿首，只求共度一百年。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="建库建表"><a href="#建库建表" class="headerlink" title="建库建表"></a>建库建表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># 创建数据库</span><br><span class="line"><span class="keyword">create</span> database db_msg;</span><br><span class="line"># 切换数据库</span><br><span class="line">use db_msg;</span><br><span class="line"># 列举数据库</span><br><span class="line"><span class="keyword">show</span> databases;</span><br><span class="line"># 如果表存在就删除</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> if <span class="keyword">exists</span> db_msg.tb_msg_source;</span><br><span class="line"># 建表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_msg_source(</span><br><span class="line">msg_time string comment &quot;消息发送时间&quot;,</span><br><span class="line">sender_name string comment &quot;发送人昵称&quot;,</span><br><span class="line">sender_account string comment &quot;发送人账号&quot;,</span><br><span class="line">sender_sex string comment &quot;发送人性别&quot;,</span><br><span class="line">sender_ip string comment &quot;发送人ip地址&quot;,</span><br><span class="line">sender_os string comment &quot;发送人操作系统&quot;,</span><br><span class="line">sender_phonetype string comment &quot;发送人手机型号&quot;,</span><br><span class="line">sender_network string comment &quot;发送人网络类型&quot;,</span><br><span class="line">sender_gps string comment &quot;发送人的GPS定位&quot;,</span><br><span class="line">receiver_name string comment &quot;接收人昵称&quot;,</span><br><span class="line">receiver_ip string comment &quot;接收人IP&quot;,</span><br><span class="line">receiver_account string comment &quot;接收人账号&quot;,</span><br><span class="line">receiver_os string comment &quot;接收人操作系统&quot;,</span><br><span class="line">receiver_phonetype string comment &quot;接收人手机型号&quot;,</span><br><span class="line">receiver_network string comment &quot;接收人网络类型&quot;,</span><br><span class="line">receiver_gps string comment &quot;接收人的GPS定位&quot;,</span><br><span class="line">receiver_sex string comment &quot;接收人性别&quot;,</span><br><span class="line">msg_type string comment &quot;消息类型&quot;,</span><br><span class="line">distance string comment &quot;双方距离&quot;,</span><br><span class="line">message string comment &quot;消息内容&quot;</span><br><span class="line">);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="加载数据"><a href="#加载数据" class="headerlink" title="加载数据"></a>加载数据</h3><p>先上传文件到 linux 系统，再通过 load 加载数据到表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">load data <span class="keyword">local</span> inpath <span class="string">&#x27;/home/hadoop/chat_data-30w.csv&#x27;</span> overwrite <span class="keyword">into</span> <span class="keyword">table</span> tb_msg_source;</span><br><span class="line"># 验证结果</span><br><span class="line"><span class="keyword">select</span> msg_time,sender_name,sender_ip,sender_phonetype,receiver_name,receiver_network <span class="keyword">from</span> tb_msg_source limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022153626-c2qqlp0.png"></p>
+<h3 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ul>
+<li><ol>
+<li>当数据中有一些数据的字段为空，不是合法数据</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> msg_time,sender_name,sender_gps <span class="keyword">from</span> db_msg.tb_msg_source <span class="keyword">where</span> length(sender_gps) <span class="operator">=</span><span class="number">0</span> limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022153805-t365sqf.png"></p>
+<ul>
+<li>2.需求中，需要统计每天，每小时的消息量，但是数据中没有天和小时字段，只有整体时间字段，不好处理</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> msg_time <span class="keyword">from</span> db_msg.tb_msg_source limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>‍</p>
+<ul>
+<li>3.需求中，需要对经度和维度构建地区的可视化地图，但是数据中 GPS 经纬度为一个字段，不好处理</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sender_gps <span class="keyword">from</span> db_msg.tb_msg_source limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p><strong>需求：</strong></p>
+<ul>
+<li><p>需求 1 对字段为空的不合法数据进行过滤</p>
+<p>​<code>where</code> ​过滤 将为空的数据过滤掉</p>
+<p>​<code>where length(sender_gps)&gt;0</code>​</p>
+</li>
+<li><p>需求 2 通过时间字段构建聊天和小时字段</p>
+<p>​<code>date hour</code> ​函数 分别取时间和小时</p>
+<p>​<code>date(msg_time),hour(msg_time)</code>​</p>
+</li>
+<li><p>需求 3 从 GPS 的经纬度中提取经度和纬度</p>
+<p>​<code>split</code> ​函数 分割成数据再分别取前一二个</p>
+<p>​<code>split(sender_gps,&#39;,&#39;)[0];</code>​</p>
+</li>
+<li><p>需求 4 将 ETL 以后的结果保存到一张新的 Hive 表中</p>
+</li>
+</ul>
+<p><strong>实现:</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个新表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_msg_etl(</span><br><span class="line">msg_time string comment &quot;消息发送时间&quot;,</span><br><span class="line">sender_name string comment &quot;发送人昵称&quot;,</span><br><span class="line">sender_account string comment &quot;发送人账号&quot;,</span><br><span class="line">sender_sex string comment &quot;发送人性别&quot;,</span><br><span class="line">sender_ip string comment &quot;发送人ip地址&quot;,</span><br><span class="line">sender_os string comment &quot;发送人操作系统&quot;,</span><br><span class="line">sender_phonetype string comment &quot;发送人手机型号&quot;,</span><br><span class="line">sender_network string comment &quot;发送人网络类型&quot;,</span><br><span class="line">sender_gps string comment &quot;发送人的GPS定位&quot;,</span><br><span class="line">receiver_name string comment &quot;接收人昵称&quot;,</span><br><span class="line">receiver_ip string comment &quot;接收人IP&quot;,</span><br><span class="line">receiver_account string comment &quot;接收人账号&quot;,</span><br><span class="line">receiver_os string comment &quot;接收人操作系统&quot;,</span><br><span class="line">receiver_phonetype string comment &quot;接收人手机型号&quot;,</span><br><span class="line">receiver_network string comment &quot;接收人网络类型&quot;,</span><br><span class="line">receiver_gps string comment &quot;接收人的GPS定位&quot;,</span><br><span class="line">receiver_sex string comment &quot;接收人性别&quot;,</span><br><span class="line">msg_type string comment &quot;消息类型&quot;,</span><br><span class="line">distance string comment &quot;双方距离&quot;,</span><br><span class="line">message string comment &quot;消息内容&quot;,</span><br><span class="line">msg_day string comment &quot;消息日&quot;,</span><br><span class="line">msg_hour string comment &quot;消息小时&quot;,</span><br><span class="line">sender_lng <span class="keyword">double</span> comment &quot;经度&quot;,</span><br><span class="line">sender_lat <span class="keyword">double</span> comment &quot;纬度&quot;</span><br><span class="line">);</span><br><span class="line"># 使用<span class="keyword">insert</span> 将改好的需求插入到新表中</span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> db_msg.tb_msg_tb1</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="operator">*</span>,<span class="type">date</span>(msg_time) <span class="keyword">as</span> msg_day,<span class="keyword">hour</span>(msg_time) <span class="keyword">as</span> msg_hour,</span><br><span class="line">    split(sender_gps,<span class="string">&#x27;,&#x27;</span>)[<span class="number">0</span>] <span class="keyword">as</span> sender_lng,</span><br><span class="line">    split(sender_gps,<span class="string">&#x27;,&#x27;</span>)[<span class="number">1</span>] <span class="keyword">as</span> sender_lat</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_source</span><br><span class="line"><span class="keyword">where</span> length(sender_gps) <span class="operator">&gt;</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>完成清洗的新表(部分):</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022160503-33lkm31.png"></p>
+<ul>
+<li><p>ETL 概念</p>
+<ul>
+<li>E,Extract,抽取</li>
+<li>T,Transform,转换</li>
+<li>L,Load,加载</li>
+</ul>
+<p>从 A 抽取数据(E)，进行数据转换过滤(T),将结果加载到 B(L),就是 ETL</p>
+</li>
+</ul>
+<h3 id="需求指标统计"><a href="#需求指标统计" class="headerlink" title="需求指标统计"></a>需求指标统计</h3><ul>
+<li><p>指标 1：统计今日消息总量</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_total_msg_cnt comment <span class="string">&#x27;每日消息总量&#x27;</span> <span class="keyword">as</span> <span class="keyword">select</span> msg_day,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> total_msg_cnt <span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> msg_day;</span><br></pre></td></tr></table></figure>
+
+<p>‍</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022213652-y07ubnj.png">​</p>
+<p>‍</p>
+<p>‍</p>
+</li>
+<li><p>统计每小时消息量、发送和接收用户数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_hour_msg_cnt comment <span class="string">&#x27;每小时消息量趋势&#x27;</span> <span class="keyword">as</span> </span><br><span class="line">    <span class="keyword">select</span> msg_hour,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> total_msg_cnt,<span class="built_in">count</span>(<span class="keyword">distinct</span> sender_account) <span class="keyword">as</span> sender_user_cnt,<span class="built_in">count</span>(<span class="keyword">distinct</span> receiver_account) <span class="keyword">as</span> receiver_user_cnt</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> msg_hour;</span><br><span class="line"># <span class="keyword">as</span>：这表示接下来的部分是一个 <span class="keyword">SQL</span> 查询的结果将会被插入到新表中,<span class="built_in">count</span>(<span class="operator">*</span>)：统计所有行的数量，即总消息数。</span><br><span class="line"># <span class="keyword">group</span> <span class="keyword">by</span> msg_hour：这是一个分组操作，它将查询结果按照 msg_hour 字段进行分组，意味着所有具有相同 msg_hour 值的行会被聚合在一起，从而得到每个小时的统计数据。</span><br></pre></td></tr></table></figure>
+
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022215215-al5l3mk.png">​</p>
+<p>‍</p>
+</li>
+<li><p>需求 3：统计今日各地区发送消息总量</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_loc_cnt comment <span class="string">&#x27;每日各地区发送消息总量&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> msg_day,sender_lng,sender_lat,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> total_msg_cnt</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> msg_day, sender_lng, sender_lat;</span><br></pre></td></tr></table></figure>
+
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022220144-u08i9di.png">​</p>
+</li>
+<li><p>需求 4：统计今日发送和接收用户人数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_user_cnt comment <span class="string">&#x27;今日发送和接收用户人数&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> msg_day,<span class="built_in">count</span>(<span class="keyword">distinct</span> sender_account) <span class="keyword">as</span> sender_user_cnt,<span class="built_in">count</span>(<span class="keyword">distinct</span> receiver_account) <span class="keyword">as</span> receiver_user_cnt</span><br><span class="line">           <span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> msg_day;</span><br><span class="line"># 这里注意要加<span class="keyword">distinct</span>关键字，进行去重，每个人每天能发送多条消息</span><br></pre></td></tr></table></figure>
+
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022221019-o2plk8a.png">​</p>
+</li>
+<li><p>需求 5：统计发送消息条数最多的 Top10 用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_s_user_top10 comment <span class="string">&#x27;发送消息条数最多的top10用户&#x27;</span> <span class="keyword">as</span> </span><br><span class="line">    <span class="keyword">select</span> sender_name,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> sender_msg_cnt</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> sender_name <span class="keyword">order</span> <span class="keyword">by</span> sender_msg_cnt <span class="keyword">desc</span> limit <span class="number">10</span>;</span><br><span class="line"># <span class="keyword">desc</span> 表示降序排序，意味着数值越大的将会排在前面</span><br></pre></td></tr></table></figure>
+
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022221758-yypmyk7.png">​</p>
+</li>
+<li><p>需求 6：统计接收消息最多的 top10 用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_r_user_top10 comment <span class="string">&#x27;接收消息条数最多的top10用户&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> receiver_name,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> receiver_msg_cnt</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> receiver_name <span class="keyword">order</span> <span class="keyword">by</span> receiver_msg_cnt <span class="keyword">desc</span> limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022222113-jz13po5.png">​</p>
+</li>
+<li><p>需求 7：统计发送人的手机型号分布</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_sender_phone comment <span class="string">&#x27;统计发送人的手机型号分布&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> sender_phonetype,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> sender_phonetype;</span><br></pre></td></tr></table></figure>
+
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022222528-yacc9en.png">​</p>
+</li>
+<li><p>需求 8：统计发送人的手机 os 分布</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_sender_phone comment <span class="string">&#x27;统计发送人的手机型号分布&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> sender_phonetype,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> sender_phonetype;</span><br></pre></td></tr></table></figure>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022222836-t8ykyal.png">​</p>
+</li>
+</ul>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/hadoop/">#hadoop</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/hive/">#hive</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/hdfs/">#hdfs</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/08/24/python%E5%88%A9%E7%94%A8%E5%88%97%E8%A1%A8%E5%AE%9E%E7%8E%B0%E9%98%9F%E6%A0%88%E6%93%8D%E4%BD%9C/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">python利用列表实现队栈操作</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E7%8E%AF%E5%A2%83-%E8%A6%81%E5%9C%A8-hadoop-%E7%94%A8%E6%88%B7%E4%B8%8B%EF%BC%89"><span class="nav-text">启动环境(要在 hadoop 用户下）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-text">文件系统的操作命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS-%E5%82%A8%E5%AD%98"><span class="nav-text">HDFS 储存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yarn"><span class="nav-text">yarn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HIVE"><span class="nav-text">HIVE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hive-%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="nav-text">Hive 架构图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hive-%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-text">Hive 使用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-text">数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%8C%BA%E8%A1%A8"><span class="nav-text">分区表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%A1%B6%E8%A1%A8"><span class="nav-text">分桶表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-text">修改表操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2"><span class="nav-text">数据查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SELECT-%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2"><span class="nav-text">SELECT 基本查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E3%80%81%E8%81%9A%E5%90%88"><span class="nav-text">分组、聚合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JOIN"><span class="nav-text">JOIN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#RLIKE"><span class="nav-text">RLIKE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UNION-%E8%81%94%E5%90%88"><span class="nav-text">UNION 联合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%BD%E6%A0%B7%E6%93%8D%E4%BD%9C"><span class="nav-text">抽样操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#TABLESAMPLE-%E5%87%BD%E6%95%B0"><span class="nav-text">TABLESAMPLE 函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Virtual-Columns-%E8%99%9A%E6%8B%9F%E5%88%97"><span class="nav-text">Virtual Columns 虚拟列</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hive-%E5%87%BD%E6%95%B0"><span class="nav-text">Hive 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%88%86%E7%B1%BB"><span class="nav-text">函数分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-text">案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-text">需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%86%85%E5%AE%B9"><span class="nav-text">数据内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E5%BA%93%E5%BB%BA%E8%A1%A8"><span class="nav-text">建库建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE"><span class="nav-text">加载数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97"><span class="nav-text">数据清洗</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E6%8C%87%E6%A0%87%E7%BB%9F%E8%AE%A1"><span class="nav-text">需求指标统计</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Stru99le</a>
+            
+        </div>
+        
+            <script async 
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+
+</body>
+</html>

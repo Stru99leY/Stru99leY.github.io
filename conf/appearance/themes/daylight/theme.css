@@ -103,7 +103,7 @@
     --b3-width-transition: width .2s cubic-bezier(0, 0, .2, 1) 0ms;
 
     /* 下拉菜单 */
-    --b3-select-background: url("data:image/svg+xml;utf8,<svg fill='rgba(95, 99, 104, .68)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat right 2px center var(--b3-theme-background);
+    --b3-select-background: url("data:image/svg+xml;utf8,<svg fill="rgba(95, 99, 104, .68)" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>") no-repeat right 2px center var(--b3-theme-background);
 
     /* 阴影 */
     --b3-point-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.1), 0 0 2px 0px rgba(0, 0, 0, 0.2);
