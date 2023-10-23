@@ -782,3 +782,47 @@ I 2023/10/23 08:59:01 conf.go:485: exiting kernel [force=false, execInstallPkg=0
 I 2023/10/23 08:59:02 database.go:1205: closed database
 I 2023/10/23 08:59:02 conf.go:880: cleared workspace temp
 I 2023/10/23 08:59:02 sync.go:670: sync websocket closed
+I 2023/10/23 19:37:30 working.go:121: 
+      ___                                   ___           ___           ___
+     /  /\        ___           ___        /__/\         /  /\         /__/\
+    /  /:/_      /  /\         /__/|       \  \:\       /  /::\        \  \:\
+   /  /:/ /\    /  /:/        |  |:|        \  \:\     /  /:/\:\        \  \:\
+  /  /:/ /::\  /__/::\        |  |:|    ___  \  \:\   /  /:/~/::\   _____\__\:\
+ /__/:/ /:/\:\ \__\/\:\__   __|__|:|   /__/\  \__\:\ /__/:/ /:/\:\ /__/::::::::\
+ \  \:\/:/~/:/    \  \:\/\ /__/::::\   \  \:\ /  /:/ \  \:\/:/__\/ \  \:\~~\~~\/
+  \  \::/ /:/      \__\::/    ~\~~\:\   \  \:\  /:/   \  \::/       \  \:\  ~~~
+   \__\/ /:/       /__/:/       \  \:\   \  \:\/:/     \  \:\        \  \:\
+     /__/:/        \__\/         \__\/    \  \::/       \  \:\        \  \:\
+     \__\/                                 \__\/         \__\/         \__\/
+I 2023/10/23 19:37:30 runtime.go:74: kernel is booting:
+    * ver [2.10.11]
+    * arch [amd64]
+    * os [Microsoft Windows 10 Home]
+    * pid [23840]
+    * runtime mode [prod]
+    * working directory [D:\Program Files (x86)\siyuannote\resources]
+    * read only [false]
+    * container [std]
+    * database [ver=20220501]
+    * workspace directory [D:\myblog\source]
+I 2023/10/23 19:37:31 runtime.go:128: use network proxy [system]
+I 2023/10/23 19:37:31 serve.go:119: kernel [pid=23840] http server [127.0.0.1:4374] is booting
+I 2023/10/23 19:37:31 blocktree.go:463: read block tree [785 kB] to [D:\myblog\source\temp\blocktree], elapsed [0.03s]
+I 2023/10/23 19:37:31 conf.go:723: database size [17 MB], tree/block count [66/3135]
+I 2023/10/23 19:37:31 working.go:159: kernel booted
+I 2023/10/23 19:37:31 pandoc.go:132: built-in pandoc [ver=3.1.1, bin=D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/23 19:37:31 conf.go:940: pandoc initialized, set pandoc bin to [D:\myblog\source\temp\pandoc\bin\pandoc.exe]
+I 2023/10/23 19:37:31 box.go:79: auto stat [trees=66, blocks=3135, dataSize=41 kB, assetsSize=0 B]
+I 2023/10/23 19:37:31 disk.go:33: disk usage [total=403 GB, used=342 GB, free=61 GB]
+I 2023/10/23 19:37:31 tesseract.go:153: tesseract-ocr enabled [ver=v5.0.1.20220118, maxSize=2.0 MB, langs=chi_sim+eng+osd]
+I 2023/10/23 19:37:32 serve.go:132: reverse proxy server [127.0.0.1:6806] is booting
+E 2023/10/23 19:37:32 tree.go:43: load tree [/20230921165025-klmxvqt.sy] failed: open D:\myblog\source\data\20230921165022-wn0uz9w\20230921165025-klmxvqt.sy: The system cannot find the path specified.
+E 2023/10/23 19:37:32 tree.go:43: load tree [/20200812220555-lj3enxa.sy] failed: open D:\myblog\source\data\20210808180117-czj9bvb\20200812220555-lj3enxa.sy: The system cannot find the path specified.
+I 2023/10/23 19:37:35 conf.go:485: exiting kernel [force=false, execInstallPkg=0]
+I 2023/10/23 19:37:35 database.go:1205: closed database
+I 2023/10/23 19:37:35 conf.go:880: cleared workspace temp
+I 2023/10/23 19:37:35 sync.go:670: sync websocket closed
+I 2023/10/23 19:37:35 conf.go:485: exiting kernel [force=false, execInstallPkg=0]
+I 2023/10/23 19:37:35 database.go:1205: closed database
+I 2023/10/23 19:37:35 conf.go:880: cleared workspace temp
+E 2023/10/23 19:37:36 working.go:457: remove workspace lock failed: remove D:\myblog\source\.lock: The system cannot find the file specified.
