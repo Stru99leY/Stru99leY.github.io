@@ -389,8 +389,8 @@
 </li>
 </ul>
 <h2 id="HIVE"><a href="#HIVE" class="headerlink" title="HIVE"></a>HIVE</h2><p>Apache Hive 其 2 大主要组件就算:SQL 解析器以及元数据存储</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20230923171040-373ubiv.png">​</p>
-<h3 id="Hive-架构图"><a href="#Hive-架构图" class="headerlink" title="Hive 架构图"></a>Hive 架构图</h3><p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20230923171247-kb02853.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20230923171040-373ubiv.png" src="/.com//image-20230923171040-373ubiv.png">​</p>
+<h3 id="Hive-架构图"><a href="#Hive-架构图" class="headerlink" title="Hive 架构图"></a>Hive 架构图</h3><p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20230923171247-kb02853.png" src="/.com//image-20230923171247-kb02853.png">​</p>
 <ul>
 <li><p>元数据存储</p>
 <p>存储在关系数据库如 mysql&#x2F;derby 中。Hive 中的元数据包括表的名字，表的列和分区及其属性，表的属性（是否为外部表等），表的数据所在目录等。<br><em>Hive 提供了 Metastore 服务进程提供元数据管理功能</em></p>
@@ -413,7 +413,7 @@
 </li>
 <li><p>启动客户端</p>
 <p>​<code>Hive Shell方式(可以直接写SQL) bin/hive</code>​​</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231008212509-dxrzicv.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231008212509-dxrzicv.png" src="/.com//image-20231008212509-dxrzicv.png">​</p>
 </li>
 <li><p>‍</p>
 </li>
@@ -426,7 +426,7 @@
 </li>
 <li><p>查看数据库详细信息</p>
 <p>desc database myhive</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20230925112239-v8itquv.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20230925112239-v8itquv.png" src="/.com//image-20230925112239-v8itquv.png">​</p>
 </li>
 <li><p>创建数据库并指定 hdfs 存储位置</p>
 <p>​<code>create database myhive2 location &#39;user/hive/myhive2&#39;;</code>​</p>
@@ -460,7 +460,7 @@
 </li>
 </ol>
 <p>数据在 HDFS 中以明文形式存在</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231009090649-lyq2j38.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231009090649-lyq2j38.png" src="/.com//image-20231009090649-lyq2j38.png">​</p>
 </li>
 <li><p>自定义分隔符</p>
 <p>​<code>create table myhive.stu2(id int,name string)row format delimited fields terminated by &#39;\t&#39;;</code>​</p>
@@ -492,7 +492,7 @@
 </li>
 </ul>
 <h4 id="分区表"><a href="#分区表" class="headerlink" title="分区表"></a>分区表</h4><p>可以把大的文件切割划分成一个个的小的文件，每次操作一个小的文件就会很容易</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231016202629-9hjdyqv.png" title="单分区表">​​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231016202655-hpo45gx.png" title="多分区表(三级分区)">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231016202629-9hjdyqv.png" title="单分区表" src="/.com//image-20231016202629-9hjdyqv.png">​​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231016202655-hpo45gx.png" title="多分区表(三级分区)" src="/.com//image-20231016202655-hpo45gx.png">​</p>
 <p>基本语法:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 创建分区语法</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tablename(...) partitioned <span class="keyword">by</span> (分区列 列类型,...) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"># 创建一个表带多个分区</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> score2(s_id string,c_id string,s_score <span class="type">int</span>) partitioned <span class="keyword">by</span> (<span class="keyword">year</span> string,<span class="keyword">month</span> string,<span class="keyword">day</span> string) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line"># 加载数据到分区表中</span><br><span class="line">load data <span class="keyword">local</span> inpath <span class="string">&#x27;/export/server/hivedatas/score.txt&#x27;</span> <span class="keyword">into</span> <span class="keyword">table</span> score <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202004&#x27;</span>);</span><br><span class="line"># 加载数据到一个多分区的表中</span><br><span class="line">load data <span class="keyword">local</span> inpath <span class="string">&#x27;/export/server/hivedatas/score.txt&#x27;</span> <span class="keyword">into</span> <span class="keyword">table</span> score2 <span class="keyword">partition</span> (<span class="keyword">year</span><span class="operator">=</span><span class="string">&#x27;2020&#x27;</span>,<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;04&#x27;</span>,<span class="keyword">day</span><span class="operator">=</span><span class="string">&#x27;01&#x27;</span>);</span><br><span class="line"># 查看分区</span><br><span class="line"><span class="keyword">show</span> partitions score;</span><br><span class="line"># 添加一个分区</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score <span class="keyword">add</span> <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202004&#x27;</span>);</span><br><span class="line"># 同时添加多个分区 (添加分区之后就可以在hdfs文件系统当中看到表下面多了一个文件夹)</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score <span class="keyword">add</span> <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202004&#x27;</span>) <span class="keyword">partition</span> (<span class="keyword">month</span> <span class="operator">=</span> <span class="string">&#x27;202005&#x27;</span>);</span><br><span class="line"># 删除分区</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> score <span class="keyword">drop</span> <span class="keyword">partition</span> (<span class="keyword">month</span><span class="operator">=</span><span class="string">&#x27;202006&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
@@ -510,7 +510,7 @@
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 创建普通表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course_common (c_id string,c_name string,t_id string) <span class="type">row</span> format delimited fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line"># 普通表中加载数据</span><br><span class="line">load data <span class="keyword">local</span> inpath <span class="string">&#x27;/export/server/hivedatas/course.txt&#x27;</span> <span class="keyword">into</span> <span class="keyword">table</span> course_common;</span><br><span class="line"># 通过<span class="keyword">insert</span> overwrite 给桶表加载数据</span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> course <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> course_common cluster <span class="keyword">by</span>(c_id);</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>在创建分桶表时注意<em>​ cluster</em> 的写法:<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231016214724-7zaokpe.png">​</p>
+<p>在创建分桶表时注意<em>​ cluster</em> 的写法:<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231016214724-7zaokpe.png" src="/.com//image-20231016214724-7zaokpe.png">​</p>
 <ul>
 <li><p>为什么不可以用 <code>load data</code> ​必须用 <code>insert select</code> ​插入数据</p>
 <p>问题在于:如何将数据划分，划分的规则是什么?</p>
@@ -640,15 +640,15 @@
 </ul>
 <p>示例:</p>
 <p><code>select orderId,userName,INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE from orders;</code>​</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231021110405-pjk0512.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231021110405-pjk0512.png" src="/.com//image-20231021110405-pjk0512.png">​</p>
 <h3 id="Hive-函数"><a href="#Hive-函数" class="headerlink" title="Hive 函数"></a>Hive 函数</h3><h4 id="函数分类"><a href="#函数分类" class="headerlink" title="函数分类"></a>函数分类</h4><p>分为两大类:<strong>内置函数</strong>(Built-in Functions)、<strong>用户自定义函数 UDF</strong>（User-Defined Functions):</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231021110946-bwmmt6q.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231021110946-bwmmt6q.png" src="/.com//image-20231021110946-bwmmt6q.png">​</p>
 <p><a class="link" target="_blank" rel="noopener" href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions">官方文档<i class="fas fa-external-link-alt"></i></a></p>
 <ul>
 <li><p>查看函数列表</p>
 <p>使用 <strong>show function</strong> 查看当下可用的所有函数</p>
 <p>通过 <strong>describe function extended funcname</strong> 来查看函数的使用方式</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231021125639-45fofom.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231021125639-45fofom.png" src="/.com//image-20231021125639-45fofom.png">​</p>
 </li>
 <li><p>Mathmatical Functions 部分数学函数</p>
 <blockquote>
@@ -991,7 +991,7 @@
 <h3 id="加载数据"><a href="#加载数据" class="headerlink" title="加载数据"></a>加载数据</h3><p>先上传文件到 linux 系统，再通过 load 加载数据到表</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">load data <span class="keyword">local</span> inpath <span class="string">&#x27;/home/hadoop/chat_data-30w.csv&#x27;</span> overwrite <span class="keyword">into</span> <span class="keyword">table</span> tb_msg_source;</span><br><span class="line"># 验证结果</span><br><span class="line"><span class="keyword">select</span> msg_time,sender_name,sender_ip,sender_phonetype,receiver_name,receiver_network <span class="keyword">from</span> tb_msg_source limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022153626-c2qqlp0.png"></p>
+<p><img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022153626-c2qqlp0.png" src="/.com//image-20231022153626-c2qqlp0.png"></p>
 <h3 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ul>
 <li><ol>
 <li>当数据中有一些数据的字段为空，不是合法数据</li>
@@ -1000,7 +1000,7 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> msg_time,sender_name,sender_gps <span class="keyword">from</span> db_msg.tb_msg_source <span class="keyword">where</span> length(sender_gps) <span class="operator">=</span><span class="number">0</span> limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022153805-t365sqf.png"></p>
+<p><img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022153805-t365sqf.png" src="/.com//image-20231022153805-t365sqf.png"></p>
 <ul>
 <li>2.需求中，需要统计每天，每小时的消息量，但是数据中没有天和小时字段，只有整体时间字段，不好处理</li>
 </ul>
@@ -1033,7 +1033,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个新表</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_msg_etl(</span><br><span class="line">msg_time string comment &quot;消息发送时间&quot;,</span><br><span class="line">sender_name string comment &quot;发送人昵称&quot;,</span><br><span class="line">sender_account string comment &quot;发送人账号&quot;,</span><br><span class="line">sender_sex string comment &quot;发送人性别&quot;,</span><br><span class="line">sender_ip string comment &quot;发送人ip地址&quot;,</span><br><span class="line">sender_os string comment &quot;发送人操作系统&quot;,</span><br><span class="line">sender_phonetype string comment &quot;发送人手机型号&quot;,</span><br><span class="line">sender_network string comment &quot;发送人网络类型&quot;,</span><br><span class="line">sender_gps string comment &quot;发送人的GPS定位&quot;,</span><br><span class="line">receiver_name string comment &quot;接收人昵称&quot;,</span><br><span class="line">receiver_ip string comment &quot;接收人IP&quot;,</span><br><span class="line">receiver_account string comment &quot;接收人账号&quot;,</span><br><span class="line">receiver_os string comment &quot;接收人操作系统&quot;,</span><br><span class="line">receiver_phonetype string comment &quot;接收人手机型号&quot;,</span><br><span class="line">receiver_network string comment &quot;接收人网络类型&quot;,</span><br><span class="line">receiver_gps string comment &quot;接收人的GPS定位&quot;,</span><br><span class="line">receiver_sex string comment &quot;接收人性别&quot;,</span><br><span class="line">msg_type string comment &quot;消息类型&quot;,</span><br><span class="line">distance string comment &quot;双方距离&quot;,</span><br><span class="line">message string comment &quot;消息内容&quot;,</span><br><span class="line">msg_day string comment &quot;消息日&quot;,</span><br><span class="line">msg_hour string comment &quot;消息小时&quot;,</span><br><span class="line">sender_lng <span class="keyword">double</span> comment &quot;经度&quot;,</span><br><span class="line">sender_lat <span class="keyword">double</span> comment &quot;纬度&quot;</span><br><span class="line">);</span><br><span class="line"># 使用<span class="keyword">insert</span> 将改好的需求插入到新表中</span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> db_msg.tb_msg_tb1</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="operator">*</span>,<span class="type">date</span>(msg_time) <span class="keyword">as</span> msg_day,<span class="keyword">hour</span>(msg_time) <span class="keyword">as</span> msg_hour,</span><br><span class="line">    split(sender_gps,<span class="string">&#x27;,&#x27;</span>)[<span class="number">0</span>] <span class="keyword">as</span> sender_lng,</span><br><span class="line">    split(sender_gps,<span class="string">&#x27;,&#x27;</span>)[<span class="number">1</span>] <span class="keyword">as</span> sender_lat</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_source</span><br><span class="line"><span class="keyword">where</span> length(sender_gps) <span class="operator">&gt;</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 
 <p>完成清洗的新表(部分):</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022160503-33lkm31.png"></p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022160503-33lkm31.png" src="/.com//image-20231022160503-33lkm31.png"></p>
 <ul>
 <li><p>ETL 概念</p>
 <ul>
@@ -1049,44 +1049,44 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_total_msg_cnt comment <span class="string">&#x27;每日消息总量&#x27;</span> <span class="keyword">as</span> <span class="keyword">select</span> msg_day,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> total_msg_cnt <span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> msg_day;</span><br></pre></td></tr></table></figure>
 
 <p>‍</p>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022213652-y07ubnj.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022213652-y07ubnj.png" src="/.com//image-20231022213652-y07ubnj.png">​</p>
 <p>‍</p>
 <p>‍</p>
 </li>
 <li><p>统计每小时消息量、发送和接收用户数</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_hour_msg_cnt comment <span class="string">&#x27;每小时消息量趋势&#x27;</span> <span class="keyword">as</span> </span><br><span class="line">    <span class="keyword">select</span> msg_hour,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> total_msg_cnt,<span class="built_in">count</span>(<span class="keyword">distinct</span> sender_account) <span class="keyword">as</span> sender_user_cnt,<span class="built_in">count</span>(<span class="keyword">distinct</span> receiver_account) <span class="keyword">as</span> receiver_user_cnt</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> msg_hour;</span><br><span class="line"># <span class="keyword">as</span>：这表示接下来的部分是一个 <span class="keyword">SQL</span> 查询的结果将会被插入到新表中,<span class="built_in">count</span>(<span class="operator">*</span>)：统计所有行的数量，即总消息数。</span><br><span class="line"># <span class="keyword">group</span> <span class="keyword">by</span> msg_hour：这是一个分组操作，它将查询结果按照 msg_hour 字段进行分组，意味着所有具有相同 msg_hour 值的行会被聚合在一起，从而得到每个小时的统计数据。</span><br></pre></td></tr></table></figure>
 
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022215215-al5l3mk.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022215215-al5l3mk.png" src="/.com//image-20231022215215-al5l3mk.png">​</p>
 <p>‍</p>
 </li>
 <li><p>需求 3：统计今日各地区发送消息总量</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_loc_cnt comment <span class="string">&#x27;每日各地区发送消息总量&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> msg_day,sender_lng,sender_lat,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> total_msg_cnt</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> msg_day, sender_lng, sender_lat;</span><br></pre></td></tr></table></figure>
 
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022220144-u08i9di.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022220144-u08i9di.png" src="/.com//image-20231022220144-u08i9di.png">​</p>
 </li>
 <li><p>需求 4：统计今日发送和接收用户人数</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_user_cnt comment <span class="string">&#x27;今日发送和接收用户人数&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> msg_day,<span class="built_in">count</span>(<span class="keyword">distinct</span> sender_account) <span class="keyword">as</span> sender_user_cnt,<span class="built_in">count</span>(<span class="keyword">distinct</span> receiver_account) <span class="keyword">as</span> receiver_user_cnt</span><br><span class="line">           <span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> msg_day;</span><br><span class="line"># 这里注意要加<span class="keyword">distinct</span>关键字，进行去重，每个人每天能发送多条消息</span><br></pre></td></tr></table></figure>
 
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022221019-o2plk8a.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022221019-o2plk8a.png" src="/.com//image-20231022221019-o2plk8a.png">​</p>
 </li>
 <li><p>需求 5：统计发送消息条数最多的 Top10 用户</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_s_user_top10 comment <span class="string">&#x27;发送消息条数最多的top10用户&#x27;</span> <span class="keyword">as</span> </span><br><span class="line">    <span class="keyword">select</span> sender_name,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> sender_msg_cnt</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> sender_name <span class="keyword">order</span> <span class="keyword">by</span> sender_msg_cnt <span class="keyword">desc</span> limit <span class="number">10</span>;</span><br><span class="line"># <span class="keyword">desc</span> 表示降序排序，意味着数值越大的将会排在前面</span><br></pre></td></tr></table></figure>
 
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022221758-yypmyk7.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022221758-yypmyk7.png" src="/.com//image-20231022221758-yypmyk7.png">​</p>
 </li>
 <li><p>需求 6：统计接收消息最多的 top10 用户</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_r_user_top10 comment <span class="string">&#x27;接收消息条数最多的top10用户&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> receiver_name,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> receiver_msg_cnt</span><br><span class="line"><span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> receiver_name <span class="keyword">order</span> <span class="keyword">by</span> receiver_msg_cnt <span class="keyword">desc</span> limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022222113-jz13po5.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022222113-jz13po5.png" src="/.com//image-20231022222113-jz13po5.png">​</p>
 </li>
 <li><p>需求 7：统计发送人的手机型号分布</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_sender_phone comment <span class="string">&#x27;统计发送人的手机型号分布&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> sender_phonetype,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> sender_phonetype;</span><br></pre></td></tr></table></figure>
 
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022222528-yacc9en.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022222528-yacc9en.png" src="/.com//image-20231022222528-yacc9en.png">​</p>
 </li>
 <li><p>需求 8：统计发送人的手机 os 分布</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> db_msg.tb_rs_sender_phone comment <span class="string">&#x27;统计发送人的手机型号分布&#x27;</span> <span class="keyword">as</span></span><br><span class="line">    <span class="keyword">select</span> sender_phonetype,<span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> db_msg.tb_msg_etl <span class="keyword">group</span> <span class="keyword">by</span> sender_phonetype;</span><br></pre></td></tr></table></figure>
-<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022222836-t8ykyal.png">​</p>
+<p>​<img lazyload alt="image" data-src="/./%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/image-20231022222836-t8ykyal.png" src="/.com//image-20231022222836-t8ykyal.png">​</p>
 </li>
 </ul>
 
