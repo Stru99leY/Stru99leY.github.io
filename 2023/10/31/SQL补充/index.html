@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="xy的学习笔记">
+    <meta name="author" content="Stru99le">
+    
+    <title>
+        
+            SQL补充 |
+        
+        MelodyYu
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/Stru99leY/picx-images-hosting@master/aca7f-rbvle.1xsitatacv40.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/B583B3AFF8F1BA3959782AE536A5E575.2zfdxy5jdhy0.webp","favicon":"https://cdn.staticaly.com/gh/Stru99leY/picx-images-hosting@master/aca7f-rbvle.1xsitatacv40.svg","avatar":"https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/QQ图片20230620105948.5yrwhp1nihg0.webp","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"心若相知，无言也默契.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/B583B3AFF8F1BA3959782AE536A5E575.2zfdxy5jdhy0.webp">
+                </a>
+            
+            <a class="logo-title" href="/">
+               MelodyYu
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">SQL补充</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/QQ%E5%9B%BE%E7%89%8720230620105948.5yrwhp1nihg0.webp">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Stru99le</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-10-31 10:15:28</span>
+        <span class="mobile">2023-10-31 10:15</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-11-04 00:10:44</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/mysql/">mysql</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>9 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h3 id="SQL的特征"><a href="#SQL的特征" class="headerlink" title="SQL的特征"></a>SQL的特征</h3><ul>
+<li><p>大小写不敏感</p>
+</li>
+<li><p>需要以;结尾</p>
+</li>
+<li><p>注释:</p>
+<ul>
+<li>单行注释: – 注释内容 (– 后面一定要有一个空格) # 注释内容，可以不加空格</li>
+<li>多行注释:&#x2F;* 注释内容 *&#x2F;</li>
+</ul>
+</li>
+</ul>
+<h3 id="SQL语言的分类"><a href="#SQL语言的分类" class="headerlink" title="SQL语言的分类"></a>SQL语言的分类</h3><ul>
+<li>DDL 数据定义</li>
+<li>DML 数据操作</li>
+<li>DCL 数据控制</li>
+<li>DQL 数据查询</li>
+</ul>
+<h3 id="DDL库管理"><a href="#DDL库管理" class="headerlink" title="DDL库管理"></a>DDL库管理</h3><ul>
+<li>查看当前使用的数据库</li>
+</ul>
+<p>​		<code>select database();</code></p>
+<ul>
+<li>查看有哪些表(的先选择数据库)</li>
+</ul>
+<p>​		<code>show tables</code> </p>
+<ul>
+<li><p>删除表</p>
+<p><code>drop table 表名称;</code></p>
+<p><code>drop table if exists 表名称;</code></p>
+</li>
+<li><p>创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名称(</span><br><span class="line">	列名称 列类型,</span><br><span class="line">    列名称 列类型，</span><br><span class="line">    .....</span><br><span class="line">)</span><br><span class="line"><span class="comment">-- 列类型有</span></span><br><span class="line"><span class="type">int</span>         <span class="comment">-- 整数</span></span><br><span class="line"><span class="type">float</span>       <span class="comment">-- 浮点数</span></span><br><span class="line"><span class="type">varchar</span>(长度)<span class="comment">-- 文本，长度为数字，做最大长度限制</span></span><br><span class="line"><span class="type">date</span>        <span class="comment">-- 日期类型</span></span><br><span class="line"><span class="type">timestamp</span>   <span class="comment">-- 时间戳类型</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h3><h4 id="数据插入insert"><a href="#数据插入insert" class="headerlink" title="数据插入insert"></a>数据插入insert</h4><p>基础语法:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表[(列<span class="number">1</span>,列<span class="number">2</span>,....,列N)] <span class="keyword">values</span>(值<span class="number">1</span>,值<span class="number">2</span>,....,值N)[(值<span class="number">1</span>,值<span class="number">2</span>,....,值N),(值<span class="number">1</span>,值<span class="number">2</span>,....,值N),....,(值<span class="number">1</span>,值<span class="number">2</span>,....,值N)]</span><br><span class="line"># []代表可选</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据删除-delete"><a href="#数据删除-delete" class="headerlink" title="数据删除 delete"></a>数据删除 delete</h4><p>基础语法:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表名称 [<span class="keyword">where</span> 条件判断];</span><br><span class="line"># 条件判断:列 操作符 值</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据更新-update"><a href="#数据更新-update" class="headerlink" title="数据更新 update"></a>数据更新 update</h4><p>基础语法:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> 表名 <span class="keyword">set</span> 列<span class="operator">=</span>值 [<span class="keyword">where</span> 条件判断];</span><br></pre></td></tr></table></figure>
+
+<h3 id="DQL-数据查询"><a href="#DQL-数据查询" class="headerlink" title="DQL 数据查询"></a>DQL 数据查询</h3><h4 id="查询基础"><a href="#查询基础" class="headerlink" title="查询基础"></a>查询基础</h4><p>SQL中，通过select关键字开头的SQL语句，来进行数据的查询,查询也可以指定条件</p>
+<p>eg：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">table</span> student(</span><br><span class="line">	id <span class="type">int</span>,</span><br><span class="line">	name <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">	age <span class="type">int</span></span><br><span class="line">	);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> student <span class="keyword">VALUES</span>(<span class="number">10001</span>,<span class="string">&#x27;周杰伦&#x27;</span>,<span class="number">31</span>),(<span class="number">10002</span>,<span class="string">&#x27;王力鸿&#x27;</span>,<span class="number">33</span>),(<span class="number">10003</span>,<span class="string">&#x27;林俊杰&#x27;</span>,<span class="number">35</span>),(<span class="number">10004</span>,<span class="string">&#x27;张学友&#x27;</span>,<span class="number">36</span>),(<span class="number">10005</span>,<span class="string">&#x27;刘德华&#x27;</span>,<span class="number">30</span>);</span><br><span class="line"># 查询id 和 name 两个列</span><br><span class="line"><span class="keyword">select</span> id,name <span class="keyword">from</span> student;</span><br><span class="line"># 查询全部列</span><br><span class="line"><span class="keyword">select</span> id,name,age <span class="keyword">from</span> student;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student;</span><br><span class="line"># 查询id，name两个列，年龄小于<span class="number">33</span></span><br><span class="line"><span class="keyword">select</span> id,name <span class="keyword">from</span> student <span class="keyword">where</span> age<span class="operator">&lt;</span><span class="number">33</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>模糊匹配</p>
+<ol>
+<li><p>SQL模式</p>
+<p>在使用SQL模式时，不能使用&#x3D;或!&#x3D; 而使用like或not like比较运算符。</p>
+<p>语法: SELECT 字段 FROM 表 WHERE 某字段 Like 条件</p>
+<p>SQL 提供两种匹配模式:</p>
+<ul>
+<li><p>百分号(%):表示<strong>任意个或多个</strong>字符，可以匹配任意类型和长度的字符</p>
+<p>示例:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="type">character</span> <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;%刘%&#x27;</span>;</span><br><span class="line"># 匹配姓名为&quot;刘&quot;类型的数据</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="type">character</span> <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;%马%梅%&#x27;</span>;</span><br><span class="line"># 只能匹配姓名为&quot;...马...梅...&quot;的数据</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下划线(_)：表示任意<strong>单个</strong>字符。匹配单个任意字符，它常用来限制表达式的字符长度语句(可以代表一个中文字符)</p>
+<p>示例:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from character where name like &#x27;_三_&#x27;;</span><br><span class="line"># 匹配&quot;x三x&quot;类型的数据，前后只有一个字符</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>正则模式</p>
+<ol>
+<li><p>mysql正则表达式仅仅是sql语言的一个子集，可以匹配基本的字符、字符串。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> name <span class="keyword">where</span> name regexp <span class="string">&#x27;jack&#x27;</span>;</span><br><span class="line"># 可以检索处name中所有包含jack的行</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>. 匹配除了\n之外的任意单个字符</p>
+</li>
+<li><p>^ 匹配字符串开始位置，如查询所有行李的人</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> name regexp <span class="string">&#x27;^李&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>$ 匹配字符串结束位置，如查询人名结尾的情况</p>
+</li>
+<li><p>进行OR匹配</p>
+<p>为搜索两个串之一（或者这个串，或者为另外一个串），使用|。|作为OR操作符，表示匹配其中之一。可以给出两个以上的OR条件。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> products <span class="keyword">where</span> pro_id REGEXP <span class="string">&#x27;1000|2000&#x27;</span>;</span><br><span class="line"># 这样就<span class="number">1000</span>和<span class="number">2000</span>都能匹配并返回，当然，使用多个<span class="operator">|</span>就可以匹配多个串</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>[  ] 匹配任何单一字符，是另一种形式的OR语句，可缩写的OR语句</p>
+<p>例如，匹配范围：[0123456789]可以匹配0到9，[1-4][4-9]也是合法的范围。此外，范围不一定只是数值的，[a-z]匹配任意字母字符。</p>
+</li>
+<li><p>[^….] 匹配不包含在[ ]的字符</p>
+</li>
+<li><p>匹配特殊字符使用\进行转义</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;（1）\\-  表示查找-</span><br><span class="line">&gt;（2）\\.  表示查找.</span><br><span class="line">&gt;（3）\\f  表示换页</span><br><span class="line">&gt;（4）\\n 表示换行</span><br><span class="line">&gt;（5）\\r  表示回车</span><br><span class="line">&gt;（6）\\t  表示制表</span><br><span class="line">&gt;（7）\\v  表示纵向制表</span><br><span class="line">&gt;注意:匹配\本身，需要使用\\\</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>匹配字符类</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;（1）[:alnum:]  任意字母和数字（同[a-zA-Z0-9]）</span><br><span class="line">&gt;（2）[:alpha:]   任意字符（同[a-zA-A]）</span><br><span class="line">&gt;（3）[:blank:]   空格和制表符（同[\\t]）</span><br><span class="line">&gt;（4）[:digit:]    任意数字（同[0-9]）</span><br><span class="line">&gt;（5）[:lower:]   任意小写字母（同[a-z]）</span><br><span class="line">&gt;（6）[:upper:]  任意大写字母（同[A-Z]）</span><br><span class="line">&gt;（7）[:space:]  包括空格在内的任意空白字符（同 [\\f\\n\\t\\r\\v]）</span><br><span class="line">&gt;（8）[:cntrl:]    ASCII控制字符（ASCII 0到31和127）</span><br><span class="line">&gt;（9）[:graph:]  与[&quot;print:]相同，但不包括空格</span><br><span class="line">&gt;（10）[:print:]   任意可打印字符</span><br><span class="line">&gt;（11）[:punct:] 既不在 [:alnum:] 又不在 [:cntrl:] 中的任意字符</span><br><span class="line">&gt;（12）[:xdigit:] 任意十六进制数字（同 [a-fA-F0-9]）</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>匹配多个示例，关于重复元字符</p>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>0个或多个匹配</td>
+</tr>
+<tr>
+<td>+</td>
+<td>1个或多个匹配（等于 {<code>1</code>, }）</td>
+</tr>
+<tr>
+<td>？</td>
+<td>0个或1个匹配（等于 {<code>0</code>, <code>1</code>}）</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>指定数目的匹配</td>
+</tr>
+<tr>
+<td>{n, }</td>
+<td>不少于指定数目的匹配</td>
+</tr>
+<tr>
+<td>{n ,m}</td>
+<td>匹配数目的范围（m不超过<code>255</code>）</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>定位符</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;^     文本的开始</span><br><span class="line">&gt;$    文本的末尾</span><br><span class="line">&gt;[[:&lt;:]] 词的开始</span><br><span class="line">&gt;[[:&gt;:]] 词的结尾</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ol>
+</li>
+<li><p>like contact 模糊查询</p>
+<p>contact(str1,str2,…)函数返回结果为连接参数产生的字符串</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> role <span class="keyword">where</span> name <span class="keyword">like</span> contact(&quot;%&quot;,&quot;三&quot;,&quot;%&quot;);</span><br><span class="line"># 即匹配姓名为“唐三”，“唐三藏”等类型的数据数据；</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+<h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><p>子查询指一个查询语句嵌套在另一个查询语句内部的查询，从MYSQL4.1开始引入。</p>
+<ul>
+<li><p>子查询在主查询之前一次执行完成</p>
+</li>
+<li><p>子查询的结果被主查询使用</p>
+</li>
+<li><p>注意:</p>
+<ul>
+<li><p>子查询要包含在括号内</p>
+</li>
+<li><p>讲子查询放在比较条件的右侧</p>
+</li>
+<li><p>单行操作符对应单行子查询，多行操作符对应多行子查询</p>
+<p>(按内查询是否被执行多次，从内查询返回的结果条目数来区分单行和多行子查询)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="分组聚合"><a href="#分组聚合" class="headerlink" title="分组聚合"></a>分组聚合</h4><p>分组聚合应用场景非常多，如:统计班级中，男生和女生的人数。这种需求就需要:</p>
+<ul>
+<li>按性别分组</li>
+<li>统计每个组的人数</li>
+</ul>
+<p>这就称之为分组聚合</p>
+<p>一个sql中可以写多个聚合</p>
+<p>基础语法:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 字段<span class="operator">|</span>聚合函数 <span class="keyword">from</span> 表 [<span class="keyword">where</span> 条件] <span class="keyword">group</span> <span class="keyword">by</span> 列</span><br><span class="line"># 聚合函数有:</span><br><span class="line"><span class="operator">-</span> <span class="built_in">sum</span>(列) 求和</span><br><span class="line"><span class="operator">-</span> <span class="built_in">avg</span>(列) 平均</span><br><span class="line"><span class="operator">-</span> <span class="built_in">min</span>(列) 求最小值</span><br><span class="line"><span class="operator">-</span> <span class="built_in">max</span>(列) 求最大值</span><br><span class="line"><span class="operator">-</span> <span class="built_in">count</span>(列<span class="operator">|</span><span class="operator">*</span>) 求数量</span><br></pre></td></tr></table></figure>
+
+<p>注意:非聚合函数中，group by 中有谁，select中才能写谁</p>
+<h4 id="排序分页"><a href="#排序分页" class="headerlink" title="排序分页"></a>排序分页</h4><h5 id="结果排序"><a href="#结果排序" class="headerlink" title="结果排序"></a>结果排序</h5><p>如果没有使用排序操作，默认情况下查询返回的数据是按照添加数据的顺序显示的。</p>
+<p>使用order by关键字，指定某个列进行排序，(列的别名只能再order by中使用，不能在where中使用)语法:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 列<span class="operator">|</span>聚合函数<span class="operator">|</span><span class="operator">*</span> <span class="keyword">from</span> 表 <span class="keyword">where</span> ...</span><br><span class="line"><span class="keyword">group</span> by...</span><br><span class="line"><span class="keyword">order</span> by... [<span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">desc</span>]</span><br><span class="line"># <span class="keyword">ASC</span> 升序，<span class="keyword">desc</span> 降序 不选择默认升序排列</span><br></pre></td></tr></table></figure>
+
+<p>使用limit的好处:</p>
+<p>约束返回结果的数量可以<em>减少数据表的网络传输量</em> ，也可以<em>提升查询效率</em> 。</p>
+<ul>
+<li>在对多列进行排序的时候，首先排序的第一列必须有相同的列值，才会对第二列进行排序。如果第一列数据是唯一的，将不再对第二列进行排序。</li>
+</ul>
+<h5 id="结果分页排序"><a href="#结果分页排序" class="headerlink" title="结果分页排序"></a>结果分页排序</h5><p>使用limit关键字，对查询结果进行数量限制或分页显示</p>
+<p>注意:<strong>limit子句必须放在整个select语句的最后</strong>;<strong>在 MySQL 中，LIMIT子句不支持使用算术表达式</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from student limit 10,5;</span><br><span class="line"># 表示从第十条开始向后取五条</span><br></pre></td></tr></table></figure>
+
+<h4 id="JOIN关联"><a href="#JOIN关联" class="headerlink" title="JOIN关联"></a>JOIN关联</h4><p>查询除了使用1张表外，可能会同时使用多张表，常见的多表查询方式有:</p>
+<ul>
+<li><p>from 多表</p>
+<p>基础语法:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ... <span class="keyword">from</span> 表<span class="number">1</span> <span class="keyword">as</span> 别名<span class="number">1</span>，表<span class="number">2</span> <span class="keyword">as</span> 别名<span class="number">2</span>,...,表N[<span class="keyword">where</span> 链接条件]</span><br></pre></td></tr></table></figure>
+
+<p>直接再from中写多个表，通过as可以给出表别名</p>
+<p>直接查询两个表时我们会发现结果会产生笛卡尔积:</p>
+<p><img lazyload alt="image" data-src="D:\myblog\source_posts\SQL补充\image-20231031163620935.png" src="/.com//myblog\source_posts\SQL补充\image-20231031163620935.png"></p>
+<p>要改变查询结果，只需要再表名后面加上where关键字，进行条件判断即可;同时查询结果中也有一些列是我们不需要的，只需要再select中选择我们需要查询的列即可:</p>
+<p><img lazyload alt="image" data-src="D:\myblog\source_posts\SQL补充\image-20231031163835278.png" src="/.com//myblog\source_posts\SQL补充\image-20231031163835278.png"></p>
+</li>
+<li><p>inner join </p>
+<p>内关联，由上面的from多表我们可以看出，查询结果会出现笛卡尔积，尽管可以通过where进行条件过滤但性能不太好；使用内关联能有效改善性能，语法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ... <span class="keyword">from</span> 表<span class="number">1</span> <span class="keyword">as</span> 别名<span class="number">1</span> [<span class="keyword">inner</span>] <span class="keyword">join</span> 表<span class="number">2</span> <span class="keyword">as</span> 别名<span class="number">2</span> <span class="keyword">on</span> 连接条件;</span><br></pre></td></tr></table></figure>
+
+<p>因此上述查询语句可改为:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s.<span class="operator">*</span>,c.name <span class="keyword">FROM</span> stu <span class="keyword">as</span> s <span class="keyword">INNER</span> <span class="keyword">JOIN</span> class <span class="keyword">as</span> c <span class="keyword">on</span> s.class_id<span class="operator">=</span>c.id;</span><br></pre></td></tr></table></figure>
+
+<p>内关联本质上就是求交集的过程，若两个表中存在没有交集的数据，那么查询结果中就不会显示</p>
+</li>
+<li><p>outer join</p>
+<p>如果想解决没有交集的数据，可以使用外关联来显示内关联失败的数据，语法:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ... <span class="keyword">from</span> 表<span class="number">1</span> <span class="keyword">as</span> 别名<span class="number">1</span> (<span class="keyword">left</span><span class="operator">|</span><span class="keyword">right</span>) [<span class="keyword">outer</span>] <span class="keyword">join</span> 表<span class="number">2</span> <span class="keyword">as</span> 别名<span class="number">2</span> <span class="keyword">on</span> 连接条件;</span><br><span class="line"># <span class="keyword">outer</span> 关键字可以省略</span><br><span class="line"># 外关联分左右，必须选择<span class="keyword">left</span> <span class="keyword">join</span> 左外关联或者 <span class="keyword">right</span> <span class="keyword">join</span> 右外关联，二选一</span><br><span class="line"># 左 右 关联的区别是，以谁为核心</span><br></pre></td></tr></table></figure>
+
+<p>拿上面的查询代码来说 left join 就是以stu表为核心，不管class表里面有没有与之匹配的数据，在结果中都会显示stu表中的数据，而对应的class表中的列将会显示null，right join 则反之。</p>
+</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>  流程处理函数可以根据不同的条件，执行不同的处理流程，可以在sql语句中实现不同的条件选择。MySQL中的流程处理函数主要包括if()、IFNULL()、CASE()函数</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F(value,value1,value2)</td>
+<td>如果value的值为TRUE，返回value1， 否则返回value2</td>
+</tr>
+<tr>
+<td>IFNULL(value1, value2)</td>
+<td>如果value1不为NULL，返回value1，否 则返回value2</td>
+</tr>
+<tr>
+<td>CASE WHEN 条件1 THEN 结果1 WHEN 条件2 THEN 结果2 …. [ELSE resultn] END</td>
+<td>相当于Java的if…else if…else…</td>
+</tr>
+<tr>
+<td>CASE expr WHEN 常量值1 THEN 值1 WHEN 常量值1 THEN 值1 …. [ELSE 值n] END</td>
+<td>相当于Java的switch…case…</td>
+</tr>
+</tbody></table>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/mysql/">#mysql</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/10/23/%E5%88%9D%E8%AF%86BigData-hadoop-hdfs-hvie/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">初识BigData-hadoop-hdfs-hvie</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-text">SQL的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E8%AF%AD%E8%A8%80%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">SQL语言的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DDL%E5%BA%93%E7%AE%A1%E7%90%86"><span class="nav-text">DDL库管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DML"><span class="nav-text">DML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5insert"><span class="nav-text">数据插入insert</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%A0%E9%99%A4-delete"><span class="nav-text">数据删除 delete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0-update"><span class="nav-text">数据更新 update</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DQL-%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2"><span class="nav-text">DQL 数据查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%9F%BA%E7%A1%80"><span class="nav-text">查询基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E8%81%9A%E5%90%88"><span class="nav-text">分组聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E5%88%86%E9%A1%B5"><span class="nav-text">排序分页</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E6%8E%92%E5%BA%8F"><span class="nav-text">结果排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E9%A1%B5%E6%8E%92%E5%BA%8F"><span class="nav-text">结果分页排序</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JOIN%E5%85%B3%E8%81%94"><span class="nav-text">JOIN关联</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-text">函数</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Stru99le</a>
+            
+        </div>
+        
+            <script async 
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+
+</body>
+</html>
