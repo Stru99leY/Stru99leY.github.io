@@ -202,7 +202,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-09-24 22:42:49</span>
+        <span class="pc">2023-11-14 17:21:36</span>
     </span>
     
     
@@ -233,12 +233,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>600 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>786 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -289,7 +289,7 @@
 </li>
 </ul>
 </li>
-<li><p>查看目录内容 -ls<br> -l 以长格式查看文件和目录<br> -a 显示以点开头的文件（隐藏文件）<br> -R 遇到目录要进行递归展开(继续列出目录下面的文件和目录)<br> -d 只列出目录，不列出其他内容<br> -S &#x2F;-t 按大小&#x2F;时间排序</p>
+<li><p>查看目录内容 -ls<br> -l 以长格式查看文件和目录<br>-a 显示以点开头的文件（隐藏文件）<br>-R 遇到目录要进行递归展开(继续列出目录下面的文件和目录)<br>-d 只列出目录，不列出其他内容<br>-S &#x2F;-t 按大小&#x2F;时间排序</p>
 </li>
 <li><p>查看文件内容 -cat &#x2F; tac &#x2F; head &#x2F; tail &#x2F; more &#x2F; less &#x2F; rev &#x2F; od</p>
 </li>
@@ -297,7 +297,7 @@
 </li>
 <li><p>文件重命名 -rename</p>
 </li>
-<li><p>查找文件和查找内容 -find &#x2F; grep </p>
+<li><p>查找文件和查找内容 -find &#x2F; grep</p>
 <ul>
 <li>grep在搜索字符串是可以使用正则表达式，如果需要使用正则表达式可以用grep -E 或者直接使用egrep</li>
 </ul>
@@ -307,15 +307,34 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln [选项] [源文件] [链接]</span><br></pre></td></tr></table></figure>
 
-<p><img lazyload alt="image" data-src="/../image/lnux_ln.png" src="/.com//image/lnux_ln.png"></p>
+<p><img lazyload alt="image" data-src="/Linux%E5%91%BD%E4%BB%A4%5Clnux_ln.png" src="/.com//Linux%E5%91%BD%E4%BB%A4%5Clnux_ln.png"></p>
 <h3 id="系统命令"><a href="#系统命令" class="headerlink" title="系统命令"></a>系统命令</h3><ul>
-<li>ps<br><code>ps -ef</code>表示显示所有进程，<code>ps -ef|grep</code>其中grep表示筛选包含特定关键词</li>
+<li><p>ps<br><code>ps -ef</code>表示显示所有进程，<code>ps -ef|grep</code>其中grep表示筛选包含特定关键词</p>
+</li>
+<li><p>df</p>
+<p>df 以磁盘分区为单位查看文件系统，可以获取硬盘被占用了多少空间，目前还剩下多少空间等信息。</p>
+<p>例如，我们使用<strong>df -h</strong>命令来查看磁盘信息， <strong>-h</strong> 选项为根据大小适当显示</p>
+<p>相关命令:</p>
+<ul>
+<li><strong>df -hl</strong>：查看磁盘剩余空间</li>
+<li><strong>df -h</strong>：查看每个根路径的分区大小</li>
+<li>**du -sh [目录名]**：返回该目录的大小</li>
+<li>**du -sm [文件夹]**：返回该文件夹总M数</li>
+<li>**du -h [目录名]**：查看指定文件夹下的所有文件大小（包含子文件夹）</li>
+</ul>
+</li>
+<li><p>lsof</p>
+<p>lsof（list open files）是一个列出当前系统打开文件的工具。</p>
+<p><strong>命令格式：</strong></p>
+<p><code>lsof [参数][文件]</code></p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/peida/archive/2013/02/26/2932972.html">具体使用<i class="fas fa-external-link-alt"></i></a></p>
+</li>
 </ul>
 <h3 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h3><ul>
 <li><p>复制文件和目录 <code>scp</code> 命令<br><code>scp</code>是linux系统下基于ssh登录进行安全的远程文件拷贝指令；<code>scp</code>是加密的，<code>rcp</code>是不加密的，<code>sco</code>是<code>rcp</code>的加强版，简易语法如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [可选参数] file_source file_target</span><br></pre></td></tr></table></figure>
 
-<p><img lazyload alt="image" data-src="/../image/scp.png" src="/.com//image/scp.png"></p>
+<p><img lazyload alt="image" data-src="/Linux%E5%91%BD%E4%BB%A4%5Cscp.png" src="/.com//Linux%E5%91%BD%E4%BB%A4%5Cscp.png"></p>
 </li>
 </ul>
 

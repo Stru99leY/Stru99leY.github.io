@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="xy的学习笔记">
+    <meta name="author" content="Stru99le">
+    
+    <title>
+        
+            Spark3.2随笔 |
+        
+        MelodyYu
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/Stru99leY/picx-images-hosting@master/aca7f-rbvle.1xsitatacv40.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/B583B3AFF8F1BA3959782AE536A5E575.2zfdxy5jdhy0.webp","favicon":"https://cdn.staticaly.com/gh/Stru99leY/picx-images-hosting@master/aca7f-rbvle.1xsitatacv40.svg","avatar":"https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/QQ图片20230620105948.5yrwhp1nihg0.webp","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"心若相知，无言也默契.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/B583B3AFF8F1BA3959782AE536A5E575.2zfdxy5jdhy0.webp">
+                </a>
+            
+            <a class="logo-title" href="/">
+               MelodyYu
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Spark3.2随笔</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://cdn.statically.io/gh/Stru99leY/picx-images-hosting@master/QQ%E5%9B%BE%E7%89%8720230620105948.5yrwhp1nihg0.webp">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Stru99le</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-11-06 16:15:44</span>
+        <span class="mobile">2023-11-06 16:15</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-12-06 19:00:38</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/BigData/">BigData</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Spark/">Spark</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>11k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>45 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="Spark基础"><a href="#Spark基础" class="headerlink" title="Spark基础"></a>Spark基础</h1><h2 id="一、Spark简介"><a href="#一、Spark简介" class="headerlink" title="一、Spark简介"></a>一、Spark简介</h2><p>定义：Apache Spark是用于<strong>大规模数据</strong>（large-scala data）<strong>处理的统一（unified）分析引擎</strong>。</p>
+<p>Spark 借鉴了 MapReduce 思想发展而来，保留了其分布式并行计算的优点并改进了其明显的缺陷。让中间数据存储在内存中提 高了运行速度、并提供丰富的操作数据的API提高了开发速度。</p>
+<ul>
+<li><p>统一分析引擎？</p>
+<p>Spark是一款分布式内存计算的统一分析引擎。 其<strong>特点</strong>就是对任意类型的数据进行自定义计算。</p>
+<p> Spark可以计算：结构化、半结构化、非结构化等各种类型的数据结构，同时也支持使用Python、Java、Scala、R以及SQL语言去开发应用 程序计算数据</p>
+</li>
+<li><p>Spark VS Hadoop</p>
+<p>Hadoop中的MR中每个map&#x2F;reduce task都是一个java进程方式运行，好处在于进程之间是互相独立的，每个task独享进程资源，没 有互相干扰，监控方便，但是问题在于task之间不方便共享数据，执行效率比较低.比如多个map task读取不同数据源文件需要将数据源加 载到每个map task中，造成重复加载和浪费内存。而基于线程的方式计算是为了数据共享和提高执行效率，Spark采用了线程的最小的执行 单位，但缺点是线程之间会有资源竞争.</p>
+</li>
+<li><p>Spark的四大特点</p>
+<ul>
+<li>速度快</li>
+<li>易于使用</li>
+<li>通用性强</li>
+<li>多种运行方式</li>
+</ul>
+</li>
+<li><p>Spark的架构角色</p>
+<ul>
+<li><p>Master角色,管理整个集群的资源   –  类比于YARN的ResourceManager</p>
+</li>
+<li><p>Work角色,管理单个服务器的资源  –  类比于YARN的NodeManager</p>
+</li>
+<li><p>Driver角色,管理单个Spark任务在运行的时候的工作  –  类比于YARN的ApplicationMaster</p>
+</li>
+<li><p>Executor角色,单个任务运行的时候的一堆工作者，干活的 – 类比于YARN容器内运行的TASK<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106162813588.png" class title="image-20231106162813588" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106162813588.png"></p>
+<p>从两个层面划分:</p>
+<ol>
+<li>资源管理层面:<ul>
+<li>管理者:Spark是Master角色，YARN是ApplicationMaster</li>
+<li>工作者:Spark是Worker角色，YARN是NodeManager</li>
+</ul>
+</li>
+<li>从任务执行层面:<ul>
+<li>某任务管理者:Spark是Driver角色，YARN是ApplicationMaster</li>
+<li>某任务执行者:Spark是Executor角色，YARN是容器中运行的具体工作进程</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、Spark环境搭建-local"><a href="#二、Spark环境搭建-local" class="headerlink" title="二、Spark环境搭建 -local"></a>二、Spark环境搭建 -local</h2><h3 id="2-1-基本原理"><a href="#2-1-基本原理" class="headerlink" title="2.1 基本原理"></a>2.1 基本原理</h3><p>本质：启动一个JVM Process进程(一个进程里面有多个线程)，执行任务Task</p>
+<ul>
+<li><p>Local模式可以限制模拟Spark集群环境的线程数量, 即Local[N] 或 Local[*]</p>
+</li>
+<li><p>其中N代表可以使用N个线程，每个线程拥有一个cpu core。如果不指定N，则默认是1个线程（该线程有1个core）。 通常Cpu有几个Core，就指定几个线程，最大化利用计算能力</p>
+</li>
+<li><p>如果是local[*]，则代表 Run Spark locally with as many worker threads as  logical cores on your machine.按照Cpu最多的Cores设置线程数</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106164624989.png" class src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106164624989.png"></li>
+</ul>
+<p>Local 下的角色分布： </p>
+<p>资源管理： Master：Local</p>
+<p>进程本身 Worker：Local进程本身 </p>
+<p>任务执行： </p>
+<p>Driver：Local进程本身</p>
+<p> Executor：不存在，没有独立的Executor角色, 由Local进程(也就是Driver)内的线程提供计算能力</p>
+<p><em>PS: Driver也算一种特殊的Executor, 只不过多数时候, 我们将Executor当做纯Worker对待, 这样和Driver好区分(一类是管理 一类是工人)</em></p>
+<p><strong>注意: Local模式只能运行一个Spark程序, 如果执行多个Spark程序, 那就是由多个相互独立的Local进程在执行</strong></p>
+<h3 id="2-2搭建"><a href="#2-2搭建" class="headerlink" title="2.2搭建"></a>2.2搭建</h3><h4 id="2-2-1-安装条件"><a href="#2-2-1-安装条件" class="headerlink" title="2.2.1 安装条件"></a>2.2.1 安装条件</h4><ul>
+<li><p>Spark</p>
+<p>下载地址:<a class="link" target="_blank" rel="noopener" href="https://dlcdn.apache.org/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz">https://dlcdn.apache.org/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz<i class="fas fa-external-link-alt"></i></a></p>
+<p>解压:<code>tar -zxvf spark-3.2.0-bin-hadoop3.2.tgz -C /export/server/</code></p>
+</li>
+<li><p>Python 推荐3.8</p>
+</li>
+<li><p>JDK 1.8</p>
+</li>
+<li><p>Anaconda on linux</p>
+</li>
+</ul>
+<h4 id="2-2-2-环境变量"><a href="#2-2-2-环境变量" class="headerlink" title="2.2.2 环境变量"></a>2.2.2 环境变量</h4><p>配置Spark由如下5个环境变量需要设置</p>
+<ul>
+<li>SPARK_HOME: 表示Spark安装路径在哪里 </li>
+<li>PYSPARK_PYTHON: 表示Spark想运行Python程序, 那么去哪里找python执行器 </li>
+<li>JAVA_HOME: 告知Spark Java在哪里 </li>
+<li>HADOOP_CONF_DIR: 告知Spark Hadoop的配置文件在哪里 </li>
+<li>HADOOP_HOME: 告知Spark  Hadoop安装在哪里</li>
+</ul>
+<p>这5个环境变量 都需要配置在: <code>/etc/profile</code>中</p>
+<p>在porfile文件输入以下配置指令:</p>
+<blockquote>
+<p>export SPARK_HOME&#x3D;&#x2F;export&#x2F;server&#x2F;spark<br>export PYSPARK_PYTHON&#x3D;&#x2F;export&#x2F;server&#x2F;anaconda3&#x2F;envs&#x2F;pyspark&#x2F;bin&#x2F;python3.8<br>export HADOOP_CONF_DIR&#x3D;$HADOOP_HOME&#x2F;etc&#x2F;hadoop</p>
+</blockquote>
+<p>PYSPARK_PYTHON和JAVA_HOME 需要同样配置在<code>/root/.bashrc</code>中 输入<code>vim ~/.bashrc</code></p>
+<blockquote>
+<p>export JAVA_HOME&#x3D;&#x2F;export&#x2F;server&#x2F;jdk<br>export PYSPARK_PYTHON&#x3D;&#x2F;export&#x2F;server&#x2F;anaconda3&#x2F;envs&#x2F;pyspark&#x2F;bin&#x2F;python3.8</p>
+</blockquote>
+<h4 id="2-2-3-安装相关环境"><a href="#2-2-3-安装相关环境" class="headerlink" title="2.2.3 安装相关环境"></a>2.2.3 安装相关环境</h4><p>将所需安装包文件上传到&#x2F;export文件夹下</p>
+<ul>
+<li><p>安装anaconda</p>
+<p>在&#x2F;export 文件夹下，执行 <code>sh ./Anaconda3-2021.05-Linux-x86_64.sh</code></p>
+<p>然后选择安装路径到<code>/export/server/anaconda3</code>目录下，执行安装操作</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106170702507.png" class src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106170702507.png">
+
+<p>是否执行初始化:yes</p>
+<img lazyload alt="image" data-src="Spark3-2随笔/image-20231106171007699.png" src="/.com//image-20231106171007699.png">
+
+<p>输入<code>source /export/server/anaconda3/bin/activate</code>启动anaconda</p>
+</li>
+<li><p>配置pyspark环境</p>
+<p>在anconda启动后输入 <code>conda create -n pyspark python=3.8</code></p>
+<p>输入<code>conda activate pyspark</code>激活创建的虚拟环境</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106172120270.png" class title="image-20231106172120270" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106172120270.png">
+</li>
+<li><p>安装spark</p>
+<p>在&#x2F;export文件夹下执行<code>tar -zxvf spark-3.2.0-bin-hadoop3.2.tgz -C /export/server/</code></p>
+<p>为spark添加软链接 <code>ln -s /export/server/spark-3.2.0-bin-hadoop3.2 /export/server/spark</code></p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106173943746.png" class title="image-20231106173943746" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106173943746.png"></li>
+</ul>
+<h4 id="2-2-4-启动测试"><a href="#2-2-4-启动测试" class="headerlink" title="2.2.4 启动测试"></a>2.2.4 启动测试</h4><p>先进入<code>/export/server/spark</code>目录下：</p>
+<ul>
+<li><p>pyspark</p>
+<p>进入bin目录运行<code>./pyspark</code>pyspark 程序, 可以提供一个  <code>交互式</code>的 Python解释器环境, 在这里面可以写普通python代码, 以及spark代码</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106175404781.png" class title="image-20231106175404781" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106175404781.png">
+</li>
+<li><p>WEB UI 4040</p>
+<p>4040端口是一个WEBUI端口, 可以在浏览器内打开输入:<code>服务器ip:4040</code> 即可打开:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106175714778.png" class title="image-20231106175714778" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106175714778.png">
+</li>
+<li><p>Spark-shell</p>
+<p>同样是一个解释器环境, 和<code>bin/pyspark</code>不同的是, 这个解释器环境 运行的不是python代码, 而是scala程序代码</p>
+</li>
+<li><p>spark-submit (PI)</p>
+<p>作用: 提交指定的Spark代码到Spark环境中运行</p>
+<p>使用方法:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">语法</span></span><br><span class="line">bin/spark-submit [可选的一些选项] jar包或者python代码的路径 [代码的参数]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">示例</span></span><br><span class="line">bin/spark-submit/export/server/spark/examples/src/main/python/pi.py 10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此案例 运行Spark官方所提供的示例代码 来计算圆周率值.  后面的10 是主函数接受的参数, 数字越高, 计算圆周率越准确.</span></span><br></pre></td></tr></table></figure>
+
+<p>对比</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>bin&#x2F;spark-submit</th>
+<th>bin&#x2F;pyspark</th>
+<th>bin&#x2F;spark-shell</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>功能</td>
+<td>提交java\scala\python代码到spark中运行</td>
+<td>提供一个<code>python</code></td>
+<td></td>
+</tr>
+<tr>
+<td>解释器环境用来以python代码执行spark程序</td>
+<td>提供一个<code>scala</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>解释器环境用来以scala代码执行spark程序</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>特点</td>
+<td>提交代码用</td>
+<td>解释器环境 写一行执行一行</td>
+<td>解释器环境 写一行执行一行</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>正式场合, 正式提交spark程序运行</td>
+<td>测试\学习\写一行执行一行\用来验证代码等</td>
+<td>测试\学习\写一行执行一行\用来验证代码等</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="三、环境搭建-Standalone"><a href="#三、环境搭建-Standalone" class="headerlink" title="三、环境搭建-Standalone"></a>三、环境搭建-Standalone</h2><h3 id="3-1-Standalone架构"><a href="#3-1-Standalone架构" class="headerlink" title="3.1 Standalone架构"></a>3.1 Standalone架构</h3><p>Standalone模式是Spark自带的一种集群模式，不同于前面本地模式启动多个进程来模拟集群的环境，Standalone模式是真实地在多个机器之间搭建Spark集群的环境，完全可以利用该模式搭建多机器集群，用于实际的大数据处理。</p>
+<p>StandAlone 是完整的Spark运行环境,其中:</p>
+<p><strong>Master角色以Master进程存在, Worker角色以Worker进程存在 Driver和Executor运行于Worker进程内, 由Worker提供资源供给它们运行</strong></p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106194816172.png" class title="image-20231106194816172" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106194816172.png">
+
+<p>StandAlone集群在进程上主要有3类进程:</p>
+<ul>
+<li><p>主节点Master进程:</p>
+<p>Master角色, 管理整个集群资源，并托管运行各个任务的Driver</p>
+</li>
+<li><p>从节点Workers:</p>
+<p> Worker角色, 管理每个机器的资源，分配对应的资源来运行Executor(Task)； 每个从节点分配资源信息给Worker管理，资源信息包含内存Memory和CPU Cores核数</p>
+</li>
+<li><p>历史服务器HistoryServer(可选):</p>
+<p>Spark Application运行完成以后，保存事件日志数据至HDFS，启动HistoryServer可以查看应用运行相关信息。</p>
+</li>
+</ul>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106195046647.png" class title="image-20231106195046647" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106195046647.png">
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106195055978.png" class title="image-20231106195055978" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106195055978.png">
+
+<h3 id="3-2-Standalone-环境安装"><a href="#3-2-Standalone-环境安装" class="headerlink" title="3.2 Standalone 环境安装"></a>3.2 Standalone 环境安装</h3><h4 id="3-2-1-集群规划"><a href="#3-2-1-集群规划" class="headerlink" title="3.2.1 集群规划"></a>3.2.1 集群规划</h4><p>使用三台Linux虚拟机来组成集群环境, 非别是:</p>
+<p>node1\ node2\ node3</p>
+<p>node1运行: Spark的Master进程  和 1个Worker进程</p>
+<p>node2运行: spark的1个worker进程</p>
+<p>node3运行: spark的1个worker进程</p>
+<p>整个集群提供: 1个master进程 和 3个worker进程</p>
+<h4 id="3-3-2-在所有机器配置环境变量"><a href="#3-3-2-在所有机器配置环境变量" class="headerlink" title="3.3.2 在所有机器配置环境变量"></a>3.3.2 在所有机器配置环境变量</h4><ul>
+<li><p>复制anaconda到node2和node3</p>
+<p>运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp Anaconda3-2021.05-Linux-x86_64.sh node2:` pwd `/</span><br><span class="line">scp Anaconda3-2021.05-Linux-x86_64.sh node3:` pwd `/</span><br></pre></td></tr></table></figure>
+
+<p>其余步骤和node1安装一致</p>
+</li>
+<li><p>在其余两台虚拟机上配置pyspark虚拟环境</p>
+</li>
+<li><p>将node1的&#x2F;etc&#x2F;profile 和 &#x2F;root&#x2F;.bashrc 新增的配置文件，复制到node2和node3中的相同文件中</p>
+</li>
+<li><p>在node1将spark改成hadoop用户</p>
+<p><code>chown -R hadoop:hadoop spark*</code></p>
+</li>
+</ul>
+<h4 id="3-3-3-配置spark相关配置文件"><a href="#3-3-3-配置spark相关配置文件" class="headerlink" title="3.3.3 配置spark相关配置文件"></a>3.3.3 配置spark相关配置文件</h4><p>在node1进入到spark的配置文件目录中, <code>cd $SPARK_HOME/conf</code></p>
+<p>配置workers文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">改名, 去掉后面的.template后缀</span></span><br><span class="line">mv workers.template workers</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑worker文件</span></span><br><span class="line">vim workers</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将里面的localhost删除, 追加</span></span><br><span class="line">node1</span><br><span class="line">node2</span><br><span class="line">node3</span><br><span class="line">到workers文件内</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">功能: 这个文件就是指示了  当前SparkStandAlone环境下, 有哪些worker</span></span><br></pre></td></tr></table></figure>
+
+<p>配置spark-env.sh文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 改名</span></span><br><span class="line">mv spark-env.sh.template spark-env.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 编辑spark-env.sh, 在底部追加如下内容</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置JAVA安装目录</span></span></span><br><span class="line">JAVA_HOME=/export/server/jdk</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># HADOOP软件配置文件目录，读取HDFS上文件和运行YARN集群</span></span></span><br><span class="line">HADOOP_CONF_DIR=/export/server/hadoop/etc/hadoop</span><br><span class="line">YARN_CONF_DIR=/export/server/hadoop/etc/hadoop</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 指定spark老大Master的IP和提交任务的通信端口</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">告知Spark的master运行在哪个机器上</span></span><br><span class="line">export SPARK_MASTER_HOST=node1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">告知sparkmaster的通讯端口</span></span><br><span class="line">export SPARK_MASTER_PORT=7077</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">告知spark master的 webui端口</span></span><br><span class="line">SPARK_MASTER_WEBUI_PORT=8080</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">worker cpu可用核数</span></span><br><span class="line">SPARK_WORKER_CORES=1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">worker可用内存</span></span><br><span class="line">SPARK_WORKER_MEMORY=1g</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">worker的工作通讯地址</span></span><br><span class="line">SPARK_WORKER_PORT=7078</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">worker的 webui地址</span></span><br><span class="line">SPARK_WORKER_WEBUI_PORT=8081</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置历史服务器</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置的意思是  将spark程序运行的历史日志 存到hdfs的/sparklog文件夹中</span></span><br><span class="line">SPARK_HISTORY_OPTS=&quot;-Dspark.history.fs.logDirectory=hdfs://node1:8020/sparklog/ -Dspark.history.fs.cleaner.enabled=true&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在HDFS上创建程序运行历史记录存放的文件夹:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mkdir /sparklog</span><br><span class="line">hadoop fs -chmod 777 /sparklog</span><br></pre></td></tr></table></figure>
+
+<p>配置spark-defaults.conf文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 改名</span></span><br><span class="line">mv spark-defaults.conf.template spark-defaults.conf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 修改内容, 追加如下内容</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">vim中复制可能会导致全部注释掉，只需输入 <span class="built_in">set</span> <span class="built_in">paste</span> 再粘贴就行</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启spark的日期记录功能</span></span><br><span class="line">spark.eventLog.enabled 	true</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置spark日志记录的路径</span></span><br><span class="line">spark.eventLog.dir	 hdfs://node1:8020/sparklog/ </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置spark日志是否启动压缩</span></span><br><span class="line">spark.eventLog.compress  true</span><br></pre></td></tr></table></figure>
+
+<p>配置log4j.properties 文件 [可选配置]</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 改名</span></span><br><span class="line">mv log4j.properties.template log4j.properties</span><br></pre></td></tr></table></figure>
+
+<p>将INFO改成WARN</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106210211842.png" class title="image-20231106210211842" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106210211842.png">
+
+<blockquote>
+<p>这个文件的修改不是必须的,  为什么修改为WARN. 因为Spark是个话痨</p>
+<p>会疯狂输出日志, 设置级别为WARN 只输出警告和错误日志, 不要输出一堆废话.</p>
+</blockquote>
+<h4 id="3-3-4-将配置好的spark文件分发到其他服务器"><a href="#3-3-4-将配置好的spark文件分发到其他服务器" class="headerlink" title="3.3.4 将配置好的spark文件分发到其他服务器"></a>3.3.4 将配置好的spark文件分发到其他服务器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r spark-3.2.0-bin-hadoop3.2 node2:/export/server/</span><br><span class="line">scp -r spark-3.2.0-bin-hadoop3.2 node3:/export/server/</span><br></pre></td></tr></table></figure>
+
+<p>不要忘记, 在node2和node3上 给spark安装目录增加软链接</p>
+<p><code>ln -s /export/server/spark-3.2.0-bin-hadoop3.2 /export/server/spark</code></p>
+<p><strong>检查：</strong></p>
+<p>检查每台机器的:</p>
+<p>JAVA_HOME</p>
+<p>SPARK_HOME</p>
+<p>PYSPARK_PYTHON</p>
+<p>等等 环境变量是否正常指向正确的目录</p>
+<p>启动历史服务器:</p>
+<p><code>sbin/start-history-server.sh</code></p>
+<p>使用jps指令查看:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106211430007.png" class title="image-20231106211430007" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106211430007.png">
+
+<p>使用 ps -ef|grep 57895 来查看jobhistoryserver的信息</p>
+<ul>
+<li><p>启动spark的Master和Worker进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动全部master和worker</span></span><br><span class="line">sbin/start-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者可以一个个启动:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动当前机器的master</span></span><br><span class="line">sbin/start-master.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动当前机器的worker</span></span><br><span class="line">sbin/start-worker.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止全部</span></span><br><span class="line">sbin/stop-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止当前机器的master</span></span><br><span class="line">sbin/stop-master.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止当前机器的worker</span></span><br><span class="line">sbin/stop-worker.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看Master的WEB UI</p>
+<p>默认端口master我们设置到了8080</p>
+<p>如果端口被占用, 会顺延到8081 …;8082… 8083… 直到申请到端口为止</p>
+<p>可以在日志中查看, 具体顺延到哪个端口上:</p>
+<p><code>Service &#39;MasterUI&#39; could not bind on port 8080. Attempting port 8081.</code></p>
+</li>
+</ul>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106211911045.png" class title="image-20231106211911045" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231106211911045.png">
+
+<h3 id="3-3-连接到StandAlone集群"><a href="#3-3-连接到StandAlone集群" class="headerlink" title="3.3 连接到StandAlone集群"></a>3.3 连接到StandAlone集群</h3><ul>
+<li><p>bin&#x2F;pyspark</p>
+<p>执行:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin/pyspark --master spark://node1:7077</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过--master选项来连接 StandAlone集群</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不写 --master选项，默认是<span class="built_in">local</span>模式运行</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>bin&#x2F;spark-shell</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master spark://node1:7077</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">同样适用--master来连接到集群使用</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>bin&#x2F;spark-submit(PI)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit --master spark://node1:7077 /export/server/spark/examples/src/main/python/pi.py 100</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">同样使用--master来指定将任务提交到集群运行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看历史服务器WEB UI</p>
+<p>历史服务器的默认端口是: 18080</p>
+<p>我们启动在node1上, 可以在浏览器打开:</p>
+<p><code>node1:18080</code>来进入到历史服务器的WEB UI上.</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107104135317.png" class title="image-20231107104135317" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107104135317.png"></li>
+</ul>
+<h3 id="3-4-Spark应用架构"><a href="#3-4-Spark应用架构" class="headerlink" title="3.4 Spark应用架构"></a>3.4 Spark应用架构</h3><p>Spark Application运行到集群上时，由两部分组成：Driver Program和Executors。</p>
+<p>Driver Program :</p>
+<ul>
+<li>相当于AppMaster，整个应用管理者，负责应用中所有Job的调度执行; </li>
+<li>运行JVM Process，运行程序的MAIN函数，必须创建SparkContext上下文对象；</li>
+<li>一个SparkApplication仅有一个</li>
+</ul>
+<p>Executors:</p>
+<ul>
+<li>相当于一个线程池，运行JVM Process，其中有很多线程，每个线程运行一个Task任务，一个Task任务运行需要1 Core CPU，所以可以认为Executor中线程数就等于CPU Core核数；</li>
+<li>一个Spark Application可以有多个，可以设置个数和资源信息；</li>
+</ul>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107104823183.png" class title="image-20231107104823183" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107104823183.png">
+
+<p>用户程序从最开始的提交到最终的计算执行，需要经历以下几个阶段:</p>
+<ol>
+<li>用户程序创建 SparkContext 时，新创建的 SparkContext 实例会连接到 ClusterManager。 Cluster Manager 会根据用户 提交时设置的 CPU 和内存等信息为本次提交分配计算资源，启动 Executor.</li>
+<li>Driver会将用户程序划分为不同的执行阶段Stage，每个执行阶段Stage由一组完全相同Task组成，这些Task分别作用于待处理数据的不同分区。在阶段划分完成和Task创建后， Driver会向Executor发送 Task.</li>
+<li>Executor在接收到Task后，会下载Task的运行时依赖，在准备好Task的执行环境后，会开始执行Task，并且将Task的运行状态 汇报给Driver.</li>
+<li>Driver会根据收到的Task的运行状态来处理不同的状态更新。 Task分为两种：一种是Shuffle Map Task，它实现数据的重新 洗牌，洗牌的结果保存到Executor 所在节点的文件系统中；另外一种是Result Task，它负责生成结果数据</li>
+<li>Driver 会不断地调用Task，将Task发送到Executor执行，在所有的Task 都正确执行或者超过执行次数的限制仍然没有执行成 功时停止</li>
+</ol>
+<h3 id="3-5-Spark程序运行层次结构"><a href="#3-5-Spark程序运行层次结构" class="headerlink" title="3.5 Spark程序运行层次结构"></a>3.5 Spark程序运行层次结构</h3><p>4040: 是一个运行的Application在运行的过程中临时绑定的端口,用以查看当前任务的状态.4040被占用会顺延到4041.4042等 （4040是一个临时端口,当前程序运行完成后, 4040就会被注销哦 ）。</p>
+<p>8080: 默认是StandAlone下, Master角色(进程)的WEB端口,用以查看当前Master(集群)的状态 。</p>
+<p>18080: 默认是历史服务器的端口, 由于每个程序运行完成后,4040端口就被注销了. 在以后想回看某个程序的运行状态就可以通过历史 服务器查看,历史服务器长期稳定运行,可供随时查看被记录的程序的运行过程。</p>
+<ul>
+<li><p>运行起来一个Spark Application</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/export/server/spark/bin/pyspark --master spark://node1:7077</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开运行如下spark命令</span></span><br><span class="line">sc.textFile(&quot;hdfs://node1:8020/input/words.txt&quot;).flatMap(lambda line:line.split(&quot; &quot;)).map(lambda x:(x,1)).reduceByKey(lambda a,b:a+b).collect()</span><br></pre></td></tr></table></figure>
+
+<p>打开其4040端口,并查看：</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107115043615.png" class title="image-20231107115043615" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107115043615.png">
+
+<p>在node1运行pyspark-shell，WEB UI监控页面地址：<em><a class="link" target="_blank" rel="noopener" href="http://node1:4040/">http://node1:4040<i class="fas fa-external-link-alt"></i></a></em></p>
+<p>可以发现在一个Spark Application中，包含多个Job，每个Job有多个Stage组成，每个Job执行按照DAG图进行的</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107115304006.png" class title="image-20231107115304006" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107115304006.png">
+
+<p>其中每个Stage中包含多个Task任务，每个Task以线程Thread方式执行，需要1Core CPU</p>
+</li>
+<li><p>Spark Application程序运行时三个核心概念：Job、Stage、 Task</p>
+<ul>
+<li><p>job</p>
+<p>由多个 Task 的并行计算部分，一般 Spark 中的 action 操作（如 save、collect，后面进一步说明），会生成一个 Job。</p>
+</li>
+<li><p>Stage</p>
+<p>job 的组成单位,一个 Job 会切分成多个 Stage ，Stage 彼此之间相互依赖顺序执行，而每个 Stage 是多 个 Task 的集合，类似 map 和 reduce stage。</p>
+</li>
+<li><p>Task</p>
+<p>被分配到各个 Executor 的单位工作内容，它是 Spark 中的最小执行单位，一般来说有多少个 Paritition （物理层面的概念，即分支可以理解为将数据划分成不同 部分并行处理），就会有多少个 Task，每个 Task 只会处 理单一分支上的数据。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、环境搭建-StandAlone-HA"><a href="#四、环境搭建-StandAlone-HA" class="headerlink" title="四、环境搭建-StandAlone HA"></a>四、环境搭建-StandAlone HA</h2><p>Spark Standalone集群是Master-Slaves架构的集群模式，和大部分的Master-Slaves结构集群一样，存在着Master 单点故障（SPOF）的问题。</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107121410043.png" class title="image-20231107121410043" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107121410043.png">
+
+<h3 id="4-1高可用HA"><a href="#4-1高可用HA" class="headerlink" title="4.1高可用HA"></a>4.1高可用HA</h3><p>如何解决这个单点故障的问题，Spark提供了两种方案：</p>
+<ol>
+<li><p>基于文件系统的单点恢复(Single-Node Recovery with Local File System)–只能用于开发或测试环境。</p>
+</li>
+<li><p>基于zookeeper的Standby Masters(Standby Masters with ZooKeeper)–可以用于生产环境。</p>
+<p>ZooKeeper提供了一个Leader Election机制，利用这个机制可以保证虽然集群存在多个Master，但是只有一个是Active 的，其他的都是Standby。当Active的Master出现故障时，另外的一个Standby Master会被选举出来。由于集群的信息 ，包括Worker， Driver和Application的信息都已经持久化到文件系统，因此在切换的过程中只会影响新Job的提交，对 于正在进行的Job没有任何的影响。加入ZooKeeper的集群整体架构如下图所示：</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107145816857.png" class title="image-20231107145816857" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107145816857.png"></li>
+</ol>
+<h4 id="4-1-1-安装配置Zookeeper"><a href="#4-1-1-安装配置Zookeeper" class="headerlink" title="4.1.1 安装配置Zookeeper"></a>4.1.1 安装配置Zookeeper</h4><ul>
+<li><p>简介</p>
+<p>ZooKeeper是一个<a class="link" target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F/19276232?fromModule=lemma_inlink">分布式<i class="fas fa-external-link-alt"></i></a>的，开放源码的<a class="link" target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/9854429?fromModule=lemma_inlink">分布式应用程序<i class="fas fa-external-link-alt"></i></a>协调服务，是Hadoop和<a class="link" target="_blank" rel="noopener" href="https://baike.baidu.com/item/Hbase/7670213?fromModule=lemma_inlink">Hbase<i class="fas fa-external-link-alt"></i></a>的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。</p>
+<p>除了为Hadoop和HBase提供协调服务外，Zookeeper也被其它许多软件采用作为其分布式状态一致性的依赖，比如Kafka，又或者一些软件项目中，也经常能见到Zookeeper作为一致性协调服务存在。</p>
+<p>Zookeeper不论是大数据领域亦或是其它服务器开发领域，涉及到分布式状态一致性的场景，总有它的身影存在。</p>
+</li>
+<li><p>安装</p>
+<p>Zookeeper是一款分布式的集群化软件，可以在多台服务器上部署，并协同组成分布式集群一起工作。</p>
+<ol>
+<li><p>在node1上操作下载zookeeper安装包并解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载</span></span><br><span class="line">wget http://archive.apache.org/dist/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3-bin.tar.gz</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确保如下目录存在，不存在就创建</span></span><br><span class="line">mkdir -p /export/server</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压</span></span><br><span class="line">tar -zxvf apache-zookeeper-3.6.3-bin.tar.gz -C /export/server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>node 1上创建软链接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /export/server/apache-zookeeper-3.6.3-bin /export/server/zookeeper</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107152150799.png" class title="image-20231107152150799" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107152150799.png">
+</li>
+<li><p>node 1 上修改配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">zookeeper 提供了示例配置文件将其改名再修改即可</span></span><br><span class="line">cd /export/server/zookeeper/conf/</span><br><span class="line">mv zoo_sample.cfg zoo.cfg</span><br><span class="line">vim zoo.cfg</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改如下配置</span></span><br><span class="line">dataDir=/export/server/zookeeper/data</span><br><span class="line">clientPort=2181</span><br><span class="line">initLimit=5</span><br><span class="line">syncLimit=2</span><br><span class="line">server.1=node1:2888:3888</span><br><span class="line">server.2=node2:2888:3888</span><br><span class="line">server.3=node3:2888:3888</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>node 1 上配置myid (标识操作，防止机器间错乱)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 创建Zookeeper的数据目录</span></span><br><span class="line">mkdir /export/server/zookeeper/data</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 创建文件，并填入1</span></span><br><span class="line">vim /export/server/zookeeper/data/myid</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在文件内填入1即可</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>node 1 操作将zookeeper复制到node2 和 node3</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /export/server</span><br><span class="line"></span><br><span class="line">scp -r apache-zookeeper-3.6.3-bin node2:`pwd`/</span><br><span class="line">scp -r apache-zookeeper-3.6.3-bin node3:`pwd`/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>node 2 操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ln -s /export/server/apache-zookeeper-3.6.3-bin /export/server/zookeeper</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 修改myid文件</span></span><br><span class="line">vim /export/server/zookeeper/data/myid</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改内容为2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>node 3 操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ln -s /export/server/apache-zookeeper-3.6.3-bin /export/server/zookeeper</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 修改myid文件</span></span><br><span class="line">vim /export/server/zookeeper/data/myid</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改内容为3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>【在node1、node2、node3上分别执行】启动Zookeeper</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动命令</span></span><br><span class="line">/export/server/zookeeper/bin/zkServer.sh start		# 启动Zookeeper</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>【在node1、node2、node3上分别执行】检查Zookeeper进程是否启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">结果中找到有：QuorumPeerMain 进程即可</span></span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107154144739.png" class title="image-20231107154144739" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107154144739.png">
+
+
+</li>
+<li><p>【node1上操作】验证Zookeeper</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/export/server/zookeeper/zkCli.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入到Zookeeper控制台中后，执行</span></span><br><span class="line">ls /</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如无报错即配置成功</span></span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107154350860.png" class title="image-20231107154350860" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107154350860.png"></li>
+</ol>
+<p>至此Zookeeper安装完成</p>
+</li>
+</ul>
+<h3 id="4-2-基于ZooKeeper实现HA"><a href="#4-2-基于ZooKeeper实现HA" class="headerlink" title="4.2 基于ZooKeeper实现HA"></a>4.2 基于ZooKeeper实现HA</h3><h4 id="4-2-1-Spark-StandAlone-HA环境搭建"><a href="#4-2-1-Spark-StandAlone-HA环境搭建" class="headerlink" title="4.2.1 Spark StandAlone HA环境搭建"></a>4.2.1 Spark StandAlone HA环境搭建</h4><blockquote>
+<p>前提: 确保Zookeeper 和 HDFS 均已经启动</p>
+</blockquote>
+<p>先在<code>spark-env.sh</code>中, 删除: <code>SPARK_MASTER_HOST=node1</code></p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107160234744.png" class title="image-20231107160234744" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107160234744.png">
+
+
+<p>原因: 配置文件中固定master是谁, 那么就无法用到zk的动态切换master功能了.</p>
+<p>在<code>spark-env.sh</code>中, 增加:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SPARK_DAEMON_JAVA_OPTS=&quot;-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=node1:2181,node2:2181,node3:2181 -Dspark.deploy.zookeeper.dir=/spark-ha&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">spark.deploy.recoveryMode 指定HA模式 基于Zookeeper实现</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定Zookeeper的连接地址</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定在Zookeeper中注册临时节点的路径</span></span><br></pre></td></tr></table></figure>
+
+<p>将spark-env.sh 分发到每一台服务器上</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp spark-env.sh node2:/export/server/spark/conf/</span><br><span class="line">scp spark-env.sh node3:/export/server/spark/conf/</span><br></pre></td></tr></table></figure>
+
+
+<p>停止当前StandAlone集群</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/stop-all.sh</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107160648807.png" class title="image-20231107160648807" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107160648807.png">
+
+<p>启动集群:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在node1上 启动一个master 和全部worker</span></span><br><span class="line">sbin/start-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意, 下面命令在node2上执行</span></span><br><span class="line">sbin/start-master.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在node2上启动一个备用的master进程</span></span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107160839108.png" class title="image-20231107160839108" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107160839108.png">
+
+<p>检查node2 的master进程绑定的端口 输入 <code>netstat -anp | grep 57923</code></p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107161249802.png" class title="image-20231107161249802" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107161249802.png">
+
+<p>发现在8083端口监听，浏览器输入 node2:8083 可以看到:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107161335025.png" class title="image-20231107161335025" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107161335025.png">
+
+<p>或者 进入spark的logs文件夹查看master日志文件 也能发现其绑定在了8083端口上:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107161514610.png" class title="image-20231107161514610" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107161514610.png">
+
+<h4 id="4-2-2-测试主备切换"><a href="#4-2-2-测试主备切换" class="headerlink" title="4.2.2 测试主备切换"></a>4.2.2 测试主备切换</h4><p>进入node1 输入jps:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107162101748.png" class title="image-20231107162101748" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107162101748.png">
+
+<p>准备指令<code>kill -9 49432</code>先不运行，先到node2上提交一个spark 任务到当前alive 的master上：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">node2 在spark目录下操作</span></span><br><span class="line">bin/spark-submit --master spark://node1:7077 /export/server/spark/examples/src/main/python/pi.py 1000</span><br></pre></td></tr></table></figure>
+
+<p>在活跃的master界面我们可以看到一个正在运行的spark程序:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107162557225.png" class title="image-20231107162557225" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107162557225.png">
+
+<p>然后运行刚刚哪个kill指令将这个活跃的master kill掉 我们发现并不会影响程序的运行,依旧给出了正确结果:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107162758856.png" class title="image-20231107162758856" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107162758856.png">
+
+<p>然后我们进入到 node2 上的备用master界面，发现其状态从STANDBY变成了ALIVE:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107162857874.png" class title="image-20231107162857874" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107162857874.png">
+
+<p>现在回到node1重新启动spark-master：</p>
+<p><code>sbin/start-master.sh</code></p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107163317174.png" class title="image-20231107163317174" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107163317174.png">
+
+<p>我们发现其状态变成了STANDBY</p>
+<blockquote>
+<p>结论 HA模式下, 主备切换 不会影响到正在运行的程序.</p>
+<p>最大的影响是 会让它中断大约30秒左右.</p>
+</blockquote>
+<h2 id="五、Spark-On-YARN-重点"><a href="#五、Spark-On-YARN-重点" class="headerlink" title="五、Spark On YARN (重点)"></a>五、Spark On YARN (重点)</h2><h3 id="5-1-简介"><a href="#5-1-简介" class="headerlink" title="5.1 简介"></a>5.1 简介</h3><p>按照前面环境部署中所学习的, 如果我们想要一个稳定的生产Spark环境, 那么最优的选择就是构建:HA StandAlone集群。</p>
+<p>不过在企业中,都基本上会有<strong>Hadoop</strong>集群. 也就是会有<strong>YARN</strong>集群. 对于企业来说,在已有YARN集群的前提下在单独准备Spark StandAlone集群,对资源的利用就不高. 所以, 在企业中,多数场景下,会将Spark运行到YARN集群中。</p>
+<p>YARN本身是一个<strong>资源调度框架</strong>, 负责对运行在内部的计算框架进行资源调度管理.  作为典型的计算框架, Spark本身也是直接运行在YARN中, 并接受YARN的调度的. </p>
+<p>所以, 对于Spark On YARN, <strong>无需部署Spark集群, 只要找一台服务器, 充当Spark的客户端, 即可提交任务到YARN集群 中运行.</strong></p>
+<ul>
+<li><p>Spark On YARN 本质 ？</p>
+<p>Master角色由YARN的ResourceManager担任. </p>
+<p>Worker角色由YARN的NodeManager担任. </p>
+<p>Driver角色运行在YARN容器内 或 提交任务的客户端进程中</p>
+<p> 真正干活的Executor运行在YARN提供的容器内</p>
+</li>
+<li><p>Spark On YARN 需要 ?</p>
+<ul>
+<li>YARN 集群</li>
+<li>Spark 客户端工具， 比如spark-submit, 可以将Spark程序提交到YARN中</li>
+<li>需要被提交的代码程序 ，如spark&#x2F;examples&#x2F;src&#x2F;main&#x2F;python&#x2F;pi.py此示例程序,或我们后续自己开发的Spark任务</li>
+</ul>
+</li>
+</ul>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107164914725.png" class title="image-20231107164914725" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231107164914725.png">
+
+
+
+<h3 id="5-2-环境搭建"><a href="#5-2-环境搭建" class="headerlink" title="5.2 环境搭建"></a>5.2 环境搭建</h3><p>确保:</p>
+<ul>
+<li>HADOOP_CONF_DIR</li>
+<li>YARN_CONF_DIR</li>
+</ul>
+<p>在spark-env.sh以及环境变量中即可</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108104555146.png" class title="image-20231108104555146" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108104555146.png">
+
+<p>连接到YARN中：</p>
+<ul>
+<li><p>bin&#x2F;pyspark</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bin/pyspark --master yarn --deploy-mode client|cluster</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--deploy-mode 选项是指定部署模式, 默认是 客户端模式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">client就是客户端模式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">cluster就是集群模式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--deploy-mode 仅可以用在YARN模式下</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意: 交互式环境 pyspark  和 spark-shell  无法运行 cluster模式</p>
+</blockquote>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108103118906.png" class title="image-20231108103118906" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108103118906.png">
+
+<p>在yarn界面点击 applicationmaster会自动跳转到spark的master UI界面，这是由yarn的webproxysever提供的</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108103512074.png" class title="image-20231108103512074" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108103512074.png">
+</li>
+<li><p>bin&#x2F;spark-shell</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit --master yarn --deploy-mode client|cluster</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">示例</span></span><br><span class="line">bin/spark-submit --master yarn /export/server/spark/examples/src/main/python/pi.py 100</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108104237058.png" class title="image-20231108104237058" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108104237058.png"></li>
+</ul>
+<h3 id="5-3-部署模式DeployMode"><a href="#5-3-部署模式DeployMode" class="headerlink" title="5.3 部署模式DeployMode"></a>5.3 部署模式DeployMode</h3><p>Spark On YARN是有两种运行模式的,一种是Cluster模式一种是Client模式. 这两种模式的区别就是Driver运行的位置. </p>
+<p>Cluster模式即:Driver运行在YARN容器内部, 和ApplicationMaster在同一个容器内 </p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108110925455.png" class title="image-20231108110925455" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108110925455.png">
+
+<p>Client模式即:Driver运行在客户端进程中, 比如Driver运行在spark-submit程序的进程中</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108111015973.png" class title="以spark-submit为例" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108111015973.png">
+
+<ul>
+<li><p>两种模式的区别</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108111112636.png" class title="image-20231108111112636" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108111112636.png"></li>
+</ul>
+<h4 id="5-3-1-client-模式测试"><a href="#5-3-1-client-模式测试" class="headerlink" title="5.3.1 client 模式测试"></a>5.3.1 client 模式测试</h4><p>假设运行圆周率PI程序，采用client模式，命令如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在hadoop用户下 cd到spark目录下</span><br><span class="line"> bin/spark-submit --master yarn --deploy-mode client --driver-memory 512m --executor-memory 512m --num-executors 3 --total-executor-cores 3 /export/server/spark/examples/src/main/python/pi.py 100</span><br></pre></td></tr></table></figure>
+
+<p>打开spark 的历史服务器，我们会发现driver没有logs日志，因为，driver没有运行在yarn内部</p>
+<p>日志结果全部通过终端输出:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108112902787.png" class title="image-20231108112902787" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108112902787.png">
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108112844694.png" class title="image-20231108112844694" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108112844694.png">
+
+<h4 id="5-3-2-cluster-模式测试"><a href="#5-3-2-cluster-模式测试" class="headerlink" title="5.3.2 cluster 模式测试"></a>5.3.2 cluster 模式测试</h4><p>同样的命令程序，采用cluster模式:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在hadoop用户下 cd到spark目录下</span><br><span class="line"> bin/spark-submit --master yarn --deploy-mode cluster --driver-memory 512m --executor-memory 512m --num-executors 3 --total-executor-cores 3 /export/server/spark/examples/src/main/python/pi.py 100</span><br></pre></td></tr></table></figure>
+
+<p>此时我们会发现，终端不会输出结果，此时我们在spark 的history服务器上点开driver 的日志我们看到其输出，或者在yarn管理界面点击logs同样能看到日志和结果输出</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108135755964.png" class title="image-20231108135755964" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108135755964.png">
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108135845296.png" class title="image-20231108135845296" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231108135845296.png">
+
+<h3 id="5-4-两种模式详细流程"><a href="#5-4-两种模式详细流程" class="headerlink" title="5.4 两种模式详细流程"></a>5.4 两种模式详细流程</h3><p>在<strong>YARN Client</strong>模式下，Driver在任务提交的本地机器上运行，示意图如下:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109103313307.png" class title="image-20231109103313307" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109103313307.png">
+
+<p>具体流程步骤如下： </p>
+<ol>
+<li>Driver在任务提交的本地机器上运行，Driver启动后会和ResourceManager通讯申请启动ApplicationMaster ;</li>
+<li>随后ResourceManager分配Container，在合适的NodeManager上启动ApplicationMaster，此时的 ApplicationMaster的功能相当于一个ExecutorLaucher，只负责向ResourceManager申请Executor内存；</li>
+<li>ResourceManager接到ApplicationMaster的资源申请后会分配Container，然后ApplicationMaster在资源分 配指定的NodeManager上启动Executor进程； </li>
+<li>Executor进程启动后会向Driver反向注册，Executor全部注册完成后Driver开始执行main函数；</li>
+<li>之后执行到Action算子时，触发一个Job，并根据宽依赖开始划分Stage，每个Stage生成对应的TaskSet，之后 将Task分发到各个Executor上执行</li>
+</ol>
+<p>在<strong>YARN Cluster</strong>模式下，Driver运行在NodeManager Contanier中，此时Driver与AppMaster合为一体，示意图如下:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109103732640.png" class title="image-20231109103732640" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109103732640.png">
+
+<p>具体流程步骤如下：</p>
+<ol>
+<li>任务提交后会和ResourceManager通讯申请启动ApplicationMaster; </li>
+<li>随后ResourceManager分配Container，在合适的NodeManager上启动ApplicationMaster，此时的 ApplicationMaster就是Driver； </li>
+<li>Driver启动后向ResourceManager申请Executor内存，ResourceManager接到ApplicationMaster的资源申请 后会分配Container,然后在合适的NodeManager上启动Executor进程; </li>
+<li>Executor进程启动后会向Driver反向注册; </li>
+<li>Executor全部注册完成后Driver开始执行main函数，之后执行到Action算子时，触发一个job，并根据宽依赖开 始划分stage，每个stage生成对应的taskSet，之后将task分发到各个Executor上执行</li>
+</ol>
+<h3 id="5-5-PySpark"><a href="#5-5-PySpark" class="headerlink" title="5.5 PySpark"></a>5.5 PySpark</h3><h4 id="5-5-1-是什么PySpark"><a href="#5-5-1-是什么PySpark" class="headerlink" title="5.5.1 是什么PySpark"></a>5.5.1 是什么PySpark</h4><p>我们前面使用过bin&#x2F;pyspark 程序, 要注意, 这个只是一个<strong>应用程序</strong>, 提供一个Python解释器执行环境来运行Spark任务 我们现在说的PySpark, 指的是<strong>Python的运行类库</strong>, 是可以在Python代码中:import pyspark PySpark 是Spark官方提供的一个Python类库, 内置了完全的Spark API, 可以通过PySpark类库来编写Spark应用程序, 并将其提交到Spark集群中运行.</p>
+<p>PySpark类库和标准Spark框架的简单对比:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109134028431.png" class title="image-20231109134028431" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109134028431.png">
+
+<h4 id="5-5-2-安装PySpark类库"><a href="#5-5-2-安装PySpark类库" class="headerlink" title="5.5.2 安装PySpark类库"></a>5.5.2 安装PySpark类库</h4><p>在 三台虚拟机上进入之前conda创建好的pyspark环境中，运行 <code> pip install pyspark</code></p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109142834493.png" class title="image-20231109142834493" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109142834493.png">
+
+<h2 id="六、本机开发环境搭建"><a href="#六、本机开发环境搭建" class="headerlink" title="六、本机开发环境搭建"></a>六、本机开发环境搭建</h2><h3 id="6-1-本机PySpark环境配置"><a href="#6-1-本机PySpark环境配置" class="headerlink" title="6.1 本机PySpark环境配置"></a>6.1 本机PySpark环境配置</h3><ul>
+<li><p>Haddop DDL</p>
+<ol>
+<li>将hadoop-3.3.0文件夹复制到:D:\study\hadoop-3.3.0</li>
+<li>将文件夹内bin内的hadoop.dll复制到: C:\Windows\System32里面去</li>
+<li>.配置HADOOP_HOME环境变量指向 hadoop-3.3.0文件夹的路径</li>
+</ol>
+<p>配置这些的原因是: hadoop设计用于linux运行, 我们写spark的时候 在windows上开发 不可避免的会用到部分hadoop功能 为了避免在windows上报错, 我们给windows打补丁</p>
+</li>
+<li><p>Anaconda和PySpark安装</p>
+<p>打开 anaconda prompt 执行以下操作:</p>
+<ol>
+<li><p>创建虚拟环境</p>
+<p><code>conda create --prefix=D:\envs\pyspark python=3.8</code></p>
+<p><em><code>--prefix</code> 是一个选项，用于指定要创建的conda环境的路径</em></p>
+<p>切换到创建的虚拟环境</p>
+<p><code>conda activate D:\envs\pyspark</code></p>
+</li>
+<li><p>在虚拟环境安装包</p>
+</li>
+</ol>
+<p><code>pip install pyhive pyspark jieba -i https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
+</li>
+</ul>
+<h3 id="6-2-vscode配置Python解释器"><a href="#6-2-vscode配置Python解释器" class="headerlink" title="6.2 vscode配置Python解释器"></a>6.2 vscode配置Python解释器</h3><ul>
+<li><p>安装必要插件</p>
+<p>Remote-SSH</p>
+<p>然后点击remote-ssh的config设置，改成如下:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109231058557.png" class title="image-20231109231058557" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109231058557.png">
+
+<p>然后连接虚拟机服务器，输入密码后可以进入到远程环境中，此时会自动找到虚拟机安装好的python环境</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109231211470.png" class title="image-20231109231211470" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231109231211470.png"></li>
+</ul>
+<h4 id="6-2-1-PyCharm配置Python解释器"><a href="#6-2-1-PyCharm配置Python解释器" class="headerlink" title="6.2.1 PyCharm配置Python解释器"></a>6.2.1 PyCharm配置Python解释器</h4><ol>
+<li><p>加远程连接</p>
+<p>点击右下角添加新的解释器，然后选择ssh连接到虚拟机</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231110110003982.png" class title="image-20231110110003982" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231110110003982.png">
+</li>
+<li><p>输入ip和用户连接服务器后，选择anaconda创建的虚拟环境解释器:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231110114755784.png" class title="image-20231110114755784" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231110114755784.png"></li>
+</ol>
+<h3 id="6-3-应用入口-SparkContext"><a href="#6-3-应用入口-SparkContext" class="headerlink" title="6.3 应用入口:SparkContext"></a>6.3 应用入口:SparkContext</h3><p>Spark Application程序入口为：SparkContext，任何一个应用首先需要构建SparkContext对象，如下两步构建：</p>
+<ol>
+<li><p>创建SparkConf对象</p>
+<p>设置Spark Application基本信息，比如应用的名称AppName和应用运行Master</p>
+</li>
+<li><p>第二步、基于SparkConf对象，创建SparkContext对象</p>
+</li>
+</ol>
+<p>wordcount示例:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf,  SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setMaster(<span class="string">&quot;local&quot;</span>).setAppName(<span class="string">&quot;WordCountHelloWorld&quot;</span>)</span><br><span class="line">    <span class="comment"># 通过SparkConf对象构建SparkContext对象</span></span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line">    <span class="comment"># wordcount单词计数，读取hdfs上的文件，对其内部的单词统计出现次数</span></span><br><span class="line">    file_rdd = sc.textFile(<span class="string">&quot;hdfs://node1:8020/input/words.txt&quot;</span>)</span><br><span class="line">    <span class="comment"># 将单词进行切割，得到一个储存全部单词的集合对象</span></span><br><span class="line">    words_rdd = file_rdd.flatMap(<span class="keyword">lambda</span> line:line.split(<span class="string">&quot; &quot;</span>))</span><br><span class="line">    <span class="comment"># 将单词转换为元组对象</span></span><br><span class="line">    words_with_one_rdd = words_rdd.<span class="built_in">map</span>(<span class="keyword">lambda</span> x:(x,<span class="number">1</span>))</span><br><span class="line">    <span class="comment"># 将元组的value 按照key来分组，对所有的value执行聚合操作</span></span><br><span class="line">    result_rdd = words_with_one_rdd.reduceByKey(<span class="keyword">lambda</span> a,b : a + b)</span><br><span class="line">    <span class="comment"># 通过collect方法收集rdd的数据打印输出结果</span></span><br><span class="line">    <span class="built_in">print</span>(result_rdd.collect())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果本地文件和虚拟机上文件不同步的话可以尝试重新上传:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231110231108131.png" class title="image-20231110231108131" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231110231108131.png">
+
+<p>注意:</p>
+<p>如果要在windows本地运行代码的话，需要配置pysaprk的环境变量</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111101113143.png" class title="image-20231111101113143" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111101113143.png">
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111101238634.png" class title="image-20231111101238634" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111101238634.png">
+
+<p>运行原理:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111150027115.png" class title="image-20231111150027115" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111150027115.png">
+
+<p>注意的是如果使用yarn模式的话，文件地址如果使用的是本地文件的话一定要保证每个机器都能访问到，要不然会报错。</p>
+<h1 id="Spark-Core"><a href="#Spark-Core" class="headerlink" title="Spark Core"></a>Spark Core</h1><h2 id="一、RDD详解"><a href="#一、RDD详解" class="headerlink" title="一、RDD详解"></a>一、RDD详解</h2><h3 id="1-1-RDD是什么"><a href="#1-1-RDD是什么" class="headerlink" title="1.1 RDD是什么"></a>1.1 RDD是什么</h3><p>RDD（Resilient Distributed Dataset）叫做弹性分布式数据集，一种<strong>容错的、可并行操作的</strong>数据结构，用于在集群应用程序中共享数据；是Spark中最基本的数据抽象，代表一个不可变、可分区、里面的元素可并行计算的集合。所有的运算以及操作都建立在 RDD 数据结构的基础之上。</p>
+<p>可以认为RDD是分布式的列表List或数组Array，抽象的数据结构，RDD是一个抽象类Abstract Class和泛型Generic Type</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111171013263.png" class title="image-20231111171013263" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111171013263.png">
+
+<h3 id="1-2-RDD的五大特性"><a href="#1-2-RDD的五大特性" class="headerlink" title="1.2 RDD的五大特性"></a>1.2 RDD的五大特性</h3><p>前三个特征每个RDD都具备，后两个特征可选的</p>
+<ul>
+<li><p>RDD是有分区的</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111185215255.png" class title="image-20231111185215255" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111185215255.png">
+
+<p>用代码演示:</p>
+<p>cd 到spark目录下，输入<code>bin/pyspark</code>运行终端，输入如下代码：</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111185659496.png" class title="image-20231111185659496" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111185659496.png">
+
+
+</li>
+<li><p>计算方法都会作用到每一个分区之上</p>
+<p>使用map将每个数扩大十倍，我们会发现所有分区的数据都会进行变化，并不只改变一个分区:</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111190446823.png" class title="image-20231111190446823" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111190446823.png">
+</li>
+<li><p>RDD之间是有相互依赖关系（血缘关系)</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111190605094.png" class title="image-20231111190605094" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111190605094.png">
+</li>
+<li><p>KV型RDD可以有分区器</p>
+</li>
+</ul>
+<p>  默认分区器:Hash分区规则，可以手动设置一个分区器(rdd.paritionBy的方法来设置)</p>
+<p>  不是所有RDD都是Key-Value型。</p>
+<ul>
+<li><p>RDD分区数据的读取会尽量靠近数据所在的服务器</p>
+<p>因为这样可以走本地读取避免网络读取.本地读取性能 &gt;&gt; 网络读取</p>
+<p>spark会在确保并行计算能力的前提下，尽量确保本地读取，但这并不是100%的</p>
+</li>
+</ul>
+<h2 id="二、RDD编程入门"><a href="#二、RDD编程入门" class="headerlink" title="二、RDD编程入门"></a>二、RDD编程入门</h2><h3 id="2-1-程序执行入口-SparkContext对象"><a href="#2-1-程序执行入口-SparkContext对象" class="headerlink" title="2.1 程序执行入口 SparkContext对象"></a>2.1 程序执行入口 SparkContext对象</h3><p>Spark RDD 编程的程序入口对象是SparkContext对象(不论何种编程语言) 只有构建出SparkContext, 基于它才能执行后续的API调用和计算本质上, SparkContext对编程来说, 主要功能就是创建第一个RDD出来</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111221339287.png" class title="image-20231111221339287" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111221339287.png">
+
+<h3 id="2-2-RDD的创建"><a href="#2-2-RDD的创建" class="headerlink" title="2.2 RDD的创建"></a>2.2 RDD的创建</h3><p>RDD的创建主要有两种方式:</p>
+<ul>
+<li>通过并行化集合创建(本地对象 转 分布式RDD)</li>
+<li>读取外部数据源(读取文件)</li>
+</ul>
+<p>并行化创建:</p>
+<p>代码演示:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 初始化执行环境，构建SparkContext对象</span></span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 演示通过并行化集合的方式去创建RDD，本地集合-&gt;分布式对象(RDD)</span></span><br><span class="line">    rdd = sc.parallelize([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line">    <span class="comment"># parallelize没有给定分区数，那么其默认分区数是多少?根据cpu核心来决定</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;默认分区数:&quot;</span>, rdd.getNumPartitions())</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;分区数:&quot;</span>, rdd.getNumPartitions())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># collect方法是将RDD中每个分区的数据，都发送到Driver中，形成一个Python List对象</span></span><br><span class="line">    <span class="comment"># collect:分布式 -&gt; 本地集合</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;rdd的内容是:&quot;</span>, rdd.collect())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>API:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rdd = sparkcontext.parallelize(参数1,参数2)</span><br><span class="line"># 参数1 集合对象，例如list</span><br><span class="line"># 参数2 分区数</span><br><span class="line">rdd.getNumPartitions() </span><br><span class="line"># 获取RDD分区数量，返回是int数字</span><br></pre></td></tr></table></figure>
+
+<p>读取文件创建:</p>
+<p>code：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 构建spark-context对象</span></span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 通过textfile Api 读取数据</span></span><br><span class="line">    file_rdd1 = sc.textFile(<span class="string">&quot;../data/input/words.txt&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;默认读取分区:&quot;</span>, file_rdd1.getNumPartitions())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;file_rdd 内容:&quot;</span>, file_rdd1.collect())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 加最小分区的测试</span></span><br><span class="line">    file_rdd2 = sc.textFile(<span class="string">&quot;../data/input/words.txt&quot;</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="comment"># 最小分区数是参考值，spark有自己的判断，给得太大spark并不会按照你给的来分配</span></span><br><span class="line">    file_rdd3 = sc.textFile(<span class="string">&quot;../data/input/words.txt&quot;</span>, <span class="number">100</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;file_rdd2 分区数:&quot;</span>, file_rdd2.getNumPartitions())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;file_rdd3 分区数:&quot;</span>, file_rdd3.getNumPartitions())</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111232147592.png" class title="image-20231111232147592" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231111232147592.png">
+
+<p>API:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sparkcontext.textfile(参数1，参数2)</span><br><span class="line"># 参数1，必填，文件路径 支持本地文件 支持hdfs 也支持一些s3协议等</span><br><span class="line"># 参数2，可选，表示最小分区数量</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>textFile  一般除了有很明确的指向性吗，一般情况下，不设置分区参数</p>
+</blockquote>
+<p>另外还有专门读取一堆小文件的API：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sparkcontext.wholeTextfile(参数1，参数2)</span><br><span class="line"># 参数1，必填，文件路径 支持本地文件 支持hdfs 也支持一些s3协议等</span><br><span class="line"># 参数2，可选，表示最小分区数量</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这个api偏向于少量分区读取数据，文件的数据很小分区很多，导致shuffle的几率更高，所以尽量少分区读取数据</p>
+</blockquote>
+<h3 id="2-3-RDD算子"><a href="#2-3-RDD算子" class="headerlink" title="2.3 RDD算子"></a>2.3 RDD算子</h3><p>算子:分布式集合对象的api称之为算子</p>
+<p>方法\函数:本地对象的api，叫做方法\函数</p>
+<p>RDD的算子分为两类:</p>
+<ul>
+<li>Transformation:转换算子</li>
+<li>Action:动作算子</li>
+</ul>
+<blockquote>
+<p>Transformation 算子</p>
+</blockquote>
+<p>RDD算子，返回值仍然是一个RDD，称之为转换算子；这类算子是<code>lazy 懒加载</code>的，如果没有action 算子，Transformation算子是不工作的</p>
+<blockquote>
+<p>Action 算子</p>
+</blockquote>
+<p>返回值<strong>不是rdd</strong>的就是action算子</p>
+<blockquote>
+<p><em>对于这两类算子来说,Transformation算子相当于在构建执行计划，action是一个</em><br><em>指令让这个执行计划开始工作.</em><br><em>如果没有action,Transformation算子之间的迭代关系就是一个没有通电的流水线</em><br><em>只有action到来,这个数据处理的流水线才开始工作.</em></p>
+</blockquote>
+<h3 id="2-4-常用Transformation算子"><a href="#2-4-常用Transformation算子" class="headerlink" title="2.4 常用Transformation算子"></a>2.4 常用Transformation算子</h3><ul>
+<li><p>map算子</p>
+<p>map算子 是将RDD的数据一条条处理，返回新的RDD</p>
+<p>语法:</p>
+<blockquote>
+<p>rdd.map(func)</p>
+<p>#接收参数传入传入类型不限，返回一个返回值，返回值类型不限</p>
+</blockquote>
+</li>
+<li><p>flatMap算子</p>
+<p>对rdd执行map操作，然后进行接触嵌套操作</p>
+<p>解除嵌套:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 嵌套的list</span><br><span class="line">lst = [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line"></span><br><span class="line"># 解除了嵌套</span><br><span class="line">lst = [1,2,3,4,5,6,7,8,9]</span><br></pre></td></tr></table></figure>
+
+<p>演示代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="comment"># 演示flatmap算子</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([<span class="string">&quot;a b c&quot;</span>, <span class="string">&quot;a c e &quot;</span>, <span class="string">&quot;e c a&quot;</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 按照空格切分数据后，接触嵌套</span></span><br><span class="line">    <span class="built_in">print</span>(rdd.flatMap(<span class="keyword">lambda</span> x: x.split(<span class="string">&quot; &quot;</span>)).collect())</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231112164840281.png" class title="image-20231112164840281" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231112164840281.png">
+
+
+</li>
+<li><p>reduceByKey算子</p>
+<p>针对KV型RDD，自动按照key分组，然后根据提供的聚合逻辑，完成组内数据的聚合操作</p>
+<p>用法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rdd.reduceByKey(func)</span><br><span class="line"># func:(V,V) -&gt; V</span><br><span class="line"># 接收两个传入参数(类型要一致),返回一个返回值，类型和传入要求一致</span><br></pre></td></tr></table></figure>
+
+<p>代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;b&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;b&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;b&#x27;</span>, <span class="number">1</span>)])</span><br><span class="line">    res = rdd.reduceByKey(<span class="keyword">lambda</span> a, b: a + b)</span><br><span class="line">    <span class="built_in">print</span>(res.collect())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231112190701053.png" class title="image-20231112190701053" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231112190701053.png">
+
+<blockquote>
+<p>reduceByKey 中接收的函数，只负责聚合，不理会分组，分组是自动by key来分组的</p>
+</blockquote>
+</li>
+<li><p>mapValues 算子</p>
+<p>针对二元元组RDD，对其内部的二元元组Value执行map操作</p>
+<p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rdd.mapValues(func)</span><br><span class="line"># func:(V) -&gt; U  -&gt;U表示返回值</span><br><span class="line"># 传入的参数是二元元组的value值，只value进行处理</span><br></pre></td></tr></table></figure>
+
+<p>代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># coding:utf-8</span><br><span class="line"></span><br><span class="line">from pyspark import SparkConf,SparkContext</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    conf = SparkConf().setAppName(&quot;test&quot;).setMaster(&quot;local[*]&quot;)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([(&#x27;a&#x27;,1),(&#x27;a&#x27;,11),(&#x27;a&#x27;,6),(&#x27;b&#x27;,3),(&#x27;b&#x27;,5)])</span><br><span class="line"></span><br><span class="line">    # 将二元元组的所有value都乘以10进行处理</span><br><span class="line">    print(rdd.mapValues(lambda x:x*10).collect())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+<li><p>groupBy 算子</p>
+<p>将rdd的数据进行分组</p>
+<p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rdd.groupBy(func)</span><br><span class="line"># 传入一个函数，返回一个返回值，类型无所谓</span><br><span class="line"># 这个函数是拿到你的返回值后，将所有相同返回值的放入一个组中</span><br><span class="line"># 分组完成后，每一个组是一个二元组，key就是返回值，所有同组的数据放入一个迭代器对象中作为value</span><br></pre></td></tr></table></figure>
+
+<p>代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># coding:utf-8</span><br><span class="line"></span><br><span class="line">from pyspark import SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    conf = SparkConf().setAppName(&quot;test&quot;).setMaster(&quot;local[*]&quot;)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([(&#x27;a&#x27;, 1), (&#x27;a&#x27;, 1), (&#x27;b&#x27;, 1), (&#x27;b&#x27;, 2), (&#x27;b&#x27;, 3)])</span><br><span class="line"></span><br><span class="line">    # 通过groupby对数据进行排序</span><br><span class="line">    res = rdd.groupBy(lambda x: x[0])</span><br><span class="line">    # lambda函数意思是将元组的value强制转换成list对象 下面两种方法都可</span><br><span class="line">    print(res.mapValues(lambda x:list(x)).collect())</span><br><span class="line">    # print(res.map(lambda x: (x[0], list(x[1]))).collect())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231112201144648.png" class title="image-20231112201144648" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231112201144648.png">
+</li>
+<li><p>Filter 算子</p>
+<p>过滤想要的数据进行保留</p>
+<p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rdd.filter(func)</span><br><span class="line"># func: (T) -&gt; bool 传入一个参数随意类型，返回值必须是t or f</span><br><span class="line"># t被保留，f被丢弃</span><br></pre></td></tr></table></figure>
+
+<p>代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># coding:utf-8</span><br><span class="line"></span><br><span class="line">from pyspark import SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    conf = SparkConf().setAppName(&quot;test&quot;).setMaster(&quot;local[*]&quot;)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([1, 2, 3, 4, 5])</span><br><span class="line"></span><br><span class="line">    # 保留奇数</span><br><span class="line">    print(rdd.filter(lambda x: x % 2 == 1).collect())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113000444162.png" class title="image-20231113000444162" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113000444162.png">
+</li>
+<li><p>distinct 算子</p>
+<p>对RDD数据进行去重，返回新的RDD</p>
+<p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rdd.dinstinct(参数1)</span><br><span class="line"># 参数1，去重分区数量，一般不用传</span><br></pre></td></tr></table></figure>
+
+<p>代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">6</span>])</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(rdd.distinct().collect())</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113001145565.png" class title="image-20231113001145565" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113001145565.png">
+</li>
+<li><p>join 算子</p>
+<p>对两个RDD执行join操作(可实现SQL的内\外连接)</p>
+<p>join算子只能用于二元元组</p>
+<p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rdd.join(other_rdd)</span><br><span class="line">rdd.leftOuterJoin(other_rdd) # 左外</span><br><span class="line">rdd.rightOuterJoin(oter_rdd) # 右外</span><br></pre></td></tr></table></figure>
+
+<p>代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># coding:utf-8</span><br><span class="line"></span><br><span class="line">from pyspark import SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    conf = SparkConf().setAppName(&quot;test&quot;).setMaster(&quot;local[*]&quot;)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    # 部门id和员工姓名</span><br><span class="line">    x = sc.parallelize([(1001, &quot;a&quot;), (1002, &quot;bb&quot;), (1003, &quot;ccc&quot;), (1004, &quot;dddd&quot;)])</span><br><span class="line">    # 部门id和部门名称</span><br><span class="line">    y = sc.parallelize([(1001, &quot;sales&quot;), (1002, &quot;tech&quot;)])</span><br><span class="line"></span><br><span class="line">    # join是内连接</span><br><span class="line">    # 对于join算子来说关联条件，按照二元元组的key来进行关联</span><br><span class="line">    print(x.join(y).collect())</span><br><span class="line"></span><br><span class="line">    # leftOuterjoin是左外连接 同理还有右外连接</span><br><span class="line"></span><br><span class="line">    print(x.leftOuterJoin(y).collect())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>union 算子</p>
+<p>2个rdd合并成1个rdd返回</p>
+<p>用法:</p>
+<p><code>rdd.union(other_rdd)</code></p>
+<p>注意:</p>
+<blockquote>
+<ol>
+<li>只合并，不会去重</li>
+<li>不同类型的rdd依旧可以混合</li>
+</ol>
+</blockquote>
+<p>代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd1 = sc.parallelize([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">    rdd2 = sc.parallelize([<span class="number">5</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">8</span>])</span><br><span class="line"></span><br><span class="line">    union_rdd = rdd1.union(rdd2)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(union_rdd.collect())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113213018157.png" class title="image-20231113213018157" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113213018157.png">
+</li>
+<li><p>intersection 算子</p>
+<p>求2个rdd的交集，返回一个新的rdd</p>
+<p>用法:</p>
+<p><code>rdd.intersection(other_rdd)</code></p>
+<p>代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd1 = sc.parallelize([(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;b&#x27;</span>, <span class="number">1</span>)])</span><br><span class="line">    rdd2 = sc.parallelize([(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;c&#x27;</span>, <span class="number">1</span>)])</span><br><span class="line"></span><br><span class="line">    rdd3 = rdd1.intersection(rdd2)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(rdd3.collect())</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113213516810.png" class title="image-20231113213516810" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113213516810.png">
+</li>
+<li><p>glom 算子</p>
+<p>将RDD的数据，加上嵌套，这个嵌套按照分区来进行</p>
+<p>比如rdd数据[1,2,3,4,5]有两个分区，那么，被glom后数据变成[[1,2,3],[4,5]]</p>
+<p>使用方法:</p>
+<p><code>rdd.glom()</code></p>
+<p>与GetNumPartitions不同的是，GetNumPartions只能看到分区数目，而glom算子能看到每个分区的数据分布；</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], <span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(rdd.glom().collect())</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113215134047.png" class title="image-20231113215134047" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113215134047.png">
+</li>
+<li><p>groupBykey 算子</p>
+<p>针对KV型RDD，自动按照key分组</p>
+<p>用法:</p>
+<p><code>rdd.groupBykey()</code>自动按照key分组</p>
+<p>代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;c&#x27;</span>, <span class="number">2</span>)])</span><br><span class="line">    group_rdd = rdd.groupByKey()</span><br><span class="line">    <span class="built_in">print</span>(group_rdd)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113220424072.png" class title="image-20231113220424072" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113220424072.png">
+</li>
+<li><p>sortBy算子</p>
+<p>对RDD数据进行排序，基于指定的排序依据</p>
+<p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rdd.sortBy(func,ascending=False,numPartitions=1)</span><br><span class="line"># func:(T) -&gt; U:告知按照rdd中的哪个数据进行排序，例如lambda x:x[1]表示按照rdd中的第二列元素进行排序</span><br><span class="line"># ascdeing True 升序 False 降序</span><br><span class="line"># numPartions:用多少分区排序</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>:若要全局有序，排序分区数请设置为1</p>
+<p>代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;a&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;a&#x27;</span>, <span class="number">3</span>), (<span class="string">&#x27;d&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;c&#x27;</span>, <span class="number">3</span>), (<span class="string">&#x27;f&#x27;</span>, <span class="number">5</span>)])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 按value排序</span></span><br><span class="line">    <span class="built_in">print</span>(rdd.sortBy(<span class="keyword">lambda</span> x: x[<span class="number">1</span>], ascending=<span class="literal">True</span>, numPartitions=<span class="number">2</span>).collect())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 按key排序</span></span><br><span class="line">    <span class="built_in">print</span>(rdd.sortBy(<span class="keyword">lambda</span> x: x[<span class="number">0</span>], ascending=<span class="literal">False</span>, numPartitions=<span class="number">1</span>).collect())</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113221205784.png" class title="image-20231113221205784" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113221205784.png">
+
+<p>sortByKey 算子</p>
+<p>针对KV型RDD,按照key进行排序</p>
+<p>语法:</p>
+<p><code>sortByKey(ascending=True,numpartitons=None,keyfuc=&lt;function RDD.lambda &gt;)</code></p>
+<p>keyfunc：再排序前对key进行处理，语法是(K) -&gt; U 一个参数传入，返回一个值</p>
+<p>代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;test&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.parallelize([(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;E&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;d&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;V&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;f&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;p&#x27;</span>, <span class="number">1</span>),</span><br><span class="line">                          (<span class="string">&#x27;n&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;m&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;L&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;r&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;h&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;j&#x27;</span>, <span class="number">1</span>)], <span class="number">3</span>)</span><br><span class="line">    <span class="comment"># 这里key是str但是通过强转之后可以调用lower()方法，将其转换成小写，防止大小写影响结果</span></span><br><span class="line">    <span class="built_in">print</span>(rdd.sortByKey(ascending=<span class="literal">True</span>, numPartitions=<span class="number">1</span>, keyfunc=<span class="keyword">lambda</span> key: <span class="built_in">str</span>(key).lower()).collect())</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113222202892.png" class title="image-20231113222202892" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113222202892.png"></li>
+</ul>
+<blockquote>
+<p>案例</p>
+</blockquote>
+<p>需求:读取data文件夹中的order.txt文件，提取北京的数据，组合北京和商品类别进行输出，同时对结果集进行去重，得到北京售卖的商品类别信息</p>
+<p>代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkConf, SparkContext</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conf = SparkConf().setAppName(<span class="string">&quot;case&quot;</span>).setMaster(<span class="string">&quot;local[*]&quot;</span>)</span><br><span class="line">    sc = SparkContext(conf=conf)</span><br><span class="line"></span><br><span class="line">    rdd = sc.textFile(<span class="string">&quot;../data/input/order.text&quot;</span>)</span><br><span class="line">    <span class="comment"># 提取每条json数据</span></span><br><span class="line">    json_str_rdd = rdd.flatMap(<span class="keyword">lambda</span> x: x.split(<span class="string">&quot;|&quot;</span>))</span><br><span class="line">    <span class="comment"># 将json数据转换成python字典对象,json.loads()的作用是将 JSON 格式的字符串解析为 Python 数据结构，例如字典或列表</span></span><br><span class="line">    json_dict_rdd = json_str_rdd.<span class="built_in">map</span>(<span class="keyword">lambda</span> x: json.loads(x))</span><br><span class="line">    <span class="comment"># print(json_dict_rdd.collect())</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 过滤数据，只保留北京</span></span><br><span class="line">    beijing_rdd = json_dict_rdd.<span class="built_in">filter</span>(<span class="keyword">lambda</span> t: t[<span class="string">&#x27;areaName&#x27;</span>] == <span class="string">&#x27;北京&#x27;</span>)</span><br><span class="line">    <span class="comment"># print(beijing_rdd.collect())</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 组合北京和商品类型</span></span><br><span class="line">    res_rdd = beijing_rdd.<span class="built_in">map</span>(<span class="keyword">lambda</span> s: s[<span class="string">&#x27;areaName&#x27;</span>] + <span class="string">&#x27;_&#x27;</span> + s[<span class="string">&quot;category&quot;</span>])</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(res_rdd.collect())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113235628698.png" class title="image-20231113235628698" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231113235628698.png">
+
+<p>将案例部署到集群运行:</p>
+<p>这里注意使用命令:<code>hadoop fs -chmod 777 /user</code>将hdfs文件文件夹权限修改，运行完后可以通过<code>hadoop fs -chmod 755 /user</code>修改回来，这里我提交到yarn运行时一直报错：<code>root is not a leaf queue</code>将yarn的配置文件<code>yarn-site.xml</code>中调度器的fair改成capacity再重启resourcemanager即可</p>
+<img lazyload alt="image" data-src="/2023/11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231115151851335.png" class title="image-20231115151851335" src="/.com//11/06/Spark3-2%E9%9A%8F%E7%AC%94/image-20231115151851335.png">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Spark/">#Spark</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/10/31/SQL%E8%A1%A5%E5%85%85/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">SQL补充</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark%E5%9F%BA%E7%A1%80"><span class="nav-text">Spark基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Spark%E7%AE%80%E4%BB%8B"><span class="nav-text">一、Spark简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Spark%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-local"><span class="nav-text">二、Spark环境搭建 -local</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-text">2.1 基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%E6%90%AD%E5%BB%BA"><span class="nav-text">2.2搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-%E5%AE%89%E8%A3%85%E6%9D%A1%E4%BB%B6"><span class="nav-text">2.2.1 安装条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">2.2.2 环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83"><span class="nav-text">2.2.3 安装相关环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95"><span class="nav-text">2.2.4 启动测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-Standalone"><span class="nav-text">三、环境搭建-Standalone</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Standalone%E6%9E%B6%E6%9E%84"><span class="nav-text">3.1 Standalone架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Standalone-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="nav-text">3.2 Standalone 环境安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-%E9%9B%86%E7%BE%A4%E8%A7%84%E5%88%92"><span class="nav-text">3.2.1 集群规划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2-%E5%9C%A8%E6%89%80%E6%9C%89%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">3.3.2 在所有机器配置环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3-%E9%85%8D%E7%BD%AEspark%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">3.3.3 配置spark相关配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-4-%E5%B0%86%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%9A%84spark%E6%96%87%E4%BB%B6%E5%88%86%E5%8F%91%E5%88%B0%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">3.3.4 将配置好的spark文件分发到其他服务器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E8%BF%9E%E6%8E%A5%E5%88%B0StandAlone%E9%9B%86%E7%BE%A4"><span class="nav-text">3.3 连接到StandAlone集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-Spark%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="nav-text">3.4 Spark应用架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-Spark%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-text">3.5 Spark程序运行层次结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-StandAlone-HA"><span class="nav-text">四、环境搭建-StandAlone HA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1%E9%AB%98%E5%8F%AF%E7%94%A8HA"><span class="nav-text">4.1高可用HA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEZookeeper"><span class="nav-text">4.1.1 安装配置Zookeeper</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%9F%BA%E4%BA%8EZooKeeper%E5%AE%9E%E7%8E%B0HA"><span class="nav-text">4.2 基于ZooKeeper实现HA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-Spark-StandAlone-HA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-text">4.2.1 Spark StandAlone HA环境搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-%E6%B5%8B%E8%AF%95%E4%B8%BB%E5%A4%87%E5%88%87%E6%8D%A2"><span class="nav-text">4.2.2 测试主备切换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81Spark-On-YARN-%E9%87%8D%E7%82%B9"><span class="nav-text">五、Spark On YARN (重点)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E7%AE%80%E4%BB%8B"><span class="nav-text">5.1 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-text">5.2 环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%BC%8FDeployMode"><span class="nav-text">5.3 部署模式DeployMode</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-client-%E6%A8%A1%E5%BC%8F%E6%B5%8B%E8%AF%95"><span class="nav-text">5.3.1 client 模式测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-cluster-%E6%A8%A1%E5%BC%8F%E6%B5%8B%E8%AF%95"><span class="nav-text">5.3.2 cluster 模式测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B"><span class="nav-text">5.4 两种模式详细流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-PySpark"><span class="nav-text">5.5 PySpark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-1-%E6%98%AF%E4%BB%80%E4%B9%88PySpark"><span class="nav-text">5.5.1 是什么PySpark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-2-%E5%AE%89%E8%A3%85PySpark%E7%B1%BB%E5%BA%93"><span class="nav-text">5.5.2 安装PySpark类库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%9C%AC%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-text">六、本机开发环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E6%9C%AC%E6%9C%BAPySpark%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">6.1 本机PySpark环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-vscode%E9%85%8D%E7%BD%AEPython%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="nav-text">6.2 vscode配置Python解释器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-1-PyCharm%E9%85%8D%E7%BD%AEPython%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="nav-text">6.2.1 PyCharm配置Python解释器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E5%BA%94%E7%94%A8%E5%85%A5%E5%8F%A3-SparkContext"><span class="nav-text">6.3 应用入口:SparkContext</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spark-Core"><span class="nav-text">Spark Core</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81RDD%E8%AF%A6%E8%A7%A3"><span class="nav-text">一、RDD详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-RDD%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">1.1 RDD是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-RDD%E7%9A%84%E4%BA%94%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-text">1.2 RDD的五大特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81RDD%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8"><span class="nav-text">二、RDD编程入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%85%A5%E5%8F%A3-SparkContext%E5%AF%B9%E8%B1%A1"><span class="nav-text">2.1 程序执行入口 SparkContext对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-RDD%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">2.2 RDD的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-RDD%E7%AE%97%E5%AD%90"><span class="nav-text">2.3 RDD算子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E5%B8%B8%E7%94%A8Transformation%E7%AE%97%E5%AD%90"><span class="nav-text">2.4 常用Transformation算子</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Stru99le</a>
+            
+        </div>
+        
+            <script async 
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+
+</body>
+</html>
