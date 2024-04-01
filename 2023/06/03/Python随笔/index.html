@@ -202,7 +202,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-08-23 18:06:47</span>
+        <span class="pc">2024-03-21 10:05:32</span>
     </span>
     
     
@@ -233,12 +233,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>3.1k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.5k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>14 分钟</span>
         </span>
     
     
@@ -274,7 +274,7 @@
 <li><p>添加多个项目用update()</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  thiset=&#123;<span class="string">&quot;apple&quot;</span>,<span class="string">&quot;banana&quot;</span>,<span class="string">&quot;cherry&quot;</span>&#125;</span><br><span class="line">thiset.update([<span class="string">&quot;orange&quot;</span>, <span class="string">&quot;mango&quot;</span>, <span class="string">&quot;grapes&quot;</span>])</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>删除用Remove()或discard()方法<br>  如果删除的项目不存在，remove()会引发错误，而discard()不会引发错误</p>
+<li><p>删除用Remove()或discard()方法<br> 如果删除的项目不存在，remove()会引发错误，而discard()不会引发错误</p>
 </li>
 <li><p>pop()删除最后一项</p>
 </li>
@@ -298,7 +298,7 @@
 <li><p>使用中括号[ ]  </p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">&#x27;key1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;key2&#x27;</span>: <span class="string">&#x27;value2&#x27;</span>, <span class="string">&#x27;key3&#x27;</span>: <span class="string">&#x27;value3&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dic[<span class="string">&#x27;key1&#x27;</span>])  <span class="comment"># 输出 value1</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用get( )方法<br>  dic.get(key,default&#x3D;None)它用于从字典中获取指定键key对应的值，键不存在返回一个默认值deafult</p>
+<li><p>使用get( )方法<br> dic.get(key,default&#x3D;None)它用于从字典中获取指定键key对应的值，键不存在返回一个默认值deafult</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">&#x27;key1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;key2&#x27;</span>: <span class="string">&#x27;value2&#x27;</span>, <span class="string">&#x27;key3&#x27;</span>: <span class="string">&#x27;value3&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(dic.get(<span class="string">&#x27;key1&#x27;</span>)) <span class="comment"># 输出value1</span></span><br><span class="line"><span class="built_in">print</span>(dic.get(<span class="string">&#x27;key4&#x27;</span>)) <span class="comment"># 输出 None</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>除以上外，可以通过keys(),values()和items()方法获取字典中所有的键、值和键值对。例如:</p>
@@ -314,6 +314,25 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">  dic[i] = dic.get(i,<span class="number">0</span>) + <span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>解包<br>解包是指将一个序列或元组中的元素分别赋值给变量。可迭代对象是指可以被迭代器遍历的对象，例如列表、元组、字符串等。而解包则是指将一个序列或元组中的元素分别赋值给多个变量的操作。</p>
+</li>
+<li><p><code>*args</code>和<code>**kwargs</code></p>
+<ol>
+<li><code>*args</code>（arguments）允许你传递零个或多个位置参数给一个函数。它会将传递给函数的位置参数收集到一个元组(tuple)中。在函数定义中，<code>*args</code>以星号(*)的形式出现，但你可以用任何变量名代替它。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pythonCopy codedef example_function(*args):</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(arg)</span><br><span class="line"></span><br><span class="line">example_function(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"><span class="comment"># Output:</span></span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 4</span></span><br><span class="line"><span class="comment"># 5</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>**kwargs</code>（keyword arguments）允许你传递零个或多个带有关键字的参数给一个函数。它会将传递给函数的关键字参数收集到一个字典(dict)中，其中关键字作为字典的键，相应的值作为字典的值。在函数定义中，<code>**kwargs</code>以双星号(**)的形式出现，但你同样可以用任何合法的变量名代替它。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pythonCopy codedef example_function(**kwargs):</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;key&#125;</span>: <span class="subst">&#123;value&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">example_function(a=<span class="number">1</span>, b=<span class="number">2</span>, c=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># Output:</span></span><br><span class="line"><span class="comment"># a: 1</span></span><br><span class="line"><span class="comment"># b: 2</span></span><br><span class="line"><span class="comment"># c: 3</span></span><br></pre></td></tr></table></figure>
+
+<p>区别总结：</p>
+<ul>
+<li><code>*args</code>用于接收位置参数，收集为一个元组(tuple)。</li>
+<li><code>**kwargs</code>用于接收关键字参数，收集为一个字典(dict)。</li>
+<li>你可以在同一个函数中同时使用<code>*args</code>和<code>**kwargs</code>，但是<code>*args</code>必须在<code>**kwargs</code>之前。</li>
+<li>参数名<code>args</code>和<code>kwargs</code>只是一种约定，你可以用其他任何合法的变量名替代它们，但通常使用它们是为了提高代码的可读性和清晰度。</li>
+</ul>
 </li>
 <li><p>取整<br>使用int取整大于0的数向下取整，小于0的数向上取整</p>
 </li>
@@ -331,6 +350,13 @@
 </li>
 <li><p>Stoplteration关键字<br>如果有足够的next()语句，为了防止迭代继续进行，可以使用StopIteration语句<br><em>ep1迭代20次后停止</em></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyNumbers</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">    self.a=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> self</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">if</span> self.a &lt;= <span class="number">20</span></span><br><span class="line">      x = self.a</span><br><span class="line">      self.a += <span class="number">1</span></span><br><span class="line">      <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line">myclass = MyNumbers()</span><br><span class="line">myiter = <span class="built_in">iter</span>(myclass)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> myiter:</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>raise</p>
+<p>raise 关键字用于引发异常</p>
+<p>ep:如果x&lt;0则引发错误并停止程序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = -<span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">raise</span> Excpetion(<span class="string">&quot;error&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
 </li>
 <li><p>self<br>在python中,self是一个惯用的参数名称。在定义一个类的方法时，需要将self作为第一个参数传递给方法，当我们定义一个类的方法时，那么在调用该方法时，实际上是通过类的实例对象来调用这个方法，因此不需要显式传递self参数；<br>如果我们在类的方法中访问类的属性或者方法，那么必须使用self来访问(self.func)。如果我们在方法中直接访问属性或者方法，py会解释为局部变量或函数，从而导致错误。</p>
 </li>
@@ -405,21 +431,24 @@
 <h3 id="py函数"><a href="#py函数" class="headerlink" title="py函数"></a>py函数</h3><ul>
 <li><p>remove()<br>用于从列表中删除指定元素；语法格式为: list_name.remove(element) #element 任意数据类型</p>
 <ol>
-<li><p>删除普通类型元素<br>  删除列表中存在的数字或者字符串;不存在会报错，引发valueError异常</p>
+<li><p>删除普通类型元素<br> 删除列表中存在的数字或者字符串;不存在会报错，引发valueError异常</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&#x27;zhangsan&#x27;</span>, <span class="string">&#x27;lisi&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">list1.remove(<span class="number">1</span>)</span><br><span class="line">list1.remove(<span class="string">&#x27;lisi&#x27;</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除对象类型元素  </p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list1=[<span class="number">1</span>,<span class="number">2</span>,[<span class="number">3</span>,<span class="number">4</span>],(<span class="number">5</span>,<span class="number">6</span>)]</span><br><span class="line">a=[<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">b=(<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line">list1.remove(a) <span class="comment"># 删除列表类型</span></span><br><span class="line">list1.remove(b) <span class="comment"># 删除元组类型</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除多个元素，可以使用循环来实现</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个列表</span></span><br><span class="line">fruits = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;orange&quot;</span>, <span class="string">&quot;peach&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;kiwi&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除所有的 &quot;banana&quot; 元素</span></span><br><span class="line"><span class="keyword">while</span> <span class="string">&quot;banana&quot;</span> <span class="keyword">in</span> fruits:</span><br><span class="line">    fruits.remove(<span class="string">&quot;banana&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(fruits)  <span class="comment"># [&quot;apple&quot;, &quot;orange&quot;, &quot;peach&quot;, &quot;kiwi&quot;]</span></span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个列表</span></span><br><span class="line">fruits = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;orange&quot;</span>, <span class="string">&quot;peach&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;kiwi&quot;</span>]</span><br><span class="line">      </span><br><span class="line"><span class="comment"># 删除所有的 &quot;banana&quot; 元素</span></span><br><span class="line"><span class="keyword">while</span> <span class="string">&quot;banana&quot;</span> <span class="keyword">in</span> fruits:</span><br><span class="line">    fruits.remove(<span class="string">&quot;banana&quot;</span>)</span><br><span class="line">      </span><br><span class="line"><span class="built_in">print</span>(fruits)  <span class="comment"># [&quot;apple&quot;, &quot;orange&quot;, &quot;peach&quot;, &quot;kiwi&quot;]</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <p> 注意:<em>在使用 remove() 函数时要谨慎，特别是在迭代列表的过程中,当删除一个元素后会导致后面的元素索引发生变化从而可能导致发生错误</em></p>
 </li>
 <li><p>enumerate()<br>enumerate()是python中的一个内置函数，将一个<strong>可迭代对</strong>象转换为一个<strong>枚举对象</strong>，同时返回每个元素的<strong>索引</strong>和<strong>值</strong>，常用于for循环中获取中获取每个元素的位置信息。<br>用法: enumerate(iterable,start&#x3D;0)<br>其中，iterable表示要枚举的可迭代对象，start表示起始索引</p>
 </li>
 <li><p>ord()<br>ord()是一个内置函数，用于获取给定字符的Unicode码点值，ord()函数接受单个字符作为参数；</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>) <span class="comment"># 返回97</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line">- defaultdict()</span><br><span class="line">  defaultdict是python中的一个内置字典子类，重载了一个方法来实现默认值的设定。在创建defaultdict对象，需要提供一个参数作为默认值或者一个函数用来生成默认值。</span><br><span class="line">  比如有一个字典对其中的值进行累加操作，如果某个键不存在，则将其值设置为<span class="number">0</span>，使用defaultdict可以避免手动判断键是否存在的过程:</span><br><span class="line"></span><br><span class="line">  ```python</span><br><span class="line">  <span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line">  d = defaultdict(<span class="built_in">int</span>)</span><br><span class="line">  <span class="comment"># 对字典中的值进行累加操作</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">&#x27;mississippi&#x27;</span>：</span><br><span class="line">    d[i]+=<span class="number">1</span></span><br><span class="line">  <span class="built_in">print</span>(d) <span class="comment"># 输出：defaultdict(&lt;class &#x27;int&#x27;&gt;, &#123;&#x27;m&#x27;: 1, &#x27;i&#x27;: 4, &#x27;s&#x27;: 4, &#x27;p&#x27;: 2&#125;)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>) <span class="comment"># 返回97</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>defaultdict()<br>defaultdict是python中的一个内置字典子类，重载了一个方法来实现默认值的设定。在创建defaultdict对象，需要提供一个参数作为默认值或者一个函数用来生成默认值。<br>比如有一个字典对其中的值进行累加操作，如果某个键不存在，则将其值设置为0，使用defaultdict可以避免手动判断键是否存在的过程:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line">d = defaultdict(<span class="built_in">int</span>)</span><br><span class="line"><span class="comment"># 对字典中的值进行累加操作</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">&#x27;mississippi&#x27;</span>：</span><br><span class="line">  d[i]+=<span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(d) <span class="comment"># 输出：defaultdict(&lt;class &#x27;int&#x27;&gt;, &#123;&#x27;m&#x27;: 1, &#x27;i&#x27;: 4, &#x27;s&#x27;: 4, &#x27;p&#x27;: 2&#125;)</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>sorted()<br>返回一个新的排好序的列表，而不改变原始列表<br>例如有一个数字列表</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num = [<span class="number">4</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></li>
@@ -520,7 +549,7 @@
             
                 <span>2020</span> -
             
-            2023
+            2024
             
                 &nbsp;<i class="fas fa-heart icon-animate"></i>
                 &nbsp;<a href="/">Stru99le</a>

@@ -9,7 +9,7 @@
     
     <title>
         
-            git_merge笔记 |
+            git随笔 |
         
         MelodyYu
     </title>
@@ -174,7 +174,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">git_merge笔记</span>
+                <span class="title-hover-animation">git随笔</span>
             </div>
 
             
@@ -202,7 +202,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-05-26 15:56:30</span>
+        <span class="pc">2024-03-29 20:03:28</span>
     </span>
     
     
@@ -233,7 +233,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>165 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>400 字</span>
         </span>
     
     
@@ -281,6 +281,16 @@
 <li><p>提交修改</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin main</span><br></pre></td></tr></table></figure></li>
 </ol>
+<h2 id="gitignore问题"><a href="#gitignore问题" class="headerlink" title="gitignore问题"></a>gitignore问题</h2><p>当我们创建好文件并且将其推送到github后再创建gitignore文件的话，会发现在gitignore里面添加的文件都不会生效。</p>
+<p>**原因:**git忽略目录中，新建的文件在git中会有本地缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，.gitignore文件只是忽略没有被staged(cached)文件，对于已经被staged文件，加入ignore文件时一定要先从staged移除，才可以忽略</p>
+<p>此时需要执行如下代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 在idea控制台以此输入如下命令</span><br><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;随便写&quot;</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<h2 id="比较不同分支的差异"><a href="#比较不同分支的差异" class="headerlink" title="比较不同分支的差异"></a>比较不同分支的差异</h2><p>在vscode中比较两个不同分支同一个文件的差异时，在如下设置可查看:</p>
+<img lazyload alt="image" data-src="/2023/04/06/git-merge%E7%AC%94%E8%AE%B0/image-20240329200225436.png" class title="image-20240329200225436" src="/.com//04/06/git-merge%E7%AC%94%E8%AE%B0/image-20240329200225436.png">
+
+<p>点击之后，再选择要查看的文件</p>
+<img lazyload alt="image" data-src="/2023/04/06/git-merge%E7%AC%94%E8%AE%B0/image-20240329200327411.png" class title="image-20240329200327411" src="/.com//04/06/git-merge%E7%AC%94%E8%AE%B0/image-20240329200327411.png">
 
             </div>
 
@@ -340,7 +350,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gitub%E9%97%AE%E9%A2%98-master%E5%92%8Cmain%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6"><span class="nav-text">gitub问题:master和main分支合并</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gitub%E9%97%AE%E9%A2%98-master%E5%92%8Cmain%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6"><span class="nav-text">gitub问题:master和main分支合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore%E9%97%AE%E9%A2%98"><span class="nav-text">gitignore问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E4%B8%8D%E5%90%8C%E5%88%86%E6%94%AF%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-text">比较不同分支的差异</span></a></li></ol>
     </div>
 </div>
 
@@ -364,7 +374,7 @@
             
                 <span>2020</span> -
             
-            2023
+            2024
             
                 &nbsp;<i class="fas fa-heart icon-animate"></i>
                 &nbsp;<a href="/">Stru99le</a>
