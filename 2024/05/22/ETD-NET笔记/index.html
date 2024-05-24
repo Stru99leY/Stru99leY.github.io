@@ -9,7 +9,7 @@
     
     <title>
         
-            Linux命令 |
+            ETD-NET笔记 |
         
         MelodyYu
     </title>
@@ -174,7 +174,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">Linux命令</span>
+                <span class="title-hover-animation">ETD-NET笔记</span>
             </div>
 
             
@@ -196,13 +196,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-05-26 15:19:22</span>
-        <span class="mobile">2023-05-26 15:19</span>
+        <span class="pc">2024-05-22 09:40:36</span>
+        <span class="mobile">2024-05-22 09:40</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2024-04-21 13:44:31</span>
+        <span class="pc">2024-05-24 19:48:17</span>
     </span>
     
     
@@ -211,7 +211,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                        <a href="/categories/%E8%AE%BA%E6%96%87/">论文</a>&nbsp;
                     </li>
                 
             </ul>
@@ -223,7 +223,15 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                        <a href="/tags/torch/">torch</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%BC%BA%E9%99%B7%E6%A3%80%E6%B5%8B/">缺陷检测</a>&nbsp;
                     </li>
                 
             </ul>
@@ -233,12 +241,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>844 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.3k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
         </span>
     
     
@@ -256,86 +264,123 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h2 id="Linux常用指令"><a href="#Linux常用指令" class="headerlink" title="Linux常用指令"></a>Linux常用指令</h2><ul>
-<li>获取登录信息 -w &#x2F;who &#x2F;last &#x2F;lastb</li>
-<li>查看自己使用的 -Shell -ps</li>
-<li>查看命令的说明和位置 -whatis &#x2F;which &#x2F;whereis</li>
-<li>清除屏幕上的内容 -clear</li>
-<li>看帮助文档 -man&#x2F;info &#x2F;–help &#x2F;apropos</li>
-<li>查看系统和主机名 -uname &#x2F;hostname</li>
-<li>时间和日期 -date &#x2F;cal</li>
-<li>重启和关机 -reboot &#x2F;shutdown</li>
-</ul>
-<h3 id="文件和文件夹操作"><a href="#文件和文件夹操作" class="headerlink" title="文件和文件夹操作"></a>文件和文件夹操作</h3><ul>
-<li><p>创建&#x2F;删除空目录 -mkdir &#x2F;rmdir</p>
-</li>
-<li><p>创建&#x2F;删除文件 -touch &#x2F;rm</p>
-<ul>
-<li>touch命令用于创建空白文件或修改文件时间。在linux系统中一个文件有三种时间</li>
-<li>更改内容的时间 -mtime</li>
-<li>更改权限的时间 -ctime</li>
-<li>最后访问时间 -atime</li>
-</ul>
-</li>
-<li><p>rm的几个重要参数<br>    -i 交互式删除，每个删除项目都会进行询问<br>  -r 删除目录并递归的删除目录中的文件和目录<br>    -f 强制删除，忽略不存在的文件，没有任何提示</p>
-</li>
-<li><p>切换和查看当前工作目录 -cd &#x2F;pwd</p>
-<ul>
-<li>快捷键 运行结果<ul>
-<li>cd 更改工作目录到home。</li>
-<li>cd - 更改工作目录到先前的工作目录。</li>
-<li>cd ˜user_name 更改工作目录到home目录。例如, cd ˜bob 会更改工作目录到用“b录。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>查看目录内容 -ls<br> -l 以长格式查看文件和目录<br>-a 显示以点开头的文件（隐藏文件）<br>-R 遇到目录要进行递归展开(继续列出目录下面的文件和目录)<br>-d 只列出目录，不列出其他内容<br>-S &#x2F;-t 按大小&#x2F;时间排序</p>
-</li>
-<li><p>查看文件内容 -cat &#x2F; tac &#x2F; head &#x2F; tail &#x2F; more &#x2F; less &#x2F; rev &#x2F; od</p>
-</li>
-<li><p>拷贝&#x2F;移动文件 - cp &#x2F; mv</p>
-<p> ​	mv命令：将文件剪切到当前文件夹并重新命名，执行后，原来的文件消失，新的文件创建成功，新的文件实际上就是原来的文件，只不过名字变了</p>
-</li>
-<li><p>文件重命名 -rename</p>
-</li>
-<li><p>查找文件和查找内容 -find &#x2F; grep</p>
-<ul>
-<li>grep在搜索字符串是可以使用正则表达式，如果需要使用正则表达式可以用grep -E 或者直接使用egrep</li>
-</ul>
-</li>
-<li><p>创建链接和查看链接 <code>ln</code> 具体语法:</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln [选项] [源文件] [链接]</span><br></pre></td></tr></table></figure>
+                <h1 id="ETD-NET"><a href="#ETD-NET" class="headerlink" title="ETD-NET"></a>ETD-NET</h1><p><strong>ETDNet: Efficient Transformer-Based Detection Network for Surface Defect Detection</strong></p>
+<p><em>IEEE TRANSACTIONS ON INSTRUMENTATION AND MEASUREMENT, VOL. 72, 2023</em></p>
+<img lazyload alt="image" data-src="/2024/05/22/ETD-NET%E7%AC%94%E8%AE%B0/etdnet.png" class title="etdnet" src="/.com//05/22/ETD-NET%E7%AC%94%E8%AE%B0/etdnet.png">
 
-<p><img lazyload alt="image" data-src="/Linux%E5%91%BD%E4%BB%A4%5Clnux_ln.png" src="/.com//Linux%E5%91%BD%E4%BB%A4%5Clnux_ln.png"></p>
-<h3 id="系统命令"><a href="#系统命令" class="headerlink" title="系统命令"></a>系统命令</h3><ul>
-<li><p>ps<br><code>ps -ef</code>表示显示所有进程，<code>ps -ef|grep</code>其中grep表示筛选包含特定关键词</p>
-</li>
-<li><p>df</p>
-<p>df 以磁盘分区为单位查看文件系统，可以获取硬盘被占用了多少空间，目前还剩下多少空间等信息。</p>
-<p>例如，我们使用<strong>df -h</strong>命令来查看磁盘信息， <strong>-h</strong> 选项为根据大小适当显示</p>
-<p>相关命令:</p>
+<h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><p>三种新颖的设计</p>
+<ol>
+<li>引入改进的(M-LVT)提供了比基于cnn的模型更强的全局表示能力，同时保持了轻量级的设计。</li>
+<li>设计了一个信道调制特征金字塔网络(CM-FPN)，该网络具有FPN结构和全局上下文块(GC-Block)。</li>
+<li>提出了一个面向任务的解耦(TOD)头。它使用解耦策略来减少分类任务和回归任务之间的冲突，以及一个面向任务的策略来学习面向相应任务的特征。在TOD头部，提出了局部特征表示(LFR)模块，为分类任务有效地提取对象感知的局部特征。为此专门设计了一个全局特征表示(GFR)模块</li>
+</ol>
+<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>通用目标检测</p>
 <ul>
-<li><strong>df -hl</strong>：查看磁盘剩余空间</li>
-<li><strong>df -h</strong>：查看每个根路径的分区大小</li>
-<li>**du -sh [目录名]**：返回该目录的大小</li>
-<li>**du -sm [文件夹]**：返回该文件夹总M数</li>
-<li>**du -h [目录名]**：查看指定文件夹下的所有文件大小（包含子文件夹）</li>
-</ul>
+<li><p>RCNN</p>
+<p>参数和计算量多，不切实际，在现实环境中受限</p>
 </li>
-<li><p>lsof</p>
-<p>lsof（list open files）是一个列出当前系统打开文件的工具。</p>
-<p><strong>命令格式：</strong></p>
-<p><code>lsof [参数][文件]</code></p>
-<p><a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/peida/archive/2013/02/26/2932972.html">具体使用<i class="fas fa-external-link-alt"></i></a></p>
+<li><p>One-Stage 目标检测</p>
+<ul>
+<li><p>FCOS</p>
+<p>无锚点探测器，它去除广泛使用的锚点，直接从点回归。</p>
 </li>
 </ul>
-<h3 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h3><ul>
-<li><p>复制文件和目录 <code>scp</code> 命令<br><code>scp</code>是linux系统下基于ssh登录进行安全的远程文件拷贝指令；<code>scp</code>是加密的，<code>rcp</code>是不加密的，<code>sco</code>是<code>rcp</code>的加强版，简易语法如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [可选参数] file_source file_target</span><br></pre></td></tr></table></figure>
-
-<p><img lazyload alt="image" data-src="/Linux%E5%91%BD%E4%BB%A4%5Cscp.png" src="/.com//Linux%E5%91%BD%E4%BB%A4%5Cscp.png"></p>
+</li>
+</ul>
+<p>缺陷检测</p>
+<p>与传统方法相比，基于dl的缺陷检测具有更好的泛化性能和更快的检测速度。</p>
+<ul>
+<li>FPNs + DCNs 引入Faster RCNN中用于检测小而复杂的钢缺陷</li>
+<li>利用信道关注和自适应空间特征融合提高了retanet的检测性能</li>
+<li>采用了跳跃层连接模块(SCM)和金字塔特征融合模块(PFM)来融合多尺度特征</li>
+<li>利用信道关注和双向特征融合对FCOS网络进行了改进</li>
+<li>在yolov5中加入了transformer</li>
+<li>在编码器-解码器网络(EDNet)中引入了交叉注意转换器(CAT)用于表面缺陷检测</li>
+</ul>
+<p>注意力机制</p>
+<ul>
+<li><p>SENet</p>
+<p>SENet提出了一种通道注意机制，在图像分类任务中取得了良好的性能.	SENet首先通过全局平均池化(GAP)将每个通道转换为一个值，然后使用两个完全连接的层来获得通道间的关系</p>
+</li>
+<li><p>空间减少注意力(SRA)</p>
+</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ol>
+<li><p>VIT</p>
+<p>ViT块由两部分组成:自关注和前馈网络(FFN)。FFN是ViT块中的另一个模块，可以进一步捕获潜在的特征模式</p>
+<ul>
+<li>缺点:当ViT直接应用于需要高分辨率输入的缺陷检测场景时，其自关注模块的计算负担是压倒性的，无法承受的。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总体架构"><a href="#总体架构" class="headerlink" title="总体架构"></a>总体架构</h3><ul>
+<li><p>backbone </p>
+<ul>
+<li><p>M-LVT</p>
+<p>轻量级VIT模型；LVT它采用标准的四阶段分层设计；两个模块:包括CSA模块(<em>卷积自注意力模块</em>)和RASA模块(<em>多尺度空洞卷积模块</em>),CSA模块嵌入在第一阶段，RASA嵌入在其余阶段。CSA模块在大小为3 × 3的核内的卷积中引入自我注意力，增强卷积层的特征提取能力。STEM+CSA代表了两个模块的组合：STEM模块和CSA（卷积自注意力）模块。STEM模块用于在浅层对特征图进行下采样并捕获更多语义信息。RASA模块通过递归自关注(递归深度为2)来捕获多尺度全局特征，通过将STEM模块与CSA模块结合，ETDNet在特征提取的初始阶段能够更有效地处理输入数据，提高模型整体的检测性能。</p>
+<p>缺陷:当LVT应用于缺陷检测任务时1.在LVT中堆叠过多的层会导致检测器的效率降低。2.LVT的主干(stride&#x3D;4的卷积层)可能会丢失一些语义细节,3.由于缺陷检测和定位需要比图像分类任务更大的接受域，RASA中的扩张率不足以用于缺陷检测任务</p>
+<p>改进:</p>
+<ul>
+<li>将四个阶段的层数重新排列为[1,1,2,2]，而不是原始LVT中的[2,2,2]</li>
+<li>设计新的阀杆，利用一个卷积层(3 × 3, stride&#x3D;2)对feature map进行下采样，将通道维数从3扩展到32。使用两个并行分支(包括卷积分支和平均池化分支)进一步对特征映射进行下采样。将两个分支的输出连接并馈送到1 × 1卷积层中以进一步细化。由于其在浅层的线索保留能力，所提出的词干可以捕获更多的语义信息。</li>
+<li>原始的RASA使用三种扩张速率(1,3,5)的扩张卷积。引入了一个额外的扩张速率7来形成一个更大的接受野。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Neck</p>
+<ul>
+<li><p>CM-FPN</p>
+<p>信道FPN ，GC-Block+FPN</p>
+<p>GC-Block首先设计了一个独立于查询的简化非局部网络,计算一个特征点的自关注来表示整个特征图的关注。然后，GCNet采用挤压和激励(SE)块通过两个FC层对信道关系进行建模。</p>
+</li>
+</ul>
+</li>
+<li><p>Head</p>
+<p>训练的卷积层是内容不可知的，捕获的局部特征适用于分类任务，而不适用于回归任务。原因是分类任务只需要响应对象的特定特征。相比之下，回归任务需要考虑全局特征来定位各种形状和规模缺陷的边界。</p>
+<ul>
+<li><p>TOD头</p>
+<p>LFR模块和GFR模块来解决两个任务。LFR通过卷积和通道关注模块学习对象感知的局部特征以响应特定对象。GFR采用内容自适应变压器模块来提高GFR，从而更好地定位缺陷。</p>
+<ul>
+<li><p>LFR模块</p>
+<p>提出了一个由标准卷积层和高效压缩激励(ESE)块组成的LFR模块。ESE块首先通过GAP将每个通道转换为一个值。然后，它采用FC层，然后Swish激活来获得信道缩放因子。最后，它重新缩放输入特征映射的每个通道，以建模通道关系。ESE通过重新校准每个通道的权重，从通道维度增强对象的特定特征。</p>
+</li>
+<li><p>GFR模块</p>
+<p>由三个部分组成:信道自注意(CA)、深度卷积(DW)和FFN。与训练后权重固定的标准卷积层不同，卷积层是内容自适应的，即在推理过程中，值矩阵的权重与输入X相关。为了提供GFR模块的感应偏置，利用CA和FFN之间的深度卷积(DW)来补偿模块的空间性和局部性。使用快捷连接和元素加法，此外，还提出了一种解耦的群GFR (G-GFR)模块，其中GFR中FFN的FC层通过群卷积实现，群数为2。G-GFR可以增强TOD头部的全局表示能力，并通过群卷积将特征解耦成两个部分。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3></li>
+</ul>
+<p>该模型将计算三类损失，包括分类损失(Lcls)、对象损失(Lobj)和回归损失(Lreg)，总训练损失是它们的加权和。</p>
+<ul>
+<li>对象性损失:</li>
+</ul>
+<p>​                                       $$ L_{\mathrm{obj}}&#x3D;-[y\cdot\log x+(1-y)\cdot\log(1-x)] $$	</p>
+<p>​		其中x为客观得分，y等于0或1，表示预测是缺陷或背景</p>
+<ul>
+<li><p>分类损失:</p>
+<p>​								$$L_{\mathrm{cls}}&#x3D;-\sum_{i&#x3D;1}^c[y_i\cdot\log x_i+(1-y_i)\cdot\log(1-x_i)]$$</p>
+<p>​	C表示缺陷类别的数量，x是预测的类置信度。y为软标签，其中目标类的标签为预测框与指定的地面真值框之间的IOU(交集)分数，其他类的标签为0。</p>
+</li>
+<li><p>回归损失</p>
+<p>​								$$L_{\mathrm{reg}}&#x3D;1-\mathrm{IOU}_{\mathrm{pre}}^{gt}.$$</p>
+<p>​	回归损失是预测边界盒(pre)与地面真值盒(gt)之间的IOU损失</p>
+</li>
+<li><p>总损失函数</p>
+<p>​                                $$L_{\mathrm{total}}&#x3D;\frac{1}{N_{\mathrm{pos}}}\left(\sum_{i&#x3D;1}^{N_{\mathrm{pos}}}L_{\mathrm{cls}}+\lambda\sum_{i&#x3D;1}^{N_{\mathrm{pos}}}L_{\mathrm{reg}}+\sum_{i&#x3D;1}^{N}L_{\mathrm{obj}}\right)$$</p>
+<p>$N_{pos}$为SimOTA标签分配策略获得的阳性样本个数,N表示输入图像的总样本(预测)(特征映射的每个点将预测一个框),本文中的λ(根据经验设置为5)是回归损失的平衡权值</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2></li>
+<li><p>数据集</p>
+<p>NEU-DET数据集共包含1800张图像，每张图像的大小为200 × 200像素</p>
+<p>SEDD包含7563张图像，分辨率为1920 × 1080。它收集了污水管道三种典型表面缺陷的图像:裂纹、根部和沉积物。</p>
+<p>AT-FDD数据集包括20种缺陷，如缺陷、磨损痕迹、结、翘曲、孔洞等。每张图像的大小为4096 × 1696，选取5913张图像进行评价</p>
+<p>NEU-DET用于评估ETDNet的检测能力(第IV-B节)和提议模块的有效性(第IV-C节)。SEDD和AT-FDD用于评估ETDNet的泛化能力(章节IV-E)。</p>
+</li>
+<li><p>评价指标</p>
+<p>采用了平均精度(mAP)、模型大小(Params)、浮点运算(GFLOPs)和每秒帧数(FPS)作为评价指标。</p>
+<p>选择AdamW作为优化器，权重衰减为0.05。初始学习率为((1.6e−3)&#x2F;48)×批大小，批大小为24。我们使用余弦学习率计划，前20次热身，总训练时间为110次。为了避免过拟合，提高检测的鲁棒性，我们采用了四种数据增强方法，包括颜色抖动、随机水平翻转、MixUp和Mosaic。由于MixUp和Mosaic将破坏数据分布，在最后30个epoch关闭它们。最后的结果是五次实验的平均值，以4:1的比例进行评估</p>
 </li>
 </ul>
 
@@ -347,7 +392,15 @@
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/Linux/">#Linux</a>&nbsp;
+                            <a href="/tags/torch/">#torch</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E9%9A%8F%E7%AC%94/">#随笔</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%BC%BA%E9%99%B7%E6%A3%80%E6%B5%8B/">#缺陷检测</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -356,29 +409,14 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/2023/05/26/hello-world/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2023/05/12/Jupyter-Command/"
+                               href="/2024/03/15/RCNN/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Jupyter_Command</span>
+                                <span class="post-nav-title-item">RCNN</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -397,7 +435,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-text">Linux常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E6%93%8D%E4%BD%9C"><span class="nav-text">文件和文件夹操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4"><span class="nav-text">系统命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell%E5%91%BD%E4%BB%A4"><span class="nav-text">shell命令</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ETD-NET"><span class="nav-text">ETD-NET</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1"><span class="nav-text">设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="nav-text">相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="nav-text">总体架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">损失函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-text">实验</span></a></li></ol></li></ol>
     </div>
 </div>
 
