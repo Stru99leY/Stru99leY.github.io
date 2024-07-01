@@ -202,7 +202,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2024-06-06 16:37:10</span>
+        <span class="pc">2024-06-27 21:04:56</span>
     </span>
     
     
@@ -237,12 +237,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>202 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>693 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -260,26 +260,15 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h2 id="原版V8"><a href="#原版V8" class="headerlink" title="原版V8"></a>原版V8</h2><ul>
+                <h1 id="第一种划分训练，1620训练180验证"><a href="#第一种划分训练，1620训练180验证" class="headerlink" title="第一种划分训练，1620训练180验证"></a>第一种划分训练，1620训练180验证</h1><h2 id="原版V8-72-2"><a href="#原版V8-72-2" class="headerlink" title="原版V8(72.2)"></a>原版V8(72.2)</h2><ul>
 <li><p>条件</p>
 <p>epcoh &#x3D;100,batch &#x3D;-1,model&#x3D;yolov8n</p>
 </li>
 <li><p>结果</p>
-<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606161809407.png" class title="image-20240606161809407" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606161809407.png">
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">metrics/precision(B)	      metrics/recall(B)	       metrics/mAP50(B)	    metrics/mAP50-95(B)</span><br><span class="line">   0.75987,                0.68248,                0.76654,                0.42516,  </span><br></pre></td></tr></table></figure>
-
-<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606160455950.png" class title="image-20240606160455950" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606160455950.png">
-
-
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618111445450.png" class title="image-20240618111445450" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618111445450.png">
 </li>
 <li><p>PR_recall</p>
-<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606160536112.png" class title="image-20240606160536112" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606160536112.png">
-
-
-</li>
-<li><p>Confusion Matrix Normalized</p>
-<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606161624819.png" class title="image-20240606161624819" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606161624819.png">
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618111354373.png" class title="image-20240618111354373" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618111354373.png">
 </li>
 <li><p>条件2</p>
 <p>epoch &#x3D; 300，其余一样</p>
@@ -293,31 +282,13 @@
 </li>
 <li><p>PR_recall</p>
 <img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606162256898.png" class title="image-20240606162256898" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606162256898.png">
-</li>
-<li><p>Confusion Matrix Normalized</p>
-<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606162402359.png" class title="image-20240606162402359" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606162402359.png">
 
 
 
 <p>可以看到当训练轮次增多的时候map反而降低了，验证损失波动比较大，合适的eopoch应该在100-150左右，</p>
 </li>
 </ul>
-<h2 id="加入GAM注意力"><a href="#加入GAM注意力" class="headerlink" title="加入GAM注意力"></a>加入GAM注意力</h2><ul>
-<li><p>条件</p>
-<p>epoch &#x3D; 100,batch &#x3D; 32,model&#x3D;yolov8n</p>
-</li>
-<li><p>结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">metrics/precision(B),      metrics/recall(B),       metrics/mAP50(B),    metrics/mAP50-95(B),</span><br><span class="line">0.75814,                    0.69196,                  0.775,                0.41348,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240605164640009.png" class title="image-20240605164640009" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240605164640009.png">
-</li>
-<li><p>PR_recall</p>
-<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240605164734853.png" class title="image-20240605164734853" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240605164734853.png">
-</li>
-<li><p>Confusion Matrix Normalized</p>
-<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240605164845055.png" class title="image-20240605164845055" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240605164845055.png"></li>
-</ul>
-<h2 id="加入SwinTransformer"><a href="#加入SwinTransformer" class="headerlink" title="加入SwinTransformer"></a>加入SwinTransformer</h2><ul>
+<h2 id="加入SwinTransformer-76-4"><a href="#加入SwinTransformer-76-4" class="headerlink" title="加入SwinTransformer(76.4)"></a>加入SwinTransformer(76.4)</h2><ul>
 <li><p>条件</p>
 <p>epoch &#x3D; 265,batch &#x3D; -1,model&#x3D;yolov8n</p>
 </li>
@@ -336,7 +307,277 @@
 <li><p>Confusion Matrix Normalized</p>
 <img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606094446123.png" class title="image-20240606094446123" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240606094446123.png"></li>
 </ul>
+<h2 id="V9-和v8怎么一样？"><a href="#V9-和v8怎么一样？" class="headerlink" title="V9(和v8怎么一样？)"></a>V9(和v8怎么一样？)</h2><ul>
+<li><p>条件</p>
+<p>epcoh&#x3D;100,batch&#x3D;-1,model&#x3D;yolov9-c</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613110041568.png" class title="image-20240613110041568" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613110041568.png">
 
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613110107987.png" class title="image-20240613110107987" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613110107987.png">
+
+<p>不知道为什么loss都是0？</p>
+</li>
+<li><p>PR_recall</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613110139256.png" class title="image-20240613110139256" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613110139256.png">
+
+<p>map和v8一模一样？，不过v9模型比v8大，训练时间也更长</p>
+</li>
+</ul>
+<h2 id="V10（和V8V9没什么变化）"><a href="#V10（和V8V9没什么变化）" class="headerlink" title="V10（和V8V9没什么变化）"></a>V10（和V8V9没什么变化）</h2><ul>
+<li><p>条件</p>
+<p>epoch&#x3D;100,batch&#x3D;-1,model&#x3D;yolov10n</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613151150046.png" class title="image-20240613151150046" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613151150046.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613151212680.png" class title="image-20240613151212680" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240613151212680.png">
+</li>
+<li><p>PR_Recall</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614182308382.png" class title="image-20240614182308382" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614182308382.png"></li>
+</ul>
+<h2 id="V8加入BRA注意力-74-4"><a href="#V8加入BRA注意力-74-4" class="headerlink" title="V8加入BRA注意力(74.4)"></a>V8加入BRA注意力(74.4)</h2><ul>
+<li><p>配置文件&lt;加入到第八层&gt;</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614220019461.png" class title="image-20240614220019461" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614220019461.png">
+</li>
+<li><p>条件</p>
+<p>epoch&#x3D;100，batch&#x3D;-1，model&#x3D;yolov8n</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614163122718.png" class title="image-20240614163122718" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614163122718.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618111619631.png" class title="image-20240618111619631" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618111619631.png">
+</li>
+<li><p>PR_Recall</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618111559521.png" class title="image-20240618111559521" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618111559521.png">
+</li>
+<li><p>疑问</p>
+<p>注意力主要是加在了backbone之中，换下位置效果会不会不一样呢？</p>
+</li>
+<li><p>计算量</p>
+<p>加入BRA后计算量增大了非常多，可以看到是18.5 GFLOPS</p>
+</li>
+</ul>
+<h2 id="BRA注意力换位置到第五层-降点"><a href="#BRA注意力换位置到第五层-降点" class="headerlink" title="BRA注意力换位置到第五层(降点)"></a>BRA注意力换位置到第五层(降点)</h2><ul>
+<li><p>配置文件</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614214934938.png" class title="image-20240614214934938" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614214934938.png">
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215111448.png" class title="image-20240614215111448" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215111448.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215652336.png" class title="image-20240614215652336" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215652336.png"></li>
+</ul>
+<h2 id="BRA注意力换到11层上采样后面-降点"><a href="#BRA注意力换到11层上采样后面-降点" class="headerlink" title="BRA注意力换到11层上采样后面(降点)"></a>BRA注意力换到11层上采样后面(降点)</h2><ul>
+<li><p>配置文件</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215834801.png" class title="image-20240614215834801" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215834801.png">
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215844710.png" class title="image-20240614215844710" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215844710.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215928946.png" class title="image-20240614215928946" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215928946.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215952085.png" class title="image-20240614215952085" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614215952085.png"></li>
+</ul>
+<h2 id="加入三层BRA注意力-降点"><a href="#加入三层BRA注意力-降点" class="headerlink" title="加入三层BRA注意力(降点)"></a>加入三层BRA注意力(降点)</h2><ul>
+<li><p>配置文件</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614233725473.png" class title="image-20240614233725473" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614233725473.png">
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614220331646.png" class title="image-20240614220331646" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614220331646.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614233757786.png" class title="image-20240614233757786" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614233757786.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614233814522.png" class title="image-20240614233814522" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240614233814522.png">
+</li>
+<li><p>结论</p>
+<p>加入三层BRA后计算量达到了21GFLOPS,准确率依旧是降点</p>
+</li>
+</ul>
+<h2 id="RT-DETR-降点，过拟合"><a href="#RT-DETR-降点，过拟合" class="headerlink" title="RT-DETR(降点，过拟合)"></a>RT-DETR(降点，过拟合)</h2><ul>
+<li><p>条件</p>
+<p>epoch&#x3D;100，batch&#x3D;32，model&#x3D;redetr-l</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240617000412990.png" class title="image-20240617000412990" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240617000412990.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240617000822496.png" class title="image-20240617000822496" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240617000822496.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240617001255031.png" class title="image-20240617001255031" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240617001255031.png">
+</li>
+<li><p>结论</p>
+<p>从结果图上看很明显出现了过拟合现象，个人觉得是数据集太小了</p>
+</li>
+</ul>
+<h2 id="加入CAFM注意力-72-2"><a href="#加入CAFM注意力-72-2" class="headerlink" title="加入CAFM注意力(72.2)"></a>加入CAFM注意力(72.2)</h2><ul>
+<li><p>件</p>
+<p>和上面一致</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619150311083.png" class title="image-20240619150311083" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619150311083.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619150325336.png" class title="image-20240619150325336" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619150325336.png"></li>
+</ul>
+<h1 id="第二种划分数据集训练，1297训练325验证"><a href="#第二种划分数据集训练，1297训练325验证" class="headerlink" title="第二种划分数据集训练，1297训练325验证"></a>第二种划分数据集训练，1297训练325验证</h1><h2 id="原版v8-74-8"><a href="#原版v8-74-8" class="headerlink" title="原版v8(74.8)"></a>原版v8(74.8)</h2><ul>
+<li><p>条件</p>
+<p>和之前v8一致</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618112340569.png" class title="image-20240618112340569" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618112340569.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618112404540.png" class title="image-20240618112404540" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618112404540.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618112546284.png" class title="image-20240618112546284" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618112546284.png"></li>
+</ul>
+<h2 id="加入Bra注意力-73-8-shapeiou-74-8"><a href="#加入Bra注意力-73-8-shapeiou-74-8" class="headerlink" title="加入Bra注意力(73.8) +shapeiou(74.8)"></a>加入Bra注意力(73.8) +shapeiou(74.8)</h2><ul>
+<li><p>条件</p>
+<p>和之前一致</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618154355326.png" class title="image-20240618154355326" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618154355326.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618154854344.png" class title="image-20240618154854344" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618154854344.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618154922318.png" class title="image-20240618154922318" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240618154922318.png"></li>
+</ul>
+<h2 id="加入CAFM注意力-73-5-使用预训练权重-75-3"><a href="#加入CAFM注意力-73-5-使用预训练权重-75-3" class="headerlink" title="加入CAFM注意力(73.5)使用预训练权重(75.3)"></a>加入CAFM注意力(73.5)使用预训练权重(75.3)</h2><ul>
+<li><p>条件</p>
+<p>一致</p>
+</li>
+<li><p>结果</p>
+</li>
+<li><img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619154700061.png" class title="image-20240619154700061" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619154700061.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619154651607.png" class title="image-20240619154651607" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619154651607.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619154726098.png" class title="image-20240619154726098" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619154726098.png">
+</li>
+<li><p>加入预训练权重</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619165538173.png" class title="image-20240619165538173" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240619165538173.png"></li>
+</ul>
+<h1 id="8-2比例划分数据集训练"><a href="#8-2比例划分数据集训练" class="headerlink" title="8:2比例划分数据集训练"></a>8:2比例划分数据集训练</h1><h2 id="原版V8，不加预训练权重-74-5-200epoch-76"><a href="#原版V8，不加预训练权重-74-5-200epoch-76" class="headerlink" title="原版V8，不加预训练权重(74.5)200epoch(76)"></a>原版V8，不加预训练权重(74.5)200epoch(76)</h2><ul>
+<li><p>条件</p>
+<p>一致，4060ti</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620101426926.png" class title="image-20240620101426926" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620101426926.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620101441474.png" class title="image-20240620101441474" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620101441474.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620101502589.png" class title="image-20240620101502589" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620101502589.png">
+</li>
+<li><p>206epoch</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621002117905.png" class title="image-20240621002117905" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621002117905.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621002201679.png" class title="image-20240621002201679" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621002201679.png"></li>
+</ul>
+<h2 id="BRA注意力-ShaopeIoU-75-7"><a href="#BRA注意力-ShaopeIoU-75-7" class="headerlink" title="BRA注意力+ShaopeIoU(75.7)"></a>BRA注意力+ShaopeIoU(75.7)</h2><ul>
+<li><p>条件</p>
+<p>200epoch，4090ti</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620104822844.png" class title="image-20240620104822844" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620104822844.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620104835430.png" class title="image-20240620104835430" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620104835430.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620104849796.png" class title="image-20240620104849796" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240620104849796.png"></li>
+</ul>
+<h2 id="CAA注意力-76-3"><a href="#CAA注意力-76-3" class="headerlink" title="CAA注意力(76.3)"></a>CAA注意力(76.3)</h2><ul>
+<li><p>条件</p>
+<p>217epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621195439679.png" class title="image-20240621195439679" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621195439679.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621195515926.png" class title="image-20240621195515926" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621195515926.png"></li>
+</ul>
+<h2 id="FastEMA-76-6"><a href="#FastEMA-76-6" class="headerlink" title="FastEMA(76.6)"></a>FastEMA(76.6)</h2><ul>
+<li><p>条件</p>
+<p>250epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621200304173.png" class title="image-20240621200304173" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621200304173.png"></li>
+</ul>
+<h2 id="CAA-76-3"><a href="#CAA-76-3" class="headerlink" title="CAA(76.3)"></a>CAA(76.3)</h2><ul>
+<li><p>条件</p>
+<p>200epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621222354950.png" class title="image-20240621222354950" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240621222354950.png"></li>
+</ul>
+<h2 id="MDCR-75-4"><a href="#MDCR-75-4" class="headerlink" title="MDCR(75.4)"></a>MDCR(75.4)</h2><ul>
+<li><p>200epoch</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240622122347983.png" class title="image-20240622122347983" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240622122347983.png"></li>
+</ul>
+<h2 id="OSRAAtention-75-9"><a href="#OSRAAtention-75-9" class="headerlink" title="OSRAAtention(75.9)"></a>OSRAAtention(75.9)</h2><ul>
+<li><p>200epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240622125825912.png" class title="image-20240622125825912" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240622125825912.png"></li>
+</ul>
+<h2 id="HybridTokenMixer-77-2"><a href="#HybridTokenMixer-77-2" class="headerlink" title="HybridTokenMixer(77.2)"></a>HybridTokenMixer(77.2)</h2><ul>
+<li><p>200epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624220207011.png" class title="image-20240624220207011" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624220207011.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624220222399.png" class title="image-20240624220222399" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624220222399.png"></li>
+</ul>
+<h2 id="PKIBlock-77-7"><a href="#PKIBlock-77-7" class="headerlink" title="PKIBlock(77.7)"></a>PKIBlock(77.7)</h2><ul>
+<li><p>200epoch 还未收敛，300epoch降到75.5？？</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624213709241.png" class title="image-20240624213709241" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624213709241.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624213732541.png" class title="image-20240624213732541" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624213732541.png"></li>
+</ul>
+<h2 id="Shift-ConvNets-76-7"><a href="#Shift-ConvNets-76-7" class="headerlink" title="Shift-ConvNets (76.7)"></a>Shift-ConvNets (76.7)</h2><ul>
+<li><p>200epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624223521324.png" class title="image-20240624223521324" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240624223521324.png"></li>
+</ul>
+<h2 id="DAF-CA-77"><a href="#DAF-CA-77" class="headerlink" title="DAF_CA(77)"></a>DAF_CA(77)</h2><ul>
+<li><p>200epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240625203611421.png" class title="image-20240625203611421" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240625203611421.png">
+
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240625203914222.png" class title="image-20240625203914222" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240625203914222.png"></li>
+</ul>
+<h2 id="MODSConv-76-5"><a href="#MODSConv-76-5" class="headerlink" title="MODSConv(76.5)"></a>MODSConv(76.5)</h2><ul>
+<li><p>200epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240625205551910.png" class title="image-20240625205551910" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240625205551910.png"></li>
+</ul>
+<h2 id="MODSLayer-76-8"><a href="#MODSLayer-76-8" class="headerlink" title="MODSLayer(76.8)"></a>MODSLayer(76.8)</h2><ul>
+<li><p>200epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240625211444931.png" class title="image-20240625211444931" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240625211444931.png">
+
+<p>详细结果在服务器exp13</p>
+</li>
+</ul>
+<h2 id="DualConv-76-5"><a href="#DualConv-76-5" class="headerlink" title="DualConv(76.5)"></a>DualConv(76.5)</h2><ul>
+<li><p>200epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240627204431836.png" class title="image-20240627204431836" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240627204431836.png">
+
+<p>详细结果在服务器exp14</p>
+</li>
+</ul>
+<h2 id="MSPA-77-2"><a href="#MSPA-77-2" class="headerlink" title="MSPA(77.2)"></a>MSPA(77.2)</h2><ul>
+<li><p>200epoch</p>
+</li>
+<li><p>结果</p>
+<img lazyload alt="image" data-src="/2024/06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240627210305568.png" class title="image-20240627210305568" src="/.com//06/05/V8%E8%AE%AD%E7%BB%83NEU-DET/image-20240627210305568.png">
+
+<p>详细结果在服务器epx15</p>
+</li>
+</ul>
+<h2 id="RMT"><a href="#RMT" class="headerlink" title="RMT"></a>RMT</h2>
             </div>
 
             
@@ -384,7 +625,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%89%88V8"><span class="nav-text">原版V8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5GAM%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="nav-text">加入GAM注意力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5SwinTransformer"><span class="nav-text">加入SwinTransformer</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%88%92%E5%88%86%E8%AE%AD%E7%BB%83%EF%BC%8C1620%E8%AE%AD%E7%BB%83180%E9%AA%8C%E8%AF%81"><span class="nav-text">第一种划分训练，1620训练180验证</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%89%88V8-72-2"><span class="nav-text">原版V8(72.2)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5SwinTransformer-76-4"><span class="nav-text">加入SwinTransformer(76.4)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V9-%E5%92%8Cv8%E6%80%8E%E4%B9%88%E4%B8%80%E6%A0%B7%EF%BC%9F"><span class="nav-text">V9(和v8怎么一样？)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V10%EF%BC%88%E5%92%8CV8V9%E6%B2%A1%E4%BB%80%E4%B9%88%E5%8F%98%E5%8C%96%EF%BC%89"><span class="nav-text">V10（和V8V9没什么变化）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V8%E5%8A%A0%E5%85%A5BRA%E6%B3%A8%E6%84%8F%E5%8A%9B-74-4"><span class="nav-text">V8加入BRA注意力(74.4)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BRA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%8D%A2%E4%BD%8D%E7%BD%AE%E5%88%B0%E7%AC%AC%E4%BA%94%E5%B1%82-%E9%99%8D%E7%82%B9"><span class="nav-text">BRA注意力换位置到第五层(降点)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BRA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%8D%A2%E5%88%B011%E5%B1%82%E4%B8%8A%E9%87%87%E6%A0%B7%E5%90%8E%E9%9D%A2-%E9%99%8D%E7%82%B9"><span class="nav-text">BRA注意力换到11层上采样后面(降点)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5%E4%B8%89%E5%B1%82BRA%E6%B3%A8%E6%84%8F%E5%8A%9B-%E9%99%8D%E7%82%B9"><span class="nav-text">加入三层BRA注意力(降点)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RT-DETR-%E9%99%8D%E7%82%B9%EF%BC%8C%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">RT-DETR(降点，过拟合)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5CAFM%E6%B3%A8%E6%84%8F%E5%8A%9B-72-2"><span class="nav-text">加入CAFM注意力(72.2)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%88%92%E5%88%86%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AE%AD%E7%BB%83%EF%BC%8C1297%E8%AE%AD%E7%BB%83325%E9%AA%8C%E8%AF%81"><span class="nav-text">第二种划分数据集训练，1297训练325验证</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%89%88v8-74-8"><span class="nav-text">原版v8(74.8)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5Bra%E6%B3%A8%E6%84%8F%E5%8A%9B-73-8-shapeiou-74-8"><span class="nav-text">加入Bra注意力(73.8) +shapeiou(74.8)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5CAFM%E6%B3%A8%E6%84%8F%E5%8A%9B-73-5-%E4%BD%BF%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E6%9D%83%E9%87%8D-75-3"><span class="nav-text">加入CAFM注意力(73.5)使用预训练权重(75.3)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-2%E6%AF%94%E4%BE%8B%E5%88%92%E5%88%86%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AE%AD%E7%BB%83"><span class="nav-text">8:2比例划分数据集训练</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%89%88V8%EF%BC%8C%E4%B8%8D%E5%8A%A0%E9%A2%84%E8%AE%AD%E7%BB%83%E6%9D%83%E9%87%8D-74-5-200epoch-76"><span class="nav-text">原版V8，不加预训练权重(74.5)200epoch(76)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BRA%E6%B3%A8%E6%84%8F%E5%8A%9B-ShaopeIoU-75-7"><span class="nav-text">BRA注意力+ShaopeIoU(75.7)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAA%E6%B3%A8%E6%84%8F%E5%8A%9B-76-3"><span class="nav-text">CAA注意力(76.3)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastEMA-76-6"><span class="nav-text">FastEMA(76.6)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAA-76-3"><span class="nav-text">CAA(76.3)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MDCR-75-4"><span class="nav-text">MDCR(75.4)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSRAAtention-75-9"><span class="nav-text">OSRAAtention(75.9)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HybridTokenMixer-77-2"><span class="nav-text">HybridTokenMixer(77.2)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PKIBlock-77-7"><span class="nav-text">PKIBlock(77.7)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shift-ConvNets-76-7"><span class="nav-text">Shift-ConvNets (76.7)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DAF-CA-77"><span class="nav-text">DAF_CA(77)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MODSConv-76-5"><span class="nav-text">MODSConv(76.5)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MODSLayer-76-8"><span class="nav-text">MODSLayer(76.8)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DualConv-76-5"><span class="nav-text">DualConv(76.5)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MSPA-77-2"><span class="nav-text">MSPA(77.2)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RMT"><span class="nav-text">RMT</span></a></li></ol></li></ol>
     </div>
 </div>
 
